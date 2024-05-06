@@ -1,4 +1,44 @@
 
+## 2.8.7 [03-27-2024]
+
+* Changes made at 2024.03.27_14:10PM
+
+See merge request itentialopensource/adapters/itsm-testing/adapter-servicenow!34
+
+---
+
+## 2.8.6 [03-13-2024]
+
+* Changes made at 2024.03.13_15:09PM
+
+See merge request itentialopensource/adapters/itsm-testing/adapter-servicenow!33
+
+---
+
+## 2.8.5 [03-11-2024]
+
+* Changes made at 2024.03.11_14:49PM
+
+See merge request itentialopensource/adapters/itsm-testing/adapter-servicenow!32
+
+---
+
+## 2.8.4 [02-28-2024]
+
+* Changes made at 2024.02.28_11:16AM
+
+See merge request itentialopensource/adapters/itsm-testing/adapter-servicenow!31
+
+---
+
+## 2.8.3 [01-12-2024]
+
+* friendly links
+
+See merge request itentialopensource/adapters/itsm-testing/adapter-servicenow!30
+
+---
+
 ## 2.8.2 [12-23-2023]
 
 * meta change - tags

@@ -19,23 +19,16 @@
   "method": "REST",
   "type": "Adapter",
   "domains": [
-    "Inventory",
-    "Discovery & Topology",
     "ITSM (Service Management)"
   ],
   "tags": [
-    "Change Management",
-    "Ticket/Issue Management",
-    "Catalog Request",
-    "Service Requests"
+    "Notifications & Ticket Management"
   ],
   "useCases": [
-    "Create, update, complete or cancel Change Management Requests",
-    "Create, update, complete or cancel Catalog Request Items",
-    "Create, update, close or cancel tickets/issues for Problems/Solutions during Automations",
-    "Add, update, manage or remove assets to/from CMDB systems",
-    "Update, close, or cancel a Service Order during Automations",
-    "Create and update Knowledge Base Articles"
+    "Create & Update Change Request",
+    "Create & Update Incident Ticket",
+    "Update Change Request state",
+    "Create Issue"
   ],
   "deprecated": {
     "isDeprecated": false
