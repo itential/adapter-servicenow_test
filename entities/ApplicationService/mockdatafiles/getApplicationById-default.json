@@ -1,0 +1,11 @@
+{ 
+  "service": {
+    "name": "",
+    "url": "/api/now/table/cmdb_ci_service_discovered/b20761cbdb040010a704fe1b68961985",
+    "service_relations": []
+  },
+  "cmdb": {
+    "relations": [],
+    "items": []
+  }
+}

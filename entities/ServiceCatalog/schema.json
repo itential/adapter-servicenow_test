@@ -1,0 +1,127 @@
+{
+  "$id": "catalogSchema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "getServiceCatalogs",
+      "enum": [
+        "getServiceCatalogs",
+        "getServiceCatalogById",
+        "getServiceCatalogCategoryInformation",
+        "getServiceCatalogCategories",
+        "getServiceCatalogItems",
+        "getServiceCatalogItemById",
+        "addItemToCart",
+        "getServiceCatalogOrderItems",
+        "createServiceCatalogRecordGuide",
+        "getServiceCatalogCheckoutInformation",
+        "orderNowServiceCatalog",
+        "getServiceCatalogCart",
+        "getServiceCatalogUserDeliveryAddress",
+        "updateServiceCatalogCart",
+        "deleteServiceCatalogCartItems",
+        "getServiceCatalogDisplayVariable",
+        "deleteServiceCatalogCart",
+        "checkoutCartServiceCatalog",
+        "submitOrderServiceCatalog"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "sysparmLimit": {
+      "description": "Maximum number of records to return. Unusually large sysparm_limit values can impact system performance.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_limit"
+    },
+    "id": {
+      "description": "Unique identifier of the catalog to retrieve.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_id"
+    },
+    "summary": {
+      "description": "Summary of the item.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "short_description"
+    },
+    "sysparmCatalog": {
+      "description": "Catalog sys_id of the item. Use this parameter to locate items in a specific catalog.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_catalog"
+    },
+    "sysparmCategory": {
+      "description": "Category sys_id of the item. Use this parameter to locate catalog items in a specific category.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_category"
+    },
+    "userId": {
+      "description": "Unique sys_id of the user whose shipping address is to be retrieved.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "user_id"
+    },
+    "cartId": {
+      "description": "Unique identifier of the cart item to update.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "cart_id"
+    },
+    "cartItemId": {
+      "description": "Unique identifier of the cart item to update.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "cart_item_id"
+    },
+    "bodyFormData": {
+      "description": "",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "body"
+    }
+  },
+  "definitions": {}
+}

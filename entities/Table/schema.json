@@ -1,0 +1,67 @@
+{
+  "$id": "tableSchema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "queryTableByNameAndId",
+      "enum": [
+        "queryTableByNameAndId",
+        "updateTableRecord",
+        "deleteTableRecord",
+        "queryTableByName",
+        "createRecordInTable"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "id": {
+      "description": "Unique identifier of the table record",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_id"
+    },
+    "summary": {
+      "description": "Summary of the table record",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "short_description"
+    },
+    "sysparmQuery": {
+      "description": "e.g. number=CHG12345",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_query"
+    },
+    "sysparmLimit": {
+      "description": "e.g. 5",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_limit"
+    },
+    "sysparmFields": {
+      "description": "e.g. name,description",
+      "external_name": "sysparm_fields"
+    }
+  },
+  "definitions": {}
+}

@@ -1,0 +1,109 @@
+{
+  "actions": [
+    {
+      "name": "getUsersById",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/now/table/sys_user/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getUsersById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getUsers",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/now/table/sys_user?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getUsers-default.json"
+        }
+      ]
+    },
+    {
+      "name": "createUsers",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/now/table/sys_user?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/createUsers-default.json"
+        }
+      ]
+    },
+    {
+      "name": "updateUsers",
+      "protocol": "REST",
+      "method": "PUT",
+      "entitypath": "{base_path}/{version}/now/table/sys_user/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/updateUsers-default.json"
+        }
+      ]
+    },
+    {
+      "name": "deleteUsers",
+      "protocol": "REST",
+      "method": "DELETE",
+      "entitypath": "{base_path}/{version}/now/table/sys_user/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "",
+          "mockFile": "mockdatafiles/deleteUsers-default.json"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "$id": "CSMSchema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "getCSMAccount",
+      "enum": [
+        "getCSMAccount",
+        "queryCSMAccounts",
+        "getCSMCase",
+        "updateCSMCase",
+        "queryCSMCases",
+        "createCSMCase",
+        "getCSMConsumer",
+        "queryCSMConsumers",
+        "createCSMConsumer",
+        "queryCSMContacts",
+        "createCSMContact",
+        "getCSMContact"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "id": {
+      "description": "id of the csm consumer",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_id"
+    },
+    "sysparmQuery": {
+      "description": "Encoded query to use to filter the result set. Syntax: sysparm_query=   .",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_query"
+    }
+  },
+  "definitions": {}
+}

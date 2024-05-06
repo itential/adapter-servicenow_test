@@ -1,0 +1,46 @@
+{
+  "actions": [
+    {
+      "name": "getApplicationById",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/now/cmdb/app_service/{pathv1}/getContent?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "",
+          "mockFile": "mockdatafiles/getApplicationById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "createApplication",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/now/cmdb/app_service/create?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/createApplication-default.json"
+        }
+      ]
+    }
+  ]
+}

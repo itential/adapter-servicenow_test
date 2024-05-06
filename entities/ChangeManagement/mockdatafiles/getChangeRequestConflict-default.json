@@ -1,0 +1,132 @@
+{
+  "result": {
+    "status": "Conflict",
+    "last_run": "2019-10-01 12:50:34",
+    "record_count": "2",
+    "job_status": "2",
+    "conflicts": [
+      {
+        "related_configuration_item": {
+          "display_value": "",
+          "value": ""
+        },
+        "change": {
+          "display_value": "CHG0030108",
+          "value": "41ef142c1b1000103dc38515ec4bcbd8"
+        },
+        "conflicting_change": {
+          "display_value": "CHG0030104",
+          "value": "b6fd54a81b1000103dc38515ec4bcbb9"
+        },
+        "sys_updated_on": {
+          "display_value": "2019-10-01 05:50:34",
+          "value": "2019-10-01 12:50:34",
+          "display_value_internal": "2019-10-01 05:50:34"
+        },
+        "type": {
+          "display_value": "CI Already Scheduled",
+          "value": "ci_already_scheduled"
+        },
+        "sys_tags": {
+          "display_value": "",
+          "value": ""
+        },
+        "impacted_service": {
+          "display_value": "",
+          "value": ""
+        },
+        "schedule": {
+          "display_value": "",
+          "value": ""
+        },
+        "sys_id": {
+          "display_value": "b6ef542c1b1000103dc38515ec4bcbdf",
+          "value": "b6ef542c1b1000103dc38515ec4bcbdf"
+        },
+        "sys_updated_by": {
+          "display_value": "admin",
+          "value": "admin"
+        },
+        "configuration_item": {
+          "display_value": "Java Application Server FLX",
+          "value": "82992eb60ad337024fbb6d06a866c636"
+        },
+        "last_checked": {
+          "display_value": "2019-10-01 05:50:34",
+          "value": "2019-10-01 12:50:34",
+          "display_value_internal": "2019-10-01 05:50:34"
+        },
+        "sys_created_on": {
+          "display_value": "2019-10-01 05:50:34",
+          "value": "2019-10-01 12:50:34",
+          "display_value_internal": "2019-10-01 05:50:34"
+        },
+        "sys_created_by": {
+          "display_value": "admin",
+          "value": "admin"
+        }
+      },
+      {
+        "related_configuration_item": {
+          "display_value": "",
+          "value": ""
+        },
+        "change": {
+          "display_value": "CHG0030108",
+          "value": "41ef142c1b1000103dc38515ec4bcbd8"
+        },
+        "conflicting_change": {
+          "display_value": "CHG0030106",
+          "value": "9b3e98a81b1000103dc38515ec4bcb38"
+        },
+        "sys_updated_on": {
+          "display_value": "2019-10-01 05:50:34",
+          "value": "2019-10-01 12:50:34",
+          "display_value_internal": "2019-10-01 05:50:34"
+        },
+        "type": {
+          "display_value": "CI Already Scheduled",
+          "value": "ci_already_scheduled"
+        },
+        "sys_tags": {
+          "display_value": "",
+          "value": ""
+        },
+        "impacted_service": {
+          "display_value": "",
+          "value": ""
+        },
+        "schedule": {
+          "display_value": "",
+          "value": ""
+        },
+        "sys_id": {
+          "display_value": "f2ef542c1b1000103dc38515ec4bcbdf",
+          "value": "f2ef542c1b1000103dc38515ec4bcbdf"
+        },
+        "sys_updated_by": {
+          "display_value": "admin",
+          "value": "admin"
+        },
+        "configuration_item": {
+          "display_value": "Java Application Server FLX",
+          "value": "82992eb60ad337024fbb6d06a866c636"
+        },
+        "last_checked": {
+          "display_value": "2019-10-01 05:50:34",
+          "value": "2019-10-01 12:50:34",
+          "display_value_internal": "2019-10-01 05:50:34"
+        },
+        "sys_created_on": {
+          "display_value": "2019-10-01 05:50:34",
+          "value": "2019-10-01 12:50:34",
+          "display_value_internal": "2019-10-01 05:50:34"
+        },
+        "sys_created_by": {
+          "display_value": "admin",
+          "value": "admin"
+        }
+      }
+    ]
+  }
+}

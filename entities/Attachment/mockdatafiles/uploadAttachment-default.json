@@ -1,0 +1,24 @@
+{ 
+  "result": { 
+    "sys_id": "173a9c17db4c0010a704fe1b6896195b",
+    "file_name": "Test_Data",
+    "table_name": "incident",
+    "table_sys_id": "aa3a9c17db4c0010a704fe1b68961953",
+    "size_bytes": "2",
+    "sys_mod_count": "0",
+    "average_image_color": "",
+    "image_width": "",
+    "sys_updated_on": "2019-09-27 15:13:20",
+    "sys_tags": "",
+    "image_height": "",
+    "sys_updated_by": "admin",
+    "download_link": "https://dev58661.service-now.com/api/now/attachment/173a9c17db4c0010a704fe1b6896195b/file",
+    "content_type": "application/json",
+    "sys_created_on": "2019-09-27 15:13:20",
+    "size_compressed": "22",
+    "compressed": "true",
+    "state": "",
+    "chunk_size_bytes": "734003",
+    "sys_created_by": "admin"
+  }
+}

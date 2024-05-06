@@ -1,0 +1,257 @@
+{
+  "id": "Adapter-servicenow",
+  "type": "Servicenow",
+  "properties": {
+    "host": "localhost",
+    "port": 443,
+    "choosepath": "",
+    "base_path": "/api",
+    "version": "",
+    "cache_location": "none",
+    "encode_pathvars": true,
+    "encode_queryvars": true,
+    "save_metric": false,
+    "stub": true,
+    "protocol": "https",
+    "authentication": {
+      "auth_method": "basic user_password",
+      "username": "username",
+      "password": "password",
+      "token": "",
+      "token_timeout": 180000,
+      "token_cache": "local",
+      "invalid_token_error": 401,
+      "auth_field": "header.headers.Authorization",
+      "auth_field_format": "Basic {b64}{username}:{password}{/b64}",
+      "auth_logging": false,
+      "client_id": "",
+      "client_secret": "",
+      "grant_type": "",
+      "sensitive": [],
+      "sso": {
+        "protocol": "",
+        "host": "",
+        "port": 0
+      },
+      "multiStepAuthCalls": [
+        {
+          "name": "",
+          "requestFields": {},
+          "responseFields": {},
+          "successfullResponseCode": 200
+        }
+      ]
+    },
+    "healthcheck": {
+      "type": "startup",
+      "frequency": 300000,
+      "query_object": {},
+      "addlHeaders": {}
+    },
+    "throttle": {
+      "throttle_enabled": false,
+      "number_pronghorns": 1,
+      "sync_async": "sync",
+      "max_in_queue": 1000,
+      "concurrent_max": 1,
+      "expire_timeout": 0,
+      "avg_runtime": 200,
+      "priorities": [
+        {
+          "value": 0,
+          "percent": 100
+        }
+      ]
+    },
+    "request": {
+      "number_redirects": 0,
+      "number_retries": 3,
+      "limit_retry_error": 401,
+      "failover_codes": [
+        404,
+        405
+      ],
+      "attempt_timeout": 5000,
+      "global_request": {
+        "payload": {},
+        "uriOptions": {},
+        "addlHeaders": {},
+        "authData": {}
+      },
+      "healthcheck_on_timeout": false,
+      "return_raw": false,
+      "archiving": false,
+      "return_request": false
+    },
+    "proxy": {
+      "enabled": false,
+      "host": "",
+      "port": 1,
+      "protocol": "http",
+      "username": "",
+      "password": ""
+    },
+    "ssl": {
+      "ecdhCurve": "",
+      "enabled": true,
+      "accept_invalid_cert": true,
+      "ca_file": "",
+      "key_file": "",
+      "cert_file": "",
+      "secure_protocol": "",
+      "ciphers": ""
+    },
+    "mongo": {
+      "host": "",
+      "port": 0,
+      "database": "",
+      "username": "",
+      "password": "",
+      "replSet": "",
+      "db_ssl": {
+        "enabled": false,
+        "accept_invalid_cert": false,
+        "ca_file": "",
+        "key_file": "",
+        "cert_file": ""
+      }
+    },
+    "devicebroker": {
+      "getDevice": [
+        {
+          "path": "/get/devices/{id}",
+          "method": "GET",
+          "query": {},
+          "body": {},
+          "headers": {},
+          "handleFailure": "ignore",
+          "requestFields": {
+            "id": "name"
+          },
+          "responseDatakey": "",
+          "responseFields": {
+            "name": "host",
+            "ostype": "os",
+            "ostypePrefix": "system-",
+            "ipaddress": "attributes.ipaddr",
+            "port": "443"
+          }
+        }
+      ],
+      "getDevicesFiltered": [
+        {
+          "path": "/get/devices",
+          "method": "GET",
+          "pagination": {
+            "offsetVar": "",
+            "limitVar": "",
+            "incrementBy": "limit",
+            "requestLocation": "query"
+          },
+          "query": {},
+          "body": {},
+          "headers": {},
+          "handleFailure": "ignore",
+          "requestFields": {},
+          "responseDatakey": "",
+          "responseFields": {
+            "name": "host",
+            "ostype": "os",
+            "ostypePrefix": "system-",
+            "ipaddress": "attributes.ipaddr",
+            "port": "443"
+          }
+        }
+      ],
+      "isAlive": [
+        {
+          "path": "/get/devices/{id}/status",
+          "method": "GET",
+          "query": {},
+          "body": {},
+          "headers": {},
+          "handleFailure": "ignore",
+          "requestFields": {
+            "id": "name"
+          },
+          "responseDatakey": "",
+          "responseFields": {
+            "status": "status",
+            "statusValue": "online"
+          }
+        }
+      ],
+      "getConfig": [
+        {
+          "path": "/get/devices/{id}/configPart1",
+          "method": "GET",
+          "query": {},
+          "body": {},
+          "headers": {},
+          "handleFailure": "ignore",
+          "requestFields": {
+            "id": "name"
+          },
+          "responseDatakey": "",
+          "responseFields": {}
+        }
+      ],
+      "getCount": [
+        {
+          "path": "/get/devices",
+          "method": "GET",
+          "query": {},
+          "body": {},
+          "headers": {},
+          "handleFailure": "ignore",
+          "requestFields": {},
+          "responseDatakey": "",
+          "responseFields": {}
+        }
+      ]
+    },
+    "cache": {
+      "enabled": false,
+      "entities": [
+        {
+          "entityType": "",
+          "frequency": 1440,
+          "flushOnFail": false,
+          "limit": 1000,
+          "retryAttempts": 5,
+          "sort": true,
+          "populate": [
+            {
+              "path": "",
+              "method": "GET",
+              "pagination": {
+                "offsetVar": "",
+                "limitVar": "",
+                "incrementBy": "limit",
+                "requestLocation": "query"
+              },
+              "query": {},
+              "body": {},
+              "headers": {},
+              "handleFailure": "ignore",
+              "requestFields": {},
+              "responseDatakey": "",
+              "responseFields": {}
+            }
+          ],
+          "cachedTasks": [
+            {
+              "name": "",
+              "filterField": "",
+              "filterLoc": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "groups": [],
+  "brokers": [],
+  "logLevel": "none",
+  "timeout": 120000
+}

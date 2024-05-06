@@ -1,0 +1,11 @@
+.backup
+.nyc_output
+coverage
+node_modules
+adapter_modifications
+versions.json
+nohup.out
+npm-debug.log
+.vscode
+.ci
+**.DS_Store

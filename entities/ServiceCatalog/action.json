@@ -1,0 +1,403 @@
+{
+  "actions": [
+    {
+      "name": "getServiceCatalogs",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/catalogs?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getServiceCatalogs-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getServiceCatalogById",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/catalogs/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getServiceCatalogById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getServiceCatalogCategoryInformation",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/catalogs/{pathv1}/categories?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getServiceCatalogCategoryInformation-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getServiceCatalogCategories",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/categories/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getServiceCatalogCategories-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getServiceCatalogItems",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/items?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getServiceCatalogItems-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getServiceCatalogItemById",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/items/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getServiceCatalogItemById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "addItemToCart",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/items/{pathv1}/add_to_cart?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/addItemToCart-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getServiceCatalogOrderItems",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/items/{pathv1}/submit_producer?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getServiceCatalogOrderItems-default.json"
+        }
+      ]
+    },
+    {
+      "name": "createServiceCatalogRecordGuide",
+      "protocol": "REST",
+      "method": "PUT",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/items/{pathv1}/submit_guide?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/createServiceCatalogRecordGuide-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getServiceCatalogCheckoutInformation",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/items/{pathv1}/checkout_guide?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getServiceCatalogCheckoutInformation-default.json"
+        }
+      ]
+    },
+    {
+      "name": "orderNowServiceCatalog",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/items/{pathv1}/order_now?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/orderNowServiceCatalog-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getServiceCatalogCart",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/cart?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getServiceCatalogCart-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getServiceCatalogUserDeliveryAddress",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/cart/delivery_address/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getServiceCatalogUserDeliveryAddress-default.json"
+        }
+      ]
+    },
+    {
+      "name": "updateServiceCatalogCart",
+      "protocol": "REST",
+      "method": "PUT",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/cart/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/updateServiceCatalogCart-default.json"
+        }
+      ]
+    },
+    {
+      "name": "deleteServiceCatalogCartItems",
+      "protocol": "REST",
+      "method": "DELETE",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/cart/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "",
+          "mockFile": "mockdatafiles/deleteServiceCatalogCartItems-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getServiceCatalogDisplayVariable",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/variables/{pathv1}/display_value?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getServiceCatalogDisplayVariable-default.json"
+        }
+      ]
+    },
+    {
+      "name": "deleteServiceCatalogCart",
+      "protocol": "REST",
+      "method": "DELETE",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/cart/{pathv1}/empty?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "",
+          "mockFile": "mockdatafiles/deleteServiceCatalogCart-default.json"
+        }
+      ]
+    },
+    {
+      "name": "checkoutCartServiceCatalog",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/cart/checkout?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/checkoutCartServiceCatalog-default.json"
+        }
+      ]
+    },
+    {
+      "name": "submitOrderServiceCatalog",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_sc/servicecatalog/cart/submit_order?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/submitOrderServiceCatalog-default.json"
+        }
+      ]
+    }
+  ]
+}

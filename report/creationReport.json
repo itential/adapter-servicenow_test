@@ -1,0 +1,1088 @@
+{
+  "errors": [],
+  "statistics": [
+    {
+      "owner": "errorJson",
+      "description": "Standard adapter errors available for use",
+      "value": 29
+    },
+    {
+      "owner": "packageJson",
+      "description": "Number of production dependencies",
+      "value": 6
+    },
+    {
+      "owner": "packageJson",
+      "description": "Number of development dependencies",
+      "value": 9
+    },
+    {
+      "owner": "packageJson",
+      "description": "Number of npm scripts",
+      "value": 9
+    },
+    {
+      "owner": "packageJson",
+      "description": "Runtime Library dependency",
+      "value": "^4.14.3"
+    },
+    {
+      "owner": "propertiesSchemaJson",
+      "description": "Adapter properties defined in the propertiesSchema file",
+      "value": 48
+    },
+    {
+      "owner": "adapterJS",
+      "description": "Lines of code generated in adapter.js",
+      "value": 9610
+    },
+    {
+      "owner": "adapterJS",
+      "description": "Number of Functions added to adapter.js",
+      "value": 135
+    },
+    {
+      "owner": "pronghornJson",
+      "description": "Number of Methods added to pronghorn.json",
+      "value": 135
+    },
+    {
+      "owner": "readmeMd",
+      "description": "Number of lines in the README.md",
+      "value": 450
+    },
+    {
+      "owner": "unitTestJS",
+      "description": "Number of lines of code in unit tests",
+      "value": 5162
+    },
+    {
+      "owner": "unitTestJS",
+      "description": "Number of unit tests",
+      "value": 330
+    },
+    {
+      "owner": "integrationTestJS",
+      "description": "Number of lines of code in integration tests",
+      "value": 3835
+    },
+    {
+      "owner": "integrationTestJS",
+      "description": "Number of integration tests",
+      "value": 140
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for Table entity",
+      "value": 5
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for AgentPresence entity",
+      "value": 1
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for ChangeManagement entity",
+      "value": 21
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for ImportSet entity",
+      "value": 2
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for ApplicationService entity",
+      "value": 2
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for Email entity",
+      "value": 2
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for PushInstallation entity",
+      "value": 2
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for MetricBaseTimeSeries entity",
+      "value": 3
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for Aggregate entity",
+      "value": 1
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for Queue entity",
+      "value": 1
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for UserRoleInheritance entity",
+      "value": 1
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for PerformanceAnalytics entity",
+      "value": 1
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for TaskCommunicationManagement entity",
+      "value": 9
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for Attachment entity",
+      "value": 6
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for CustomerServiceManagement entity",
+      "value": 12
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for ServiceCatalog entity",
+      "value": 19
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for ChangeRequests entity",
+      "value": 5
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for Incidents entity",
+      "value": 5
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for Groups entity",
+      "value": 5
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for ConfigItems entity",
+      "value": 5
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for KnowledgeArticles entity",
+      "value": 5
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for Problems entity",
+      "value": 5
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for Requests entity",
+      "value": 5
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for RequestItems entity",
+      "value": 5
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for Users entity",
+      "value": 5
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for MajorIncidentManagement entity",
+      "value": 2
+    },
+    {
+      "owner": "actionJson",
+      "description": "Total number of actions",
+      "value": 135
+    },
+    {
+      "owner": "actionJson",
+      "description": "Total number of entities",
+      "value": 26
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for Table entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for AgentPresence entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for ChangeManagement entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for ImportSet entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for ApplicationService entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for Email entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for PushInstallation entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for MetricBaseTimeSeries entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for Aggregate entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for Queue entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for UserRoleInheritance entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for PerformanceAnalytics entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for TaskCommunicationManagement entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for Attachment entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for CustomerServiceManagement entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for ServiceCatalog entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for ChangeRequests entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for Incidents entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for Groups entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for ConfigItems entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for KnowledgeArticles entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for Problems entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for Requests entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for RequestItems entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for Users entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for MajorIncidentManagement entity",
+      "value": 1
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Total number of schemas",
+      "value": 26
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for Table entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for AgentPresence entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for ChangeManagement entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for ImportSet entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for ApplicationService entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for Email entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for PushInstallation entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for MetricBaseTimeSeries entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for Aggregate entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for Queue entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for UserRoleInheritance entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for PerformanceAnalytics entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for TaskCommunicationManagement entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for Attachment entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for CustomerServiceManagement entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for ServiceCatalog entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for ChangeRequests entity",
+      "value": 3
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for Incidents entity",
+      "value": 3
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for Groups entity",
+      "value": 3
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for ConfigItems entity",
+      "value": 3
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for KnowledgeArticles entity",
+      "value": 3
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for Problems entity",
+      "value": 3
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for Requests entity",
+      "value": 3
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for RequestItems entity",
+      "value": 3
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for Users entity",
+      "value": 3
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for MajorIncidentManagement entity",
+      "value": 0
+    },
+    {
+      "owner": "mockdata",
+      "description": "Total number of mock data files",
+      "value": 27
+    },
+    {
+      "owner": "actionJson",
+      "description": "Number of actions for .system entity",
+      "value": 2
+    },
+    {
+      "owner": "schemaJson",
+      "description": "Number of schemas for .system entity",
+      "value": 1
+    },
+    {
+      "owner": "mockdata",
+      "description": "Number of mock data files for .system entity",
+      "value": 2
+    },
+    {
+      "owner": "System",
+      "description": "System entity files",
+      "value": 4
+    },
+    {
+      "owner": "workflows",
+      "description": "Number of workflows",
+      "value": 0
+    },
+    {
+      "owner": "staticFile",
+      "description": "Number of lines of code in adapterBase.js",
+      "value": 484
+    },
+    {
+      "owner": "staticFile",
+      "description": "Number of static files added",
+      "value": 19
+    },
+    {
+      "owner": "Overall",
+      "description": "Total lines of Code",
+      "value": 19091
+    },
+    {
+      "owner": "Overall",
+      "description": "Total Tests",
+      "value": 470
+    },
+    {
+      "owner": "Overall",
+      "description": "Total Files",
+      "value": 110
+    }
+  ],
+  "apiParsingReport": {
+    "no_mockdata": [
+      {
+        "fnName": "queryTableByNameAndSysId",
+        "method": "get",
+        "path": "/now/table/{tableName}/{sys_id}"
+      },
+      {
+        "fnName": "updateTableRecord",
+        "method": "put",
+        "path": "/now/table/{tableName}/{sys_id}"
+      },
+      {
+        "fnName": "deleteTableRecord",
+        "method": "delete",
+        "path": "/now/table/{tableName}/{sys_id}"
+      },
+      {
+        "fnName": "queryTableByName",
+        "method": "get",
+        "path": "/now/table/{tableName}"
+      },
+      {
+        "fnName": "createRecordInTable",
+        "method": "post",
+        "path": "/now/table/{tableName}"
+      },
+      {
+        "fnName": "setAgentPresence",
+        "method": "put",
+        "path": "/now/awa/agents/{sys_id}"
+      },
+      {
+        "fnName": "changeStandardTemplateById",
+        "method": "post",
+        "path": "/sn_chg_rest/change/standard/{standard_change_template_id}"
+      },
+      {
+        "fnName": "getStandardChangeRequest",
+        "method": "get",
+        "path": "/sn_chg_rest/change/standard"
+      },
+      {
+        "fnName": "getStandardChangeRequestBySysId",
+        "method": "get",
+        "path": "/sn_chg_rest/change/standard/{sys_id}"
+      },
+      {
+        "fnName": "deleteStandardChangeRequestBySysId",
+        "method": "delete",
+        "path": "/sn_chg_rest/change/standard/{sys_id}"
+      },
+      {
+        "fnName": "getStandardChangeTemplate",
+        "method": "get",
+        "path": "/sn_chg_rest/change/standard/template"
+      },
+      {
+        "fnName": "getStandardChangeTemplateBySysId",
+        "method": "get",
+        "path": "/sn_chg_rest/change/standard/template/{sys_id}"
+      },
+      {
+        "fnName": "getNormalChangeRequest",
+        "method": "get",
+        "path": "/sn_chg_rest/change/normal"
+      },
+      {
+        "fnName": "createNormalChangeRequest",
+        "method": "post",
+        "path": "/sn_chg_rest/change/normal"
+      },
+      {
+        "fnName": "getNormalChangeRequestBySysId",
+        "method": "get",
+        "path": "/sn_chg_rest/change/normal/{sys_id}"
+      },
+      {
+        "fnName": "deleteNormalChangeRequestBySysId",
+        "method": "delete",
+        "path": "/sn_chg_rest/change/normal/{sys_id}"
+      },
+      {
+        "fnName": "getEmergencyChangeRequest",
+        "method": "get",
+        "path": "/sn_chg_rest/change/emergency"
+      },
+      {
+        "fnName": "createEmergencyChangeRequest",
+        "method": "post",
+        "path": "/sn_chg_rest/change/emergency"
+      },
+      {
+        "fnName": "getEmergencyChangeRequestBySysId",
+        "method": "get",
+        "path": "/sn_chg_rest/change/emergency/{sys_id}"
+      },
+      {
+        "fnName": "deleteEmergencyChangeRequestBySysId",
+        "method": "delete",
+        "path": "/sn_chg_rest/change/emergency/{sys_id}"
+      },
+      {
+        "fnName": "getChangeRequestTask",
+        "method": "get",
+        "path": "/sn_chg_rest/change/{sys_id}/task"
+      },
+      {
+        "fnName": "createChangeRequestTask",
+        "method": "post",
+        "path": "/sn_chg_rest/change/{sys_id}/task"
+      },
+      {
+        "fnName": "getChangeTaskByTaskSysId",
+        "method": "get",
+        "path": "/sn_chg_rest/change/{sys_id}/task/{task_sys_id}"
+      },
+      {
+        "fnName": "deleteChangeTaskByTaskSysId",
+        "method": "delete",
+        "path": "/sn_chg_rest/change/{sys_id}/task/{task_sys_id}"
+      },
+      {
+        "fnName": "getChangeRequestConflict",
+        "method": "get",
+        "path": "/sn_chg_rest/change/{sys_id}/conflict"
+      },
+      {
+        "fnName": "createChangeRequestConflict",
+        "method": "post",
+        "path": "/sn_chg_rest/change/{sys_id}/conflict"
+      },
+      {
+        "fnName": "cancelChangeRequestConflict",
+        "method": "delete",
+        "path": "/sn_chg_rest/change/{sys_id}/conflict"
+      },
+      {
+        "fnName": "importIntoTable",
+        "method": "post",
+        "path": "/now/import/{tableName}"
+      },
+      {
+        "fnName": "getImportBySysId",
+        "method": "get",
+        "path": "/now/import/{tableName}/{sys_id}"
+      },
+      {
+        "fnName": "getApplicationBySysId",
+        "method": "get",
+        "path": "/now/cmdb/app_service/{sys_id}/getContent"
+      },
+      {
+        "fnName": "createApplication",
+        "method": "post",
+        "path": "/now/cmdb/app_service/create"
+      },
+      {
+        "fnName": "createEmail",
+        "method": "post",
+        "path": "/now/email"
+      },
+      {
+        "fnName": "getEmail",
+        "method": "get",
+        "path": "/now/email/{sys_id}"
+      },
+      {
+        "fnName": "removeInstallation",
+        "method": "post",
+        "path": "/now/push/{pushApplicationName}/installation"
+      },
+      {
+        "fnName": "pushInstallation",
+        "method": "post",
+        "path": "/now/push/{pushApplicationName}/removeInstallation"
+      },
+      {
+        "fnName": "getMetricBase",
+        "method": "get",
+        "path": "/now/v1/clotho/table/{table}/{subject}/{metric}"
+      },
+      {
+        "fnName": "transformMetricBase",
+        "method": "get",
+        "path": "/now/v1/clotho/transform/{table}/{metric}"
+      },
+      {
+        "fnName": "createMetricBase",
+        "method": "post",
+        "path": "/now/v1/clotho/put"
+      },
+      {
+        "fnName": "getAggregate",
+        "method": "get",
+        "path": "/now/stats/{tableName}"
+      },
+      {
+        "fnName": "createQueue",
+        "method": "post",
+        "path": "/now/awa/queues/{sys_id}/work_item"
+      },
+      {
+        "fnName": "getUserRoles",
+        "method": "get",
+        "path": "/global/user_role_inheritance"
+      },
+      {
+        "fnName": "getPerformanceAnalytics",
+        "method": "get",
+        "path": "/now/pa/scorecards"
+      },
+      {
+        "fnName": "getChannelsForTable",
+        "method": "get",
+        "path": "/sn_comm_management/task_communication_management/channels"
+      },
+      {
+        "fnName": "getChannelsForTableByTaskId",
+        "method": "get",
+        "path": "/sn_comm_management/task_communication_management/channels_per_task/{commTaskSysId}/{table}"
+      },
+      {
+        "fnName": "getCommunicationGroupPlans",
+        "method": "get",
+        "path": "/sn_comm_management/task_communication_management/communication_detail/{taskSysId}"
+      },
+      {
+        "fnName": "getCommunicationPlans",
+        "method": "get",
+        "path": "/sn_comm_management/task_communication_management/groups/{taskSysId}"
+      },
+      {
+        "fnName": "manageCommunicationRecipients",
+        "method": "post",
+        "path": "/sn_comm_management/task_communication_management/comm_plan/{commPlanSysId}/recipients"
+      },
+      {
+        "fnName": "createCommunicationPlan",
+        "method": "post",
+        "path": "/sn_comm_management/task_communication_management/adhoc/comm_plan"
+      },
+      {
+        "fnName": "createCommunicationTask",
+        "method": "post",
+        "path": "/sn_comm_management/task_communication_management/adhoc/comm_task"
+      },
+      {
+        "fnName": "getCommunicationTaskState",
+        "method": "post",
+        "path": "/sn_comm_management/task_communication_management/send_updates/{commTaskSysId}/{table}"
+      },
+      {
+        "fnName": "updateCommunicationTask",
+        "method": "post",
+        "path": "/sn_comm_management/task_communication_management/update_state_wb_actions/{commTaskSysId}/{table}"
+      },
+      {
+        "fnName": "getAttachmentMetadataBySysId",
+        "method": "get",
+        "path": "/now/attachment/{sys_id}"
+      },
+      {
+        "fnName": "deleteAttachmentBySysId",
+        "method": "delete",
+        "path": "/now/attachment/{sys_id}"
+      },
+      {
+        "fnName": "getAttachmentBinaryBySysId",
+        "method": "get",
+        "path": "/now/attachment/{sys_id}/file"
+      },
+      {
+        "fnName": "uploadMultipartAttachment",
+        "method": "post",
+        "path": "/now/attachment/upload"
+      },
+      {
+        "fnName": "getAttachmentsMetadata",
+        "method": "get",
+        "path": "/now/attachment"
+      },
+      {
+        "fnName": "uploadAttachment",
+        "method": "post",
+        "path": "/now/attachment/file"
+      },
+      {
+        "fnName": "getCSMAccount",
+        "method": "get",
+        "path": "/now/account/{id}"
+      },
+      {
+        "fnName": "queryCSMAccounts",
+        "method": "get",
+        "path": "/now/account"
+      },
+      {
+        "fnName": "getCSMCase",
+        "method": "get",
+        "path": "/sn_customerservice/case/{id}"
+      },
+      {
+        "fnName": "updateCSMCase",
+        "method": "put",
+        "path": "/sn_customerservice/case/{id}"
+      },
+      {
+        "fnName": "queryCSMCases",
+        "method": "get",
+        "path": "/sn_customerservice/case"
+      },
+      {
+        "fnName": "createCSMCase",
+        "method": "post",
+        "path": "/sn_customerservice/case"
+      },
+      {
+        "fnName": "getCSMConsumer",
+        "method": "get",
+        "path": "/now/consumer/{id}"
+      },
+      {
+        "fnName": "queryCSMConsumers",
+        "method": "get",
+        "path": "/now/consumer"
+      },
+      {
+        "fnName": "createCSMConsumer",
+        "method": "post",
+        "path": "/now/consumer"
+      },
+      {
+        "fnName": "queryCSMContacts",
+        "method": "get",
+        "path": "/now/contact"
+      },
+      {
+        "fnName": "createCSMContact",
+        "method": "post",
+        "path": "/now/contact"
+      },
+      {
+        "fnName": "getCSMContact",
+        "method": "get",
+        "path": "/now/contact/{id}"
+      },
+      {
+        "fnName": "getServiceCatalogs",
+        "method": "get",
+        "path": "/sn_sc/servicecatalog/catalogs"
+      },
+      {
+        "fnName": "getServiceCatalogById",
+        "method": "get",
+        "path": "/sn_sc/servicecatalog/catalogs/{sys_id}"
+      },
+      {
+        "fnName": "getServiceCatalogCategoryInformation",
+        "method": "get",
+        "path": "/sn_sc/servicecatalog/catalogs/{sys_id}/categories"
+      },
+      {
+        "fnName": "getServiceCatalogCategories",
+        "method": "get",
+        "path": "/sn_sc/servicecatalog/categories/{sys_id}"
+      },
+      {
+        "fnName": "getServiceCatalogItems",
+        "method": "get",
+        "path": "/sn_sc/servicecatalog/items"
+      },
+      {
+        "fnName": "getServiceCatalogItemById",
+        "method": "get",
+        "path": "/sn_sc/servicecatalog/items/{sys_id}"
+      },
+      {
+        "fnName": "addItemToCart",
+        "method": "post",
+        "path": "/sn_sc/servicecatalog/items/{sys_id}/add_to_cart"
+      },
+      {
+        "fnName": "getServiceCatalogOrderItems",
+        "method": "post",
+        "path": "/sn_sc/servicecatalog/items/{sys_id}/submit_producer"
+      },
+      {
+        "fnName": "createServiceCatalogRecordGuide",
+        "method": "post",
+        "path": "/sn_sc/servicecatalog/items/{sys_id}/submit_guide"
+      },
+      {
+        "fnName": "getServiceCatalogCheckoutInformation",
+        "method": "post",
+        "path": "/sn_sc/servicecatalog/items/{sys_id}/checkout_guide"
+      },
+      {
+        "fnName": "orderNowServiceCatalog",
+        "method": "post",
+        "path": "/sn_sc/servicecatalog/items/{sys_id}/order_now"
+      },
+      {
+        "fnName": "getServiceCatalogCart",
+        "method": "get",
+        "path": "/sn_sc/servicecatalog/cart"
+      },
+      {
+        "fnName": "getServiceCatalogUserDeliveryAddress",
+        "method": "get",
+        "path": "/sn_sc/servicecatalog/cart/delivery_address/{user_id}"
+      },
+      {
+        "fnName": "updateServiceCatalogCart",
+        "method": "put",
+        "path": "/sn_sc/servicecatalog/cart/{cart_item_id}"
+      },
+      {
+        "fnName": "deleteServiceCatalogCartItems",
+        "method": "delete",
+        "path": "/sn_sc/servicecatalog/cart/{cart_item_id}"
+      },
+      {
+        "fnName": "getServiceCatalogDisplayVariable",
+        "method": "post",
+        "path": "/sn/sc/servicecatalog/variables/{sys_id}/display_value"
+      },
+      {
+        "fnName": "deleteServiceCatalogCart",
+        "method": "delete",
+        "path": "/sn_sc/servicecatalog/cart/{sys_id}/empty"
+      },
+      {
+        "fnName": "checkoutCartServiceCatalog",
+        "method": "post",
+        "path": "/sn_sc/servicecatalog/cart/checkout"
+      },
+      {
+        "fnName": "submitOrderServiceCatalog",
+        "method": "post",
+        "path": "/sn_sc/servicecatalog/cart/submit_order"
+      },
+      {
+        "fnName": "updateChangeRequest",
+        "method": "put",
+        "path": "/now/table/change_request/{sysId}"
+      },
+      {
+        "fnName": "deleteChangeRequest",
+        "method": "delete",
+        "path": "/now/table/change_request/{sysId}"
+      },
+      {
+        "fnName": "updateIncident",
+        "method": "put",
+        "path": "/now/table/incident/{sysId}"
+      },
+      {
+        "fnName": "deleteIncident",
+        "method": "delete",
+        "path": "/now/table/incident/{sysId}"
+      },
+      {
+        "fnName": "updateGroup",
+        "method": "put",
+        "path": "/now/table/group/{sysId}"
+      },
+      {
+        "fnName": "deleteGroup",
+        "method": "delete",
+        "path": "/now/table/group/{sysId}"
+      },
+      {
+        "fnName": "updateConfigItem",
+        "method": "put",
+        "path": "/now/table/cmdb_ci/{sysId}"
+      },
+      {
+        "fnName": "deleteConfigItem",
+        "method": "delete",
+        "path": "/now/table/cmdb_ci/{sysId}"
+      },
+      {
+        "fnName": "updateArticle",
+        "method": "put",
+        "path": "/now/table/kb_knowledge/{sysId}"
+      },
+      {
+        "fnName": "deleteArticle",
+        "method": "delete",
+        "path": "/now/table/kb_knowledge/{sysId}"
+      },
+      {
+        "fnName": "updateProblem",
+        "method": "put",
+        "path": "/now/table/problem/{sysId}"
+      },
+      {
+        "fnName": "deleteProblem",
+        "method": "delete",
+        "path": "/now/table/problem/{sysId}"
+      },
+      {
+        "fnName": "updateRequests",
+        "method": "put",
+        "path": "/now/table/sc_request/{sysId}"
+      },
+      {
+        "fnName": "deleteRequests",
+        "method": "delete",
+        "path": "/now/table/sc_request/{sysId}"
+      },
+      {
+        "fnName": "updateRequestItems",
+        "method": "put",
+        "path": "/now/table/sc_req_item/{sysId}"
+      },
+      {
+        "fnName": "deleteRequestItems",
+        "method": "delete",
+        "path": "/now/table/sc_req_item/{sysId}"
+      },
+      {
+        "fnName": "updateUsers",
+        "method": "put",
+        "path": "/now/table/sys_user/{sysId}"
+      },
+      {
+        "fnName": "deleteUsers",
+        "method": "delete",
+        "path": "/now/table/sys_user/{sysId}"
+      },
+      {
+        "fnName": "createMajorIncident",
+        "method": "post",
+        "path": "/sn_major_inc_mgmt/mim/state/{sys_id}"
+      },
+      {
+        "fnName": "getMajorIncident",
+        "method": "get",
+        "path": "/sn_major_inc_mgmt/mim/status/{sys_id}"
+      }
+    ],
+    "errors": [],
+    "warnings": [
+      "Method post in path /now/attachment/upload has 2 parameters with the same name. Parameter name changed to bodyFormData to avoid errors.",
+      "Method post in path /now/attachment/file has 2 parameters with the same name. Parameter name changed to bodyFormData to avoid errors.",
+      "Method put in path /sn_sc/servicecatalog/cart/{cart_item_id} has 2 parameters with the same name. Parameter name changed to bodyFormData to avoid errors."
+    ],
+    "callsTotal": 135,
+    "callsConverted": 135,
+    "no_mockdata_num": 108
+  }
+}

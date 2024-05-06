@@ -1,0 +1,13 @@
+{ 
+  "result": {
+    "sys_id": "99b534141b5800103dc38515ec4bcbf9",
+    "number": "STDCHG0001023",
+    "parent_id": null,
+    "record": "api/now/table/std_change_proposal/99b534141b5800103dc38515ec4bcbf9",
+    "redirect_portal_url": "",
+    "parent_table": "task",
+    "redirect_url": "std_change_proposal.do?sys_id=99b534141b5800103dc38515ec4bcbf9",
+    "table": "std_change_proposal",
+    "redirect_to": ""
+  }
+}

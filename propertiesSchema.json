@@ -1,0 +1,1661 @@
+{
+  "$id": "adapter-servicenow",
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "host": {
+      "type": "string",
+      "description": "hostname of the server",
+      "default": "",
+      "examples": [
+        "systemx.customer.com"
+      ]
+    },
+    "port": {
+      "type": "integer",
+      "description": "port on which to connect to the server",
+      "default": 443,
+      "minimum": 1,
+      "maximum": 65535
+    },
+    "choosepath": {
+      "type": "string",
+      "description": "choose the path to use -- requires entityPath choices",
+      "default": ""
+    },
+    "base_path": {
+      "type": "string",
+      "description": "a base path that is consistent across api calls",
+      "default": "",
+      "examples": [
+        "/system/api"
+      ]
+    },
+    "version": {
+      "type": "string",
+      "description": "api version this adapter integrates with",
+      "default": "",
+      "examples": [
+        "v1",
+        "v2.6",
+        "4.5.1"
+      ]
+    },
+    "cache_location": {
+      "type": "string",
+      "description": "Where cache of information should be located redis or local memory",
+      "default": "none",
+      "enum": [
+        "redis",
+        "local",
+        "none"
+      ]
+    },
+    "encode_pathvars": {
+      "type": "boolean",
+      "description": "When true the path variables are encoded in the url",
+      "default": true
+    },
+    "encode_queryvars": {
+      "type": "boolean",
+      "description": "When true the query parameters are encoded in the url",
+      "default": true
+    },
+    "save_metric": {
+      "type": [
+        "boolean",
+        "string"
+      ],
+      "description": "When true the metrics collected by the adapter will be stored in mongo or on the filesystem",
+      "default": false
+    },
+    "stub": {
+      "type": "boolean",
+      "description": "When true will not connect to the remote server, but will use a static object for all responses",
+      "default": false
+    },
+    "protocol": {
+      "type": "string",
+      "description": "the protocol to use to connect to server",
+      "default": "http",
+      "enum": [
+        "http",
+        "https"
+      ]
+    },
+    "authentication": {
+      "$ref": "#/definitions/authentication"
+    },
+    "healthcheck": {
+      "$ref": "#/definitions/healthcheck"
+    },
+    "throttle": {
+      "$ref": "#/definitions/throttle"
+    },
+    "request": {
+      "$ref": "#/definitions/request"
+    },
+    "proxy": {
+      "$ref": "#/definitions/proxy"
+    },
+    "ssl": {
+      "$ref": "#/definitions/ssl"
+    },
+    "mongo": {
+      "$ref": "#/definitions/mongo"
+    },
+    "devicebroker": {
+      "$ref": "#/definitions/devicebroker"
+    },
+    "cache": {
+      "$ref": "#/definitions/cache"
+    },
+    "service": {
+      "type": "string",
+      "description": "Service we are integrating with -- used with AWS Authentication",
+      "examples": [
+        "ec2",
+        "route53"
+      ]
+    }
+  },
+  "required": [
+    "host",
+    "port",
+    "authentication",
+    "healthcheck"
+  ],
+  "definitions": {
+    "authentication": {
+      "type": "object",
+      "properties": {
+        "auth_method": {
+          "type": "string",
+          "description": "The authentication method for requests",
+          "default": "basic user_password",
+          "enum": [
+            "basic user_password",
+            "static_token",
+            "jwt_token",
+            "request_token",
+            "no_authentication",
+            "multi_step_authentication",
+            "aws_authentication"
+          ]
+        },
+        "username": {
+          "type": "string",
+          "description": "The username used for requests",
+          "default": "",
+          "examples": [
+            "username"
+          ]
+        },
+        "password": {
+          "type": "string",
+          "description": "The password used for requests. If it was retrieved through the encrypt password call, use the exact return including the {code} or {crypt}",
+          "default": "",
+          "examples": [
+            "password",
+            "{code}password",
+            "{crypt}password"
+          ]
+        },
+        "token": {
+          "type": "string",
+          "description": "The token used for requests",
+          "default": "",
+          "examples": [
+            "sdadafdsf_dummytoken_adfkdhfkajd"
+          ]
+        },
+        "token_user_field": {
+          "type": "string",
+          "description": "The field to send the user credential when getting a token",
+          "default": "username",
+          "examples": [
+            "username"
+          ]
+        },
+        "token_password_field": {
+          "type": "string",
+          "description": "The field to send the password credential when getting a token",
+          "default": "password",
+          "examples": [
+            "password"
+          ]
+        },
+        "token_result_field": {
+          "type": "string",
+          "description": "The field to pull the result from when getting a token",
+          "default": "token",
+          "examples": [
+            "token"
+          ]
+        },
+        "token_URI_path": {
+          "type": "string",
+          "description": "The path used to retrieve a token",
+          "default": "",
+          "examples": [
+            "/api/version/authenticate"
+          ]
+        },
+        "invalid_token_error": {
+          "type": "integer",
+          "description": "http error status number which defines an invalid token",
+          "default": 401,
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "token_timeout": {
+          "type": "integer",
+          "description": "How long a token is valid (in milliseconds), -1 (always get token), 0 use expiration returned with token",
+          "default": -1,
+          "minimum": -1,
+          "maximum": 3600000
+        },
+        "token_cache": {
+          "type": "string",
+          "description": "Whether tokens should be stored in redis or local memory",
+          "default": "local",
+          "enum": [
+            "redis",
+            "local"
+          ]
+        },
+        "auth_field": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "The field in which to pass the token",
+          "default": "header.headers.X-AUTH-TOKEN",
+          "examples": [
+            "header.headers.X-AUTH-TOKEN",
+            "header.headers.Authorization",
+            "header.auth",
+            "body.token",
+            "url"
+          ]
+        },
+        "auth_field_format": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "The format used to pass the authentication -- variables {token}, {username}, {password} will be replaced with the proper values. {b64}...{/b64} will base64 encode everything between the start and end tag.",
+          "default": "{token}",
+          "examples": [
+            "{token}",
+            "Token {token}",
+            "{username}:{password}",
+            "Basic {b64}{username}:{password}{/b64}",
+            "token={token}"
+          ]
+        },
+        "auth_logging": {
+          "type": "boolean",
+          "description": "This property turns on logging of Authentication Information and should only be true when debugging authentication and connectivity",
+          "default": false
+        },
+        "client_id": {
+          "type": "string",
+          "description": "The client id for OAuth requests - can also use username depending on schema",
+          "default": ""
+        },
+        "client_secret": {
+          "type": "string",
+          "description": "The client secret for OAuth requests - can also use password depending on schema",
+          "default": ""
+        },
+        "grant_type": {
+          "type": "string",
+          "description": "The grant type for OAuth requests - can also provide in schema",
+          "default": ""
+        },
+        "sensitive": {
+          "type": "array",
+          "description": "List of sensitive keys to search and hide values from being logged",
+          "default": [],
+          "items": {
+            "type": "string"
+          }
+        },
+        "sso": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "description": "the protocol to request token from system",
+              "default": "",
+              "enum": [
+                "http",
+                "https",
+                ""
+              ]
+            },
+            "host": {
+              "type": "string",
+              "description": "hostname of the authentication system",
+              "default": "",
+              "examples": [
+                "systemx.customer.com"
+              ]
+            },
+            "port": {
+              "type": "integer",
+              "description": "port on which to connect to the authentication system",
+              "default": 0,
+              "minimum": 0,
+              "maximum": 65535
+            }
+          }
+        },
+        "multiStepAuthCalls": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Id of the step call",
+                "examples": [
+                  "getAccessToken"
+                ]
+              },
+              "requestFields": {
+                "type": "object",
+                "description": "The fields set in step request"
+              },
+              "responseFields": {
+                "type": "object",
+                "description": "The fields from the step result"
+              },
+              "successfullResponseCode": {
+                "type": "integer",
+                "description": "Expected response code for given step, if not set any successfull http response is accepted",
+                "examples": [
+                  200
+                ]
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "auth_method"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "auth_method": {
+                "enum": [
+                  "basic user_password"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "username",
+              "password",
+              "auth_field",
+              "auth_field_format"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "auth_method": {
+                "enum": [
+                  "request_token"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "username",
+              "password",
+              "auth_field",
+              "auth_field_format"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "auth_method": {
+                "enum": [
+                  "static_token"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "token",
+              "auth_field",
+              "auth_field_format"
+            ]
+          }
+        }
+      ]
+    },
+    "healthcheck": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of healthcheck to run",
+          "default": "intermittent",
+          "enum": [
+            "none",
+            "startup",
+            "intermittent"
+          ]
+        },
+        "frequency": {
+          "type": "integer",
+          "description": "How often the healthcheck should run (in milliseconds).",
+          "default": 300000,
+          "minimum": 60000,
+          "maximum": 3600000
+        },
+        "protocol": {
+          "type": "string",
+          "description": "The protocol used to check the health of the system",
+          "default": "REST",
+          "enum": [
+            "REST"
+          ]
+        },
+        "URI_Path": {
+          "type": "string",
+          "description": "The path used to check the health of the system",
+          "default": "",
+          "examples": [
+            "/api/version/ping"
+          ]
+        },
+        "query_object": {
+          "type": "object",
+          "description": "Query object { device: xxxxx } to be placed into the healthcheck, will be converted to query string by the adapter",
+          "default": {}
+        },
+        "addlHeaders": {
+          "type": "object",
+          "description": "headers that will be appended to the headers for the call",
+          "default": {}
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "enum": [
+                  "intermittent"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "frequency"
+            ]
+          }
+        }
+      ]
+    },
+    "throttle": {
+      "type": "object",
+      "properties": {
+        "throttle_enabled": {
+          "type": "boolean",
+          "description": "Whether to use throttling",
+          "default": false
+        },
+        "number_pronghorns": {
+          "type": "integer",
+          "description": "whether the throttling is being done in a single Pronghorn instance or whether requests are being throttled across multiple pronghorns",
+          "default": 1,
+          "minimum": 1,
+          "maximum": 20
+        },
+        "sync_async": {
+          "type": "string",
+          "description": "should the queue handle request synchronously or asynchronously",
+          "default": "sync",
+          "examples": [
+            "async",
+            "sync"
+          ]
+        },
+        "max_in_queue": {
+          "type": "integer",
+          "description": "the maximum number of requests that Pronghorn should allow into the queue before rejecting requests",
+          "default": 1000,
+          "minimum": 1,
+          "maximum": 5000
+        },
+        "concurrent_max": {
+          "type": "integer",
+          "description": "defines the number of request that Pronghorn can send servicenow at one time",
+          "default": 1,
+          "minimum": 0,
+          "maximum": 1000
+        },
+        "expire_timeout": {
+          "type": "integer",
+          "description": "After the request has completed, Pronghorn will wait the additional expire timeout time (in milliseconds) prior to sending in the next request.",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 60000
+        },
+        "avg_runtime": {
+          "type": "integer",
+          "description": "an approximate average of how long it takes servicenow to handle each request",
+          "default": 200,
+          "minimum": 50,
+          "maximum": 60000
+        },
+        "priorities": {
+          "type": "array",
+          "description": "define your priorities here",
+          "default": [],
+          "items": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "description": "Defines a priority - this number is what is passed in on a priority request"
+              },
+              "percent": {
+                "type": "number",
+                "description": "this is the percent of the queue that comes before the priority request (0 is front of queue, 100 is last in queue)"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "throttle_enabled"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "throttle_enabled": {
+                "enum": [
+                  true
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "number_pronghorns",
+              "sync_async",
+              "max_in_queue",
+              "concurrent_max",
+              "expire_timeout",
+              "avg_runtime"
+            ]
+          }
+        }
+      ]
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "number_redirects": {
+          "type": "integer",
+          "description": "how many redirects before it gives up on the request",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 20
+        },
+        "number_retries": {
+          "type": "integer",
+          "description": "how many attempt to make before it gives up on the request",
+          "default": 3,
+          "minimum": 0,
+          "maximum": 20
+        },
+        "limit_retry_error": {
+          "type": [
+            "integer",
+            "array"
+          ],
+          "description": "http error status number which defines that no capacity was available and thus after waiting a short interval the adapter can retry the request. Supports an array of numbers or strings including a range provided as '###-###'",
+          "default": 0
+        },
+        "failover_codes": {
+          "type": "array",
+          "description": "An array of codes where it is ok to try another method",
+          "default": [],
+          "items": {
+            "type": "integer"
+          }
+        },
+        "attempt_timeout": {
+          "type": "integer",
+          "description": "how long Pronghorn should wait before aborting the attempt",
+          "default": 5000,
+          "minimum": 1000,
+          "maximum": 3600000
+        },
+        "global_request": {
+          "type": "object",
+          "description": "Global Request data that is overriden by the request object",
+          "properties": {
+            "payload": {
+              "type": "object",
+              "description": "payload fields that will be appended to the provided payload (excluding GET calls)",
+              "default": {}
+            },
+            "uriOptions": {
+              "type": "object",
+              "description": "options that will be appended to all GET calls",
+              "default": {}
+            },
+            "addlHeaders": {
+              "type": "object",
+              "description": "headers that will be appended to the headers for the call",
+              "default": {}
+            },
+            "authData": {
+              "type": "object",
+              "description": "authentication data that will be appended to the payload for authentication calls",
+              "default": {}
+            }
+          }
+        },
+        "healthcheck_on_timeout": {
+          "type": "boolean",
+          "description": "Should the system run a healthcheck on timeout",
+          "default": false
+        },
+        "return_raw": {
+          "type": "boolean",
+          "description": "Will include the raw response with the data that is returned",
+          "default": false
+        },
+        "archiving": {
+          "type": "boolean",
+          "description": "Archives each request/response and corresponding metrics",
+          "default": false
+        },
+        "return_request": {
+          "type": "boolean",
+          "description": "This property turns on returning the response information - need to be carefull in case credentials are in the path",
+          "default": false
+        }
+      },
+      "required": [
+        "number_retries",
+        "limit_retry_error",
+        "attempt_timeout",
+        "healthcheck_on_timeout"
+      ]
+    },
+    "proxy": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether or not there is a proxy for the Server",
+          "default": false
+        },
+        "host": {
+          "type": "string",
+          "description": "hostname of the proxy for the server",
+          "default": "",
+          "examples": [
+            "proxy.customer.com"
+          ]
+        },
+        "port": {
+          "type": "integer",
+          "description": "port on which to connect to the proxy for the server",
+          "default": 443,
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "protocol": {
+          "type": "string",
+          "description": "the protocol to use to connect to the proxy",
+          "default": "http",
+          "enum": [
+            "http",
+            "https",
+            "socks4",
+            "socks5",
+            "tls"
+          ]
+        },
+        "username": {
+          "type": "string",
+          "description": "username for proxy authentication",
+          "default": ""
+        },
+        "password": {
+          "type": "string",
+          "description": "password for proxy authentication",
+          "default": ""
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "enabled": {
+                "enum": [
+                  true
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "host",
+              "port"
+            ]
+          }
+        }
+      ]
+    },
+    "ssl": {
+      "type": "object",
+      "properties": {
+        "ecdhCurve": {
+          "type": "string",
+          "description": "Do we need to set the autoCurve on this request",
+          "default": "",
+          "examples": [
+            "auto"
+          ]
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether or not ssl is enabled on Server",
+          "default": false
+        },
+        "accept_invalid_cert": {
+          "type": "boolean",
+          "description": "Whether the adapter should accept invalid certificates",
+          "default": false
+        },
+        "ca_file": {
+          "type": "string",
+          "description": "The fully qualified path name to the CA file used for SSL",
+          "default": "",
+          "examples": [
+            "security/ca.pem"
+          ]
+        },
+        "key_file": {
+          "type": "string",
+          "description": "The fully qualified path name to the key file used for SSL",
+          "default": "",
+          "examples": [
+            "security/key.pem"
+          ]
+        },
+        "cert_file": {
+          "type": "string",
+          "description": "The fully qualified path name to the Cert file used for SSL",
+          "default": "",
+          "examples": [
+            "security/cert.pem"
+          ]
+        },
+        "secure_protocol": {
+          "type": "string",
+          "description": "What protocol to set on the ssl request",
+          "default": "",
+          "examples": [
+            "SSLv2_method",
+            "SSLv3_method"
+          ]
+        },
+        "ciphers": {
+          "type": "string",
+          "description": "Hyphen separated list of acceptable ciphers",
+          "default": "",
+          "examples": [
+            "DHE-RSA-AES256-SHA"
+          ]
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "enabled": {
+                "enum": [
+                  true
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "accept_invalid_cert",
+              "ciphers"
+            ]
+          }
+        },
+        {
+          "if": {
+            "allOf": [
+              {
+                "properties": {
+                  "enabled": {
+                    "enum": [
+                      true
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "accept_invalid_cert": {
+                    "enum": [
+                      false
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "then": {
+            "required": [
+              "ca_file"
+            ]
+          }
+        }
+      ]
+    },
+    "mongo": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string",
+          "description": "host where mongo database can be found",
+          "default": "",
+          "examples": [
+            "localhost"
+          ]
+        },
+        "port": {
+          "type": "integer",
+          "description": "port on which to connect to the mongo database",
+          "default": 443,
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "database": {
+          "type": "string",
+          "description": "The name of the database to store adapter information in",
+          "default": "",
+          "examples": [
+            "adapter-xyz"
+          ]
+        },
+        "username": {
+          "type": "string",
+          "description": "The user to connect to the database with",
+          "default": "",
+          "examples": [
+            "username"
+          ]
+        },
+        "password": {
+          "type": "string",
+          "description": "The password to connect to the database with",
+          "default": "",
+          "examples": [
+            "password"
+          ]
+        },
+        "replSet": {
+          "type": "string",
+          "description": "The replica set for the database",
+          "default": "",
+          "examples": [
+            "my_repolica_set"
+          ]
+        },
+        "db_ssl": {
+          "type": "object",
+          "description": "SSL for mongo database connection",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Whether or not ssl is enabled on Database Server",
+              "default": false
+            },
+            "accept_invalid_cert": {
+              "type": "boolean",
+              "description": "Whether the adapter should accept invalid certificates",
+              "default": false
+            },
+            "ca_file": {
+              "type": "string",
+              "description": "The fully qualified path name to the CA file used for Database SSL",
+              "default": "",
+              "examples": [
+                "security/ca.pem"
+              ]
+            },
+            "key_file": {
+              "type": "string",
+              "description": "The fully qualified path name to the key file used for Database SSL",
+              "default": "",
+              "examples": [
+                "security/key.pem"
+              ]
+            },
+            "cert_file": {
+              "type": "string",
+              "description": "The fully qualified path name to the Cert file used for Database SSL",
+              "default": "",
+              "examples": [
+                "security/cert.pem"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "devicebroker": {
+      "type": "object",
+      "properties": {
+        "getDevice": {
+          "type": "array",
+          "description": "Broker call(s) to getDevice",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "The fully qualified path of the call to getDevice (e.g. /rest/api/device/{deviceid})",
+                "default": ""
+              },
+              "method": {
+                "type": "string",
+                "description": "The method of the call to getDevice",
+                "default": "GET"
+              },
+              "query": {
+                "type": "object",
+                "description": "The json object with query parameters of the call to getDevice",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "body": {
+                "type": "object",
+                "description": "The json object with body of the call to getDevice",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "headers": {
+                "type": "object",
+                "description": "The json object with headers of the call to getDevice",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "handleFailure": {
+                "type": "string",
+                "enum": [
+                  "ignore",
+                  "fail"
+                ],
+                "description": "return failure or ignore failure",
+                "default": "ignore"
+              },
+              "requestFields": {
+                "type": "object",
+                "description": "The json object with response fields of the call to getDevice",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                "properties": {}
+              },
+              "responseDatakey": {
+                "type": "string",
+                "description": "place in the response where the data is - supports jsonquery",
+                "default": ""
+              },
+              "responseFields": {
+                "type": "object",
+                "description": "The json object with response fields of the call to getDevice",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The field in response to getDevice that contains the name of the device",
+                    "default": "name"
+                  },
+                  "ostype": {
+                    "type": "string",
+                    "description": "The field in response to getDevice that contains the ostype of the device",
+                    "default": "ostype"
+                  },
+                  "ostypePrefix": {
+                    "type": "string",
+                    "description": "Any prefix that should be added to the ostype of the device (e.g. aws-)",
+                    "default": ""
+                  },
+                  "port": {
+                    "type": "string",
+                    "description": "The field in response to getDevice that contains the port of the device",
+                    "default": ""
+                  },
+                  "ipaddress": {
+                    "type": "string",
+                    "description": "The field in response to getDevice that contains the ip address of the device",
+                    "default": ""
+                  }
+                }
+              }
+            }
+          }
+        },
+        "getDevicesFiltered": {
+          "type": "array",
+          "description": "Broker call(s) to getDevicesFiltered",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "The fully qualified path of the call to getDevicesFiltered (e.g. /rest/api/device/{deviceid})",
+                "default": ""
+              },
+              "method": {
+                "type": "string",
+                "description": "The method of the call to getDevicesFiltered",
+                "default": "GET"
+              },
+              "pagination": {
+                "type": "object",
+                "description": "todo",
+                "properties": {
+                  "offsetVar": {
+                    "type": "string",
+                    "description": "Name of variable that defines how to go to next set of results"
+                  },
+                  "limitVar": {
+                    "type": "string",
+                    "description": "Name of variable that defines the max results returned in a request"
+                  },
+                  "incrementBy": {
+                    "type": "string",
+                    "enum": [
+                      "limit",
+                      "page"
+                    ],
+                    "description": "How to incremenet offset. Default limit",
+                    "default": "limit"
+                  },
+                  "requestLocation": {
+                    "type": "string",
+                    "enum": [
+                      "query",
+                      "body"
+                    ],
+                    "description": "Where in request the pagination data goes",
+                    "default": "query"
+                  }
+                }
+              },
+              "query": {
+                "type": "object",
+                "description": "The json object with query parameters of the call to getDevicesFiltered",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "body": {
+                "type": "object",
+                "description": "The json object with body of the call to getDevicesFiltered",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "headers": {
+                "type": "object",
+                "description": "The json object with headers of the call to getDevicesFiltered",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "handleFailure": {
+                "type": "string",
+                "enum": [
+                  "ignore",
+                  "fail"
+                ],
+                "description": "return failure or ignore failure",
+                "default": "ignore"
+              },
+              "requestFields": {
+                "type": "object",
+                "description": "The json object with response fields of the call to getDevice",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                "properties": {}
+              },
+              "responseDatakey": {
+                "type": "string",
+                "description": "place in the response where the data is - supports jsonquery",
+                "default": ""
+              },
+              "responseFields": {
+                "type": "object",
+                "description": "The json object with response fields of the call to getDevicesFiltered",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "The field in response to getDevicesFiltered that contains the name of the device",
+                    "default": "name"
+                  },
+                  "ostype": {
+                    "type": "string",
+                    "description": "The field in response to getDevicesFiltered that contains the ostype of the device",
+                    "default": "ostype"
+                  },
+                  "ostypePrefix": {
+                    "type": "string",
+                    "description": "Any prefix that should be added to the ostype of the device (e.g. aws-)",
+                    "default": ""
+                  },
+                  "port": {
+                    "type": "string",
+                    "description": "The field in response to getDevicesFiltered that contains the port of the device",
+                    "default": ""
+                  },
+                  "ipaddress": {
+                    "type": "string",
+                    "description": "The field in response to getDevicesFiltered that contains the ip address of the device",
+                    "default": ""
+                  }
+                }
+              }
+            }
+          }
+        },
+        "isAlive": {
+          "type": "array",
+          "description": "Broker call(s) to determine if the device isAlive",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "The fully qualified path of the call to isAlive (e.g. /rest/api/device/{deviceid})",
+                "default": ""
+              },
+              "method": {
+                "type": "string",
+                "description": "The method of the call to isAlive",
+                "default": "GET"
+              },
+              "query": {
+                "type": "object",
+                "description": "The json object with query parameters of the call to isAlive",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "body": {
+                "type": "object",
+                "description": "The json object with body of the call to isAlive",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "headers": {
+                "type": "object",
+                "description": "The json object with headers of the call to isAlive",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "handleFailure": {
+                "type": "string",
+                "enum": [
+                  "ignore",
+                  "fail"
+                ],
+                "description": "return failure or ignore isAlive",
+                "default": "ignore"
+              },
+              "requestFields": {
+                "type": "object",
+                "description": "The json object with response fields of the call to getDevice",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                "properties": {}
+              },
+              "responseDatakey": {
+                "type": "string",
+                "description": "place in the response where the data is - supports jsonquery",
+                "default": ""
+              },
+              "responseFields": {
+                "type": "object",
+                "description": "The json object with response fields of the call to isAlive",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "description": "The field in response to isAlive that contains the status of the device",
+                    "default": "name"
+                  },
+                  "statusValue": {
+                    "type": "string",
+                    "description": "The expected value in the status field",
+                    "default": "true"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "getConfig": {
+          "type": "array",
+          "description": "Broker call(s) to getConfig",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "The fully qualified path of the call to getConfig (e.g. /rest/api/device/{deviceid})",
+                "default": ""
+              },
+              "method": {
+                "type": "string",
+                "description": "The method of the call to getConfig",
+                "default": "GET"
+              },
+              "query": {
+                "type": "object",
+                "description": "The json object with query parameters of the call to getConfig",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "body": {
+                "type": "object",
+                "description": "The json object with body of the call to getConfig",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "headers": {
+                "type": "object",
+                "description": "The json object with headers of the call to getConfig",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "handleFailure": {
+                "type": "string",
+                "enum": [
+                  "ignore",
+                  "fail"
+                ],
+                "description": "return failure or ignore getConfig",
+                "default": "ignore"
+              },
+              "requestFields": {
+                "type": "object",
+                "description": "The json object with response fields of the call to getDevice",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                "properties": {}
+              },
+              "responseDatakey": {
+                "type": "string",
+                "description": "place in the response where the data is - supports jsonquery",
+                "default": ""
+              },
+              "responseFields": {
+                "type": "object",
+                "description": "The json object with response fields of the call to getConfig",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                "properties": {}
+              }
+            }
+          }
+        },
+        "getCount": {
+          "type": "array",
+          "description": "Broker call(s) to getCount",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "The fully qualified path of the call to getCount (e.g. /rest/api/device/{deviceid})",
+                "default": ""
+              },
+              "method": {
+                "type": "string",
+                "description": "The method of the call to getCount",
+                "default": "GET"
+              },
+              "query": {
+                "type": "object",
+                "description": "The json object with query parameters of the call to getCount",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "body": {
+                "type": "object",
+                "description": "The json object with body of the call to getCount",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "headers": {
+                "type": "object",
+                "description": "The json object with headers of the call to getCount",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                }
+              },
+              "handleFailure": {
+                "type": "string",
+                "enum": [
+                  "ignore",
+                  "fail"
+                ],
+                "description": "return failure or ignore getCount",
+                "default": "ignore"
+              },
+              "requestFields": {
+                "type": "object",
+                "description": "The json object with response fields of the call to getDevice",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                "properties": {}
+              },
+              "responseDatakey": {
+                "type": "string",
+                "description": "place in the response where the data is - supports jsonquery",
+                "default": ""
+              },
+              "responseFields": {
+                "type": "object",
+                "description": "The json object with response fields of the call to getConfig",
+                "additionalProperties": {
+                  "type": [
+                    "string",
+                    "number"
+                  ]
+                },
+                "properties": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "cache": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether or not cache is enabled for adapter",
+          "default": false
+        },
+        "entities": {
+          "type": "array",
+          "description": "Information for the cached entities",
+          "items": {
+            "type": "object",
+            "properties": {
+              "entityType": {
+                "type": "string",
+                "description": "The name of the entity - should match adapter entity configuration or a broker (e.g. Device)",
+                "default": ""
+              },
+              "frequency": {
+                "type": "integer",
+                "description": "how long (in minutes) we wait to re-populate the cache",
+                "default": 1440,
+                "maximum": 10080
+              },
+              "flushOnFail": {
+                "type": "boolean",
+                "description": "Whether to clear the cache we have if the populate failed",
+                "default": false
+              },
+              "limit": {
+                "type": "integer",
+                "description": "maximum number of items to keep in cache",
+                "default": 1000
+              },
+              "retryAttempts": {
+                "type": "integer",
+                "description": "number of times to retry the populate call before failure",
+                "default": 5
+              },
+              "sort": {
+                "type": "boolean",
+                "description": "whether to sort the data or not",
+                "default": true
+              },
+              "populate": {
+                "type": "array",
+                "description": "Information for the call(s) used to populate the cache",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "description": "The fully qualified path of the call to getDevice (e.g. /rest/api/device/{deviceid})",
+                      "default": ""
+                    },
+                    "method": {
+                      "type": "string",
+                      "description": "The method of the call to getDevice",
+                      "default": "GET"
+                    },
+                    "pagination": {
+                      "type": "object",
+                      "description": "todo",
+                      "properties": {
+                        "offsetVar": {
+                          "type": "string",
+                          "description": "Name of variable that defines how to go to next set of results"
+                        },
+                        "limitVar": {
+                          "type": "string",
+                          "description": "Name of variable that defines the max results returned in a request"
+                        },
+                        "incrementBy": {
+                          "type": "string",
+                          "enum": [
+                            "limit",
+                            "page"
+                          ],
+                          "description": "How to incremenet offset. Default limit",
+                          "default": "limit"
+                        },
+                        "requestLocation": {
+                          "type": "string",
+                          "enum": [
+                            "query",
+                            "body"
+                          ],
+                          "description": "Where in request the pagination data goes",
+                          "default": "query"
+                        }
+                      }
+                    },
+                    "query": {
+                      "type": "object",
+                      "description": "The json object with query parameters of the call to getDevice",
+                      "additionalProperties": {
+                        "type": [
+                          "string",
+                          "number"
+                        ]
+                      }
+                    },
+                    "body": {
+                      "type": "object",
+                      "description": "The json object with body of the call to getDevice",
+                      "additionalProperties": {
+                        "type": [
+                          "string",
+                          "number"
+                        ]
+                      }
+                    },
+                    "headers": {
+                      "type": "object",
+                      "description": "The json object with headers of the call to getDevice",
+                      "additionalProperties": {
+                        "type": [
+                          "string",
+                          "number"
+                        ]
+                      }
+                    },
+                    "handleFailure": {
+                      "type": "string",
+                      "enum": [
+                        "ignore",
+                        "fail"
+                      ],
+                      "description": "return failure or ignore failure",
+                      "default": "ignore"
+                    },
+                    "requestFields": {
+                      "type": "object",
+                      "description": "The json object with response fields of the call to getDevice",
+                      "additionalProperties": {
+                        "type": [
+                          "string",
+                          "number"
+                        ]
+                      },
+                      "properties": {}
+                    },
+                    "responseDatakey": {
+                      "type": "string",
+                      "description": "place in the response where the data is - supports jsonquery",
+                      "default": ""
+                    },
+                    "responseFields": {
+                      "type": "object",
+                      "description": "The json object with response fields of the call to getDevice",
+                      "additionalProperties": {
+                        "type": [
+                          "string",
+                          "number"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "cachedTasks": {
+                "type": "array",
+                "description": "Information for the call(s) used to populate the cache",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "description": "the name of the task/action that should utilize cached information",
+                      "default": ""
+                    },
+                    "filterField": {
+                      "type": "string",
+                      "description": "the field that contains filter information for this call",
+                      "default": ""
+                    },
+                    "filterLoc": {
+                      "type": "string",
+                      "description": "the field that contains the location of the filter field",
+                      "default": ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

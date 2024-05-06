@@ -1,0 +1,46 @@
+{
+  "actions": [
+    {
+      "name": "getAgentPresence",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/now/awa/agents/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    },
+    {
+      "name": "setAgentPresence",
+      "protocol": "REST",
+      "method": "PUT",
+      "entitypath": "{base_path}/{version}/now/awa/agents/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "$id": "ChangeCreateSchema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "createChangeRequestConflict",
+      "enum": [
+        "createChangeRequestConflict"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "id": {
+      "description": "resulting id of the created Change Conflict",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "result"
+    }
+  },
+  "definitions": {}
+}

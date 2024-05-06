@@ -1,0 +1,109 @@
+{
+  "actions": [
+    {
+      "name": "getGroupById",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/now/table/sys_user_group/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getGroupById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getGroups",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/now/table/sys_user_group?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getGroups-default.json"
+        }
+      ]
+    },
+    {
+      "name": "createGroup",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/now/table/sys_user_group?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/createGroup-default.json"
+        }
+      ]
+    },
+    {
+      "name": "updateGroup",
+      "protocol": "REST",
+      "method": "PUT",
+      "entitypath": "{base_path}/{version}/now/table/sys_user_group/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/updateGroup-default.json"
+        }
+      ]
+    },
+    {
+      "name": "deleteGroup",
+      "protocol": "REST",
+      "method": "DELETE",
+      "entitypath": "{base_path}/{version}/now/table/sys_user_group/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/deleteGroup-default.json"
+        }
+      ]
+    }
+  ]
+}

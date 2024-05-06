@@ -1,0 +1,414 @@
+{ 
+  "result": { 
+    "sys_id": {
+      "display_value": "3fb18d43db440010a704fe1b6896192e",
+      "value": "3fb18d43db440010a704fe1b6896192e"
+    },
+    "reason": {
+      "display_value": "",
+      "value": ""
+    },
+    "parent": {
+      "display_value": "",
+      "value": ""
+    },
+    "watch_list": {
+      "display_value": "",
+      "value": ""
+    },
+    "upon_reject": {
+      "display_value": "Cancel all future Tasks",
+      "value": "cancel"
+    },
+    "sys_updated_on": {
+      "display_value": "2019-09-26 16:27:28",
+      "value": "2019-09-26 23:27:28",
+      "display_value_internal": "2019-09-26 16:27:28"
+    },
+    "type": {
+      "display_value": "Emergency",
+      "value": "emergency"
+    },
+    "approval_history": {
+      "display_value": "",
+      "value": ""
+    },
+    "test_plan": {
+      "display_value": "",
+      "value": ""
+    },
+    "number": {
+      "display_value": "CHG0030010",
+      "value": "CHG0030010"
+    },
+    "cab_delegate": {
+      "display_value": "",
+      "value": ""
+    },
+    "requested_by_date": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "state": {
+      "display_value": "New",
+      "value": -5
+    },
+    "sys_created_by": {
+      "display_value": "admin",
+      "value": "admin"
+    },
+    "knowledge": {
+      "display_value": "false",
+      "value": false
+    },
+    "order": {
+      "display_value": "",
+      "value": ""
+    },
+    "phase": {
+      "display_value": "Requested",
+      "value": "requested"
+    },
+    "cmdb_ci": {
+      "display_value": "",
+      "value": ""
+    },
+    "delivery_plan": {
+      "display_value": "",
+      "value": ""
+    },
+    "impact": {
+      "display_value": "3 - Low",
+      "value": 3
+    },
+    "active": {
+      "display_value": "true",
+      "value": true
+    },
+    "work_notes_list": {
+      "display_value": "",
+      "value": ""
+    },
+    "priority": {
+      "display_value": "4 - Low",
+      "value": 4
+    },
+    "sys_domain_path": {
+      "display_value": "/",
+      "value": "/"
+    },
+    "production_system": {
+      "display_value": "false",
+      "value": false
+    },
+    "cab_recommendation": {
+      "display_value": "",
+      "value": ""
+    },
+    "rejection_goto": {
+      "display_value": "",
+      "value": ""
+    },
+    "review_date": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "requested_by": {
+      "display_value": "System Administrator",
+      "value": "6816f79cc0a8016401c5a33be04be441"
+    },
+    "business_duration": {
+      "display_value": "",
+      "value": ""
+    },
+    "group_list": {
+      "display_value": "",
+      "value": ""
+    },
+    "change_plan": {
+      "display_value": "",
+      "value": ""
+    },
+    "approval_set": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "wf_activity": {
+      "display_value": "",
+      "value": ""
+    },
+    "implementation_plan": {
+      "display_value": "",
+      "value": ""
+    },
+    "end_date": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "short_description": {
+      "display_value": "",
+      "value": ""
+    },
+    "correlation_display": {
+      "display_value": "",
+      "value": ""
+    },
+    "delivery_task": {
+      "display_value": "",
+      "value": ""
+    },
+    "work_start": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "outside_maintenance_schedule": {
+      "display_value": "false",
+      "value": false
+    },
+    "additional_assignee_list": {
+      "display_value": "",
+      "value": ""
+    },
+    "std_change_producer_version": {
+      "display_value": "",
+      "value": ""
+    },
+    "sys_class_name": {
+      "display_value": "Change Request",
+      "value": "change_request"
+    },
+    "closed_by": {
+      "display_value": "",
+      "value": ""
+    },
+    "follow_up": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "review_status": {
+      "display_value": "",
+      "value": ""
+    },
+    "reassignment_count": {
+      "display_value": "0",
+      "value": 0
+    },
+    "start_date": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "assigned_to": {
+      "display_value": "",
+      "value": ""
+    },
+    "variables": {
+      "display_value": "variable_pool",
+      "value": "variable_pool"
+    },
+    "sla_due": {
+      "display_value": "UNKNOWN",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "comments_and_work_notes": {
+      "display_value": "",
+      "value": ""
+    },
+    "escalation": {
+      "display_value": "Normal",
+      "value": 0
+    },
+    "upon_approval": {
+      "display_value": "Proceed to Next Task",
+      "value": "proceed"
+    },
+    "correlation_id": {
+      "display_value": "",
+      "value": ""
+    },
+    "made_sla": {
+      "display_value": "true",
+      "value": true
+    },
+    "backout_plan": {
+      "display_value": "",
+      "value": ""
+    },
+    "conflict_status": {
+      "display_value": "Not Run",
+      "value": "Not Run"
+    },
+    "sys_updated_by": {
+      "display_value": "admin",
+      "value": "admin"
+    },
+    "opened_by": {
+      "display_value": "System Administrator",
+      "value": "6816f79cc0a8016401c5a33be04be441"
+    },
+    "user_input": {
+      "display_value": "",
+      "value": ""
+    },
+    "sys_created_on": {
+      "display_value": "2019-09-26 16:27:28",
+      "value": "2019-09-26 23:27:28",
+      "display_value_internal": "2019-09-26 16:27:28"
+    },
+    "on_hold_task": {
+      "display_value": "",
+      "value": ""
+    },
+    "sys_domain": {
+      "display_value": "global",
+      "value": "global"
+    },
+    "closed_at": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "review_comments": {
+      "display_value": "",
+      "value": ""
+    },
+    "business_service": {
+      "display_value": "",
+      "value": ""
+    },
+    "time_worked": {
+      "display_value": "",
+      "value": ""
+    },
+    "expected_start": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "opened_at": {
+      "display_value": "2019-09-26 16:27:28",
+      "value": "2019-09-26 23:27:28",
+      "display_value_internal": "2019-09-26 16:27:28"
+    },
+    "work_end": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "phase_state": {
+      "display_value": "Open",
+      "value": "open"
+    },
+    "cab_date": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "work_notes": {
+      "display_value": "",
+      "value": ""
+    },
+    "close_code": {
+      "display_value": "",
+      "value": ""
+    },
+    "assignment_group": {
+      "display_value": "",
+      "value": ""
+    },
+    "description": {
+      "display_value": "",
+      "value": ""
+    },
+    "on_hold_reason": {
+      "display_value": "",
+      "value": ""
+    },
+    "calendar_duration": {
+      "display_value": "",
+      "value": ""
+    },
+    "close_notes": {
+      "display_value": "",
+      "value": ""
+    },
+    "contact_type": {
+      "display_value": "",
+      "value": ""
+    },
+    "cab_required": {
+      "display_value": "false",
+      "value": false
+    },
+    "urgency": {
+      "display_value": "3 - Low",
+      "value": 3
+    },
+    "scope": {
+      "display_value": "Medium",
+      "value": 3
+    },
+    "company": {
+      "display_value": "",
+      "value": ""
+    },
+    "justification": {
+      "display_value": "",
+      "value": ""
+    },
+    "activity_due": {
+      "display_value": "UNKNOWN",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "comments": {
+      "display_value": "",
+      "value": ""
+    },
+    "approval": {
+      "display_value": "Not Yet Requested",
+      "value": "not requested"
+    },
+    "due_date": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "on_hold": {
+      "display_value": "false",
+      "value": false
+    },
+    "sys_tags": {
+      "display_value": "",
+      "value": ""
+    },
+    "conflict_last_run": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "risk": {
+      "display_value": "Moderate",
+      "value": 3
+    },
+    "location": {
+      "display_value": "",
+      "value": ""
+    },
+    "category": {
+      "display_value": "Other",
+      "value": "Other"
+    },
+    "risk_impact_analysis": {
+      "display_value": "",
+      "value": ""
+    }
+  }
+}

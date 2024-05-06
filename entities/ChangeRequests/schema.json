@@ -1,0 +1,205 @@
+{
+  "$id": "changeRequestSchema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "getChangeRequests",
+      "enum": [
+        "getChangeRequests",
+        "createChangeRequest",
+        "getChangeRequestById",
+        "updateChangeRequest",
+        "deleteChangeRequest"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "id": {
+      "type": "string",
+      "description": "the unique id for the Change Request",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_id"
+    },
+    "number": {
+      "type": "string",
+      "description": "the number for the Change Request",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "number"
+    },
+    "summary": {
+      "type": "string",
+      "description": "the summary for the Change Request",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "short_description"
+    },
+    "requested_date": {
+      "type": "string",
+      "description": "when the Change is desired",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "requested_by_date"
+    },
+    "current_state": {
+      "type": "string",
+      "description": "the current state of the Change Request",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "state"
+    },
+    "approve_state": {
+      "type": "string",
+      "description": "whether the Change Request has been approved",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "approval"
+    },
+    "start": {
+      "type": "string",
+      "description": "when the Change Request was started",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "work_start"
+    },
+    "finished": {
+      "type": "string",
+      "description": "when the Change Request was finished",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "work_end"
+    },
+    "created_on": {
+      "type": "string",
+      "description": "when the Change Request was created",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_created_on"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "who the Change Request was created by",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_created_by"
+    },
+    "updated_on": {
+      "type": "string",
+      "description": "when the Change Request was last updated",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_updated_on"
+    },
+    "updated_by": {
+      "type": "string",
+      "description": "who the Change Request was last updated by",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_updated_by"
+    },
+    "resolve_category": {
+      "type": "string",
+      "description": "the resolution category of the Change Request",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "close_code"
+    },
+    "resolution": {
+      "type": "string",
+      "description": "how the Change Request was resolved",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "close_notes"
+    },
+    "sysparmQuery": {
+      "description": "E.g. number=CHG12345",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_query"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "ph_request_type": {
+            "enum": [
+              "createChangeRequest"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "summary"
+        ]
+      }
+    }
+  ],
+  "definitions": {}
+}

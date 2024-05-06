@@ -1,0 +1,94 @@
+{
+  "$id": "schema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "getAttachmentMetadataById",
+      "enum": [
+        "getAttachmentMetadataById",
+        "deleteAttachmentById",
+        "getAttachmentBinaryById",
+        "uploadMultipartAttachment",
+        "getAttachmentsMetadata",
+        "uploadAttachment"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "id": {
+      "description": "The id of the attachment record you want to get metadata for.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_id"
+    },
+    "bodyFormData": {
+      "description": "",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "body"
+    },
+    "sysparmQuery": {
+      "description": "e.g. table_sys_id=c83c5e5347c12200e0ef563dbb9a7190",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_query"
+    },
+    "encryptionContext": {
+      "description": "The sys_id of an encryption context record. Specify this parameter to allow only users with the specified encryption context to access the attachment. If you do not speci...(description truncated)",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "encryption_context"
+    },
+    "fileName": {
+      "description": "The name to give the attachment. This parameter is required to post an attachment.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "file_name"
+    },
+    "tableName": {
+      "description": "The name of the table you want to attach the file to. This parameter is required to post an attachment.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "table_name"
+    },
+    "tableId": {
+      "description": "The id of the record on the specified table that you want to attach the file to. This parameter is required to post an attachment.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "table_sys_id"
+    }
+  },
+  "definitions": {}
+}

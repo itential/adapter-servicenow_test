@@ -1,0 +1,26 @@
+{ 
+  "result":[ 
+     { 
+        "parent":"",
+        "manager":"",
+        "roles":"",
+        "sys_mod_count":"1",
+        "active":"true",
+        "description":"Responsible for Return Material Authorization approvals\\n\\t\\t\\tand RMA number allocations in Inventory Management",
+        "source":"",
+        "sys_updated_on":"2017-03-11 21:12:50",
+        "sys_tags":"",
+        "type":"",
+        "sys_id":"1c590685c0a8018b2a473a7159ff5d9a",
+        "sys_updated_by":"dariusz.maint",
+        "cost_center":"",
+        "default_assignee":"",
+        "sys_created_on":"2017-03-11 21:01:31",
+        "name":"RMA Approvers",
+        "exclude_manager":"false",
+        "email":"",
+        "include_members":"false",
+        "sys_created_by":"dariusz.maint"
+     }
+  ]
+}

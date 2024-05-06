@@ -1,0 +1,26 @@
+{
+  "result": [
+    {
+      "sys_id":"00a96c0d3790200044e0bfc8bcbe5db4",
+      "name":"MacBook Pro 15",
+      "summary":"",
+      "category":"Hardware",
+      "subcategory":"Computer",
+      "operational_status":"1",
+      "ip_address":"",
+      "mac_address":"",
+      "fqdn":"",
+      "install_date":"2014-07-22 07:00:00",
+      "created_on":"2012-02-18 08:14:21",
+      "created_by":"admin",
+      "updated_on":"2017-07-24 13:48:43",
+      "updated_by":"system",
+      "asset_tag":"P1000503",
+      "serial_number":"ABE-486-V17263-DO",
+      "model_number":"",
+      "warranty_expiration":"2017-07-21",
+      "fault_count":"0",
+      "comments":""
+    }
+  ]
+}

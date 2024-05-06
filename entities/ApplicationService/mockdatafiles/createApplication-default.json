@@ -1,0 +1,7 @@
+{ 
+  "result": { 
+    "url": "/api/now/table/cmdb_ci_service_discovered/b20761cbdb040010a704fe1b68961985",
+    "getContentUrl": "/api/now/cmdb/app_service/b20761cbdb040010a704fe1b68961985/getContent",
+    "info": "0 CIs added to business service"
+  }
+}

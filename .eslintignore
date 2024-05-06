@@ -1,0 +1,5 @@
+.nyc_output/*
+backup/*
+coverage/*
+out/*
+adapter_modifications/*

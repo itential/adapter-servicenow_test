@@ -1,0 +1,6550 @@
+{
+  "id": "@itentialopensource/adapter-servicenow",
+  "type": "Adapter",
+  "export": "Servicenow",
+  "title": "Servicenow",
+  "src": "adapter.js",
+  "roles": [
+    "admin"
+  ],
+  "methods": [
+    {
+      "name": "iapUpdateAdapterConfiguration",
+      "summary": "Updates the adapter configuration",
+      "description": "Updates the adapter configuration file with the provided changes",
+      "input": [
+        {
+          "name": "configFile",
+          "type": "string",
+          "info": "The name of the file to change",
+          "required": true,
+          "schema": {
+            "title": "configFile",
+            "type": "string"
+          }
+        },
+        {
+          "name": "changes",
+          "type": "object",
+          "info": "JSON object containing the configuration changes",
+          "required": true,
+          "schema": {
+            "title": "changes",
+            "type": "object"
+          }
+        },
+        {
+          "name": "entity",
+          "type": "string",
+          "info": "The entity in which the changes are being made",
+          "required": false,
+          "schema": {
+            "title": "entity",
+            "type": "string"
+          }
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "info": "The type of file to change - action, schema, or mock",
+          "required": false,
+          "schema": {
+            "title": "type",
+            "type": "string"
+          }
+        },
+        {
+          "name": "action",
+          "type": "string",
+          "info": "The action to be changed",
+          "required": false,
+          "schema": {
+            "title": "action",
+            "type": "string"
+          }
+        },
+        {
+          "name" : "replace",
+          "type": "boolean",
+          "info": "True to replace entire mock data, false to merge/append",
+          "required": false,
+          "schema": {
+            "title": "replace",
+            "type" : "boolean"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapUpdateAdapterConfiguration"
+      },
+      "task": true
+    },
+    {
+      "name": "iapSuspendAdapter",
+      "summary": "Suspends the adapter",
+      "description": "Suspends the adapter",
+      "input": [
+        {
+          "name": "mode",
+          "type": "enum",
+          "enumerals": [
+            "pause",
+            "error"
+          ],
+          "info": "How incoming requests are handled. Defaults to 'pause'",
+          "description": "How incoming requests are handled. Defaults to 'pause'",
+          "schema": {
+            "title": "mode",
+            "type": "string"
+          },
+          "required": false
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing the adapter suspended status",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapSuspendAdapter"
+      },
+      "task": true
+    },
+    {
+      "name": "iapUnsuspendAdapter",
+      "summary": "Unsuspends the adapter",
+      "description": "Unsuspends the adapter",
+      "input": [],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing the adapter suspended status",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapUnsuspendAdapter"
+      },
+      "task": true
+    },
+    {
+      "name": "iapGetAdapterQueue",
+      "summary": "Return the requests that are waiting in the queue if throttling is enabled",
+      "description": "Return the requests that are waiting in the queue if throttling is enabled",
+      "input": [],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing the adapter queue",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapGetAdapterQueue"
+      },
+      "task": true
+    },
+    {
+      "name": "iapFindAdapterPath",
+      "summary": "Provides the ability to see if a particular API path is supported by the adapter",
+      "description": "Provides the ability to see if a particular API path is supported by the adapter",
+      "input": [
+        {
+          "name": "apiPath",
+          "type": "string",
+          "info": "The API Path you want to check - make sure to not include base path and version",
+          "description": "The API Path you want to check - make sure to not include base path and version",
+          "schema": {
+            "title": "apiPath",
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapFindAdapterPath"
+      },
+      "task": true
+    },
+    {
+      "name": "iapTroubleshootAdapter",
+      "summary": "Runs troubleshoot script for adapter",
+      "description": "Runs troubleshoot script for adapter",
+      "input": [
+        {
+          "name": "props",
+          "type": "object",
+          "info": "Object containing configuration, healthcheck and auth properties {'connProps':{'host': 'api.service.com', 'base_path': '/', 'protocol': 'http', 'port': 443, 'version': 'v1'},'healthCheckEndpoint': '/healthcheck', 'auth': {'auth_method': 'no authentication', 'username': 'username', 'password': 'password'}}",
+          "required": true,
+          "schema": {
+            "title": "props",
+            "type": "object"
+          }
+        },
+        {
+          "name": "persistFlag",
+          "type": "boolean",
+          "info": "Whether the input properties should be saved",
+          "required": true,
+          "schema": {
+            "title": "persistFlag",
+            "type": "boolean"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing the test results",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapTroubleshootAdapter"
+      },
+      "task": true
+    },
+    {
+      "name": "iapRunAdapterHealthcheck",
+      "summary": "Runs healthcheck script for adapter",
+      "description": "Runs healthcheck script for adapter",
+      "input": [],
+      "output": {
+        "name": "result",
+        "type": "boolean",
+        "description": "Whether healthcheck passed or failed",
+        "schema": {
+          "title": "result",
+          "type": "boolean"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapRunAdapterHealthcheck"
+      },
+      "task": true
+    },
+    {
+      "name": "iapRunAdapterConnectivity",
+      "summary": "Runs connectivity check script for adapter",
+      "description": "Runs connectivity check script for adapter",
+      "input": [],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing the test results",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapRunAdapterConnectivity"
+      },
+      "task": true
+    },
+    {
+      "name": "iapRunAdapterBasicGet",
+      "summary": "Runs basicGet script for adapter",
+      "description": "Runs basicGet script for adapter",
+      "input": [],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing the test results",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapRunAdapterBasicGet"
+      },
+      "task": true
+    },
+    {
+      "name": "iapMoveAdapterEntitiesToDB",
+      "summary": "Moves entities from an adapter into the IAP database",
+      "description": "Moves entities from an adapter into the IAP database",
+      "input": [],
+      "output": {
+        "name": "res",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the response from the mongo transaction",
+        "schema": {
+          "title": "res",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapMoveAdapterEntitiesToDB"
+      },
+      "task": true
+    },
+    {
+      "name": "iapDeactivateTasks",
+      "summary": "Deactivate the inputted tasks",
+      "description": "Deactivate the inputted tasks",
+      "input": [
+        {
+          "name": "tasks",
+          "type": "array",
+          "description": "Tasks to deactivate",
+          "schema": {
+            "title": "tasks",
+            "type": "array"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing success status",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapDeactivateTasks"
+      },
+      "task": true
+    },
+    {
+      "name": "iapActivateTasks",
+      "summary": "Activate the inputted tasks",
+      "description": "activate the inputted tasks",
+      "input": [
+        {
+          "name": "tasks",
+          "type": "array",
+          "description": "Tasks to activate",
+          "schema": {
+            "title": "tasks",
+            "type": "array"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing success status",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapActivateTasks"
+      },
+      "task": true
+    },
+    {
+      "name": "iapPopulateEntityCache",
+      "summary": "Populate the cache for the given entities",
+      "description": "Populate the cache for the given entities",
+      "input": [
+        {
+          "name": "entityTypes",
+          "type": "array",
+          "info": "the entity type(s) to populate",
+          "required": true,
+          "schema": {
+            "title": "entityTypes",
+            "type": "array"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapPopulateEntityCache"
+      },
+      "task": true
+    },
+    {
+      "name": "iapRetrieveEntitiesCache",
+      "summary": "Retrieves data from cache for specified entity type",
+      "description": "Retrieves data from cache for specified entity type",
+      "input": [
+        {
+          "name": "entityType",
+          "type": "string",
+          "info": "entity of which to retrieve",
+          "required": true,
+          "schema": {
+            "title": "entityType",
+            "type": "string"
+          }
+        },
+        {
+          "name": "options",
+          "type": "object",
+          "info": "settings of which data to return and how to return it",
+          "required": false,
+          "schema": {
+            "title": "options",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapRetrieveEntitiesCache"
+      },
+      "task": true
+    },
+    {
+      "name": "getDevice",
+      "summary": "Get the Appliance",
+      "description": "Get the Appliance",
+      "input": [
+        {
+          "name": "deviceName",
+          "type": "string",
+          "info": "An Appliance Device Name",
+          "required": true,
+          "schema": {
+            "title": "deviceName",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getDevice"
+      },
+      "task": false
+    },
+    {
+      "name": "getDevicesFiltered",
+      "summary": "Get Appliances that match the filter",
+      "description": "Get Appliances that match the filter",
+      "input": [
+        {
+          "name": "options",
+          "type": "object",
+          "info": "options - e.g. { 'start': 1, 'limit': 20, 'filter': { 'name': 'abc123' } }",
+          "required": true,
+          "schema": {
+            "title": "options",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "array",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "array"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getDevicesFiltered"
+      },
+      "task": false
+    },
+    {
+      "name": "isAlive",
+      "summary": "Checks the status for the provided Appliance",
+      "description": "Checks the status for the provided Appliance",
+      "input": [
+        {
+          "name": "deviceName",
+          "type": "string",
+          "info": "An Appliance Device Name",
+          "required": true,
+          "schema": {
+            "title": "deviceName",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "boolean",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "boolean"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/isAlive"
+      },
+      "task": false
+    },
+    {
+      "name": "getConfig",
+      "summary": "Gets a config for the provided Appliance",
+      "description": "Gets a config for the provided Appliance",
+      "input": [
+        {
+          "name": "deviceName",
+          "type": "string",
+          "info": "An Appliance Device Name",
+          "required": true,
+          "schema": {
+            "title": "deviceName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "info": "The format to be returned - this is ignored as we always return json",
+          "required": false,
+          "schema": {
+            "title": "format",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getConfig"
+      },
+      "task": false
+    },
+    {
+      "name": "iapGetDeviceCount",
+      "summary": "Gets a device count from the system",
+      "description": "Gets a device count from the system",
+      "input": [],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapGetDeviceCount"
+      },
+      "task": false
+    },
+    {
+      "name": "iapExpandedGenericAdapterRequest",
+      "summary": "Makes the requested generic call with additional options",
+      "description": "Makes the requested generic call with additional options via metadata",
+      "input": [
+        {
+          "name": "metadata",
+          "type": "object",
+          "info": "metadata for the call (optional)",
+          "description": "metadata for the call - allows for many enhancements (optional)",
+          "schema": {
+            "title": "metadata",
+            "type": "object"
+          },
+          "required": false
+        },
+        {
+          "name": "uriPath",
+          "type": "string",
+          "info": "the path of the api call - do not include the host, port, base path or version",
+          "description": "the path of the api call",
+          "schema": {
+            "title": "uriPath",
+            "type": "string"
+          },
+          "required": false
+        },
+        {
+          "name": "restMethod",
+          "type": "string",
+          "info": "the rest method (GET, POST, PUT, PATCH, DELETE)",
+          "description": "the rest method (GET, POST, PUT, PATCH, DELETE)",
+          "schema": {
+            "title": "restMethod",
+            "type": "string"
+          },
+          "required": false
+        },
+        {
+          "name": "pathVars",
+          "type": "object",
+          "info": "the parameters to be put within the url path (optional)",
+          "description": "the parameters to be put within the url path (optional)",
+          "schema": {
+            "title": "pathVars",
+            "type": "object"
+          },
+          "required": false
+        },
+        {
+          "name": "queryData",
+          "type": "object",
+          "info": "the query parameters to be put on the url (optional)",
+          "description": "the query parameters to be put on the url (optional)",
+          "schema": {
+            "title": "queryData",
+            "type": "object"
+          },
+          "required": false
+        },
+        {
+          "name": "requestBody",
+          "type": "object",
+          "info": "the payload to be sent with the request (optional)",
+          "description": "the payload to be sent with the request (optional)",
+          "schema": {
+            "title": "requestBody",
+            "type": "object"
+          },
+          "required": false
+        },
+        {
+          "name": "addlHeaders",
+          "type": "object",
+          "info": "additional headers to be put on the call (optional)",
+          "description": "additional headers to be put on the call (optional)",
+          "schema": {
+            "title": "addlHeaders",
+            "type": "object"
+          },
+          "required": false
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/iapExpandedGenericAdapterRequest"
+      },
+      "task": true
+    },
+    {
+      "name": "genericAdapterRequest",
+      "summary": "Makes the requested generic call",
+      "description": "Makes the requested generic call",
+      "input": [
+        {
+          "name": "uriPath",
+          "type": "string",
+          "info": "the path of the api call - do not include the host, port, base path or version",
+          "description": "the path of the api call",
+          "schema": {
+            "title": "uriPath",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "restMethod",
+          "type": "string",
+          "info": "the rest method (GET, POST, PUT, PATCH, DELETE)",
+          "description": "the rest method (GET, POST, PUT, PATCH, DELETE)",
+          "schema": {
+            "title": "restMethod",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "queryData",
+          "type": "object",
+          "info": "the query parameters to be put on the url (optional)",
+          "description": "the query parameters to be put on the url (optional)",
+          "schema": {
+            "title": "queryData",
+            "type": "object"
+          },
+          "required": false
+        },
+        {
+          "name": "requestBody",
+          "type": "object",
+          "info": "the payload to be sent with the request (optional)",
+          "description": "the payload to be sent with the request (optional)",
+          "schema": {
+            "title": "requestBody",
+            "type": "object"
+          },
+          "required": false
+        },
+        {
+          "name": "addlHeaders",
+          "type": "object",
+          "info": "additional headers to be put on the call (optional)",
+          "description": "additional headers to be put on the call (optional)",
+          "schema": {
+            "title": "addlHeaders",
+            "type": "object"
+          },
+          "required": false
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/genericAdapterRequest"
+      },
+      "task": true
+    },
+    {
+      "name": "genericAdapterRequestNoBasePath",
+      "summary": "Makes the requested generic call",
+      "description": "Makes the requested generic call",
+      "input": [
+        {
+          "name": "uriPath",
+          "type": "string",
+          "info": "the path of the api call - do not include the host, port, base path or version",
+          "description": "the path of the api call",
+          "schema": {
+            "title": "uriPath",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "restMethod",
+          "type": "string",
+          "info": "the rest method (GET, POST, PUT, PATCH, DELETE)",
+          "description": "the rest method (GET, POST, PUT, PATCH, DELETE)",
+          "schema": {
+            "title": "restMethod",
+            "type": "string"
+          },
+          "required": true
+        },
+        {
+          "name": "queryData",
+          "type": "object",
+          "info": "the query parameters to be put on the url (optional)",
+          "description": "the query parameters to be put on the url (optional)",
+          "schema": {
+            "title": "queryData",
+            "type": "object"
+          },
+          "required": false
+        },
+        {
+          "name": "requestBody",
+          "type": "object",
+          "info": "the payload to be sent with the request (optional)",
+          "description": "the payload to be sent with the request (optional)",
+          "schema": {
+            "title": "requestBody",
+            "type": "object"
+          },
+          "required": false
+        },
+        {
+          "name": "addlHeaders",
+          "type": "object",
+          "info": "additional headers to be put on the call (optional)",
+          "description": "additional headers to be put on the call (optional)",
+          "schema": {
+            "title": "addlHeaders",
+            "type": "object"
+          },
+          "required": false
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/genericAdapterRequestNoBasePath"
+      },
+      "task": true
+    },
+    {
+			"name": "iapRunAdapterLint",
+			"summary": "Run the adapter lint script to return the results",
+			"description": "Run the adapter lint script to return the results",
+			"input": [],
+			"output": {
+				"name": "result",
+				"type": "string",
+				"description": "A string containing the run results",
+				"schema": {
+					"title": "result",
+					"type": "string"
+				}
+			},
+			"roles": [
+				"admin"
+			],
+			"route": {
+				"verb": "GET",
+				"path": "/iapRunAdapterLint"
+			},
+			"task": true
+		},
+    {
+			"name": "iapRunAdapterTests",
+			"summary": "Run the adapter test scripts (baseunit and unit) to return the results",
+			"description": "Run the adapter test scripts (baseunit and unit) to return the results",
+			"input": [],
+			"output": {
+				"name": "result",
+				"type": "object",
+				"description": "A JSON Object containing status, code and the result",
+				"schema": {
+					"title": "result",
+					"type": "object"
+				}
+			},
+			"roles": [
+				"admin"
+			],
+			"route": {
+				"verb": "GET",
+				"path": "/iapRunAdapterTests"
+			},
+			"task": true
+		},
+    {
+			"name": "iapGetAdapterInventory",
+			"summary": "Provide inventory information abbout the adapter",
+			"description": "Provide inventory information abbout the adapter",
+			"input": [],
+			"output": {
+				"name": "result",
+				"type": "object",
+				"description": "A JSON Object containing status, code and the result",
+				"schema": {
+					"title": "result",
+					"type": "object"
+				}
+			},
+			"roles": [
+				"admin"
+			],
+			"route": {
+				"verb": "GET",
+				"path": "/iapGetAdapterInventory"
+			},
+			"task": true
+    },
+    {
+      "name": "queryTableByNameAndId",
+      "summary": "Retrieves the record identified by the specified sys_id from the specified table.",
+      "description": "Retrieves the record identified by the specified sys_id from the specified table.",
+      "input": [
+        {
+          "name": "tableName",
+          "type": "string",
+          "info": "Name of the table from which to retrieve the records.",
+          "required": true,
+          "schema": {
+            "title": "tableName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "recordId",
+          "type": "string",
+          "info": "Unique identifier of the record to retrieve.",
+          "required": true,
+          "schema": {
+            "title": "recordId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/queryTableByNameAndId"
+      },
+      "task": true
+    },
+    {
+      "name": "queryTableByName",
+      "summary": "Retrieves all the record in the table",
+      "description": "Retrieves all the records from the specified table.",
+      "input": [
+        {
+          "name": "tableName",
+          "type": "string",
+          "info": "Name of the table from which to retrieve the records.",
+          "required": true,
+          "schema": {
+            "title": "tableName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "e.g. { number: 'CHG12345' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/queryTableByName"
+      },
+      "task": true
+    },
+    {
+      "name": "queryTableByNameWithLimit",
+      "summary": "Retrieves a limited number of records in the table",
+      "description": "Retrieves a limited number of records in the table",
+      "input": [
+        {
+          "name": "tableName",
+          "type": "string",
+          "info": "Name of the table from which to retrieve the records.",
+          "required": true,
+          "schema": {
+            "title": "tableName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "sysparmQueryKeyValuePairs",
+          "type": "object",
+          "info": "e.g. { number: 'CHG12345' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "sysparmQueryString",
+          "type": "string",
+          "info": "e.g. number=CHG12345",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "string"
+          }
+        },
+        {
+          "name": "sysparmLimit",
+          "type": "number",
+          "info": "e.g. 5",
+          "required": false,
+          "schema": {
+            "title": "sysparmLimit",
+            "type": "object"
+          }
+        },
+        {
+          "name": "sysparmFields",
+          "type": "string",
+          "info": "e.g. name,description",
+          "required": false,
+          "schema": {
+            "title": "sysparmFields",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/queryTableByNameWithLimit"
+      },
+      "task": true
+    },
+    {
+      "name": "createRecordInTable",
+      "summary": "Inserts one record in the specified table. Multiple record insertion is not supported by this method.",
+      "description": "Inserts one record in the specified table. Multiple record insertion is not supported by this method.",
+      "input": [
+        {
+          "name": "tableName",
+          "type": "string",
+          "info": "Name of the table from which to retrieve the records.",
+          "required": true,
+          "schema": {
+            "title": "tableName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createRecordInTable"
+      },
+      "task": true
+    },
+    {
+      "name": "updateTableRecord",
+      "summary": "Updates the specified record with the request body.",
+      "description": "Updates the specified record with the request body.",
+      "input": [
+        {
+          "name": "tableName",
+          "type": "string",
+          "info": "Name of the table from which to retrieve the records.",
+          "required": true,
+          "schema": {
+            "title": "tableName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "recordId",
+          "type": "string",
+          "info": "Unique identifier of the record to retrieve.",
+          "required": true,
+          "schema": {
+            "title": "recordId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "name-value pairs for the field(s) to update in the associated table. For example, to update the short description file, enter a name-value pair similar to the following: ...(description truncated)",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateTableRecord"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteTableRecord",
+      "summary": "Deletes the specified record from the specified table.",
+      "description": "Deletes the specified record from the specified table.",
+      "input": [
+        {
+          "name": "tableName",
+          "type": "string",
+          "info": "Name of the table from which to retrieve the records.",
+          "required": true,
+          "schema": {
+            "title": "tableName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "recordId",
+          "type": "string",
+          "info": "Unique identifier of the record to retrieve.",
+          "required": true,
+          "schema": {
+            "title": "recordId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteTableRecord"
+      },
+      "task": true
+    },
+    {
+      "name": "getAgentPresence",
+      "summary": "Sets the state of a provided agent’s presence and sets the agent’s channel availability for that state (if provided).",
+      "description": "Sets the state of a provided agent’s presence and sets the agent’s channel availability for that state (if provided).",
+      "input": [
+        {
+          "name": "agentId",
+          "type": "string",
+          "info": "The id of the user listed in sys_user table.",
+          "required": true,
+          "schema": {
+            "title": "agentId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getAgentPresence"
+      },
+      "task": true
+    },
+    {
+      "name": "setAgentPresence",
+      "summary": "Sets the state of a provided agent’s presence and sets the agent’s channel availability for that state (if provided).",
+      "description": "Sets the state of a provided agent’s presence and sets the agent’s channel availability for that state (if provided).",
+      "input": [
+        {
+          "name": "agentId",
+          "type": "string",
+          "info": "The id of the user listed in sys_user table.",
+          "required": true,
+          "schema": {
+            "title": "agentId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/setAgentPresence"
+      },
+      "task": true
+    },
+    {
+      "name": "getStandardChangeRequest",
+      "summary": "Retrieves one or more standard change requests based on the specified criteria.",
+      "description": "Retrieves one or more standard change requests based on the specified criteria.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getStandardChangeRequest"
+      },
+      "task": true
+    },
+    {
+      "name": "getStandardChangeRequestById",
+      "summary": "Retrieves the standard change request identified by the specified sys_id.",
+      "description": "Retrieves the standard change request identified by the specified sys_id.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the standard change request to retrieve from the [change_request] table.",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getStandardChangeRequestById"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteStandardChangeRequestById",
+      "summary": "Deletes the standard change request identified by the specified sys_id.",
+      "description": "Deletes the standard change request identified by the specified sys_id.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the standard change request to retrieve from the [change_request] table.",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteStandardChangeRequestById"
+      },
+      "task": true
+    },
+    {
+      "name": "getStandardChangeTemplate",
+      "summary": "Retrieves one or more standard change templates based on the specified criteria.",
+      "description": "Retrieves one or more standard change templates based on the specified criteria.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set.",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getStandardChangeTemplate"
+      },
+      "task": true
+    },
+    {
+      "name": "getStandardChangeTemplateById",
+      "summary": "Retrieves the standard change template identified by the specified sys_id.",
+      "description": "Retrieves the standard change template identified by the specified sys_id.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set.",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the standard change template to retrieve from the [std_change_record_producer] table.",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getStandardChangeTemplateById"
+      },
+      "task": true
+    },
+    {
+      "name": "changeStandardTemplateById",
+      "summary": "Creates one standard change request based on an existing standard change template.",
+      "description": "Creates one standard change request based on an existing standard change template as specified by the passed-in template sys_id. Multiple standard change request creations within a single call is not supported.",
+      "input": [
+        {
+          "name": "standardChangeTemplateId",
+          "type": "string",
+          "info": "Unique identifier of the standard change template on which to base the new standard change request (from [std_change_record_producer] table).",
+          "required": true,
+          "schema": {
+            "title": "standardChangeTemplateId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/changeStandardTemplateById"
+      },
+      "task": true
+    },
+    {
+      "name": "getNormalChangeRequest",
+      "summary": "Retrieves one or more normal change requests based on the specified criteria",
+      "description": "Retrieves one or more normal change requests based on the specified criteria",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set.",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getNormalChangeRequest"
+      },
+      "task": true
+    },
+    {
+      "name": "getNormalChangeRequestById",
+      "summary": "Retrieves the normal change request identified by the specified sys_id.",
+      "description": "Retrieves the normal change request identified by the specified sys_id.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the standard change request to retrieve from the [change_request] table.",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getNormalChangeRequestById"
+      },
+      "task": true
+    },
+    {
+      "name": "createNormalChangeRequest",
+      "summary": "Creates one normal change request based on the default normal change request record.",
+      "description": "Creates one normal change request based on the default normal change request record. Multiple normal change request creations within a single call is not supported.",
+      "input": [
+        {
+          "name": "change",
+          "type": "object",
+          "info": "The change information to be created",
+          "required": false,
+          "schema": {
+            "title": "change",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createNormalChangeRequest"
+      },
+      "task": true
+    },
+    {
+      "name": "updateNormalChangeRequestById",
+      "summary": "Updates one normal change request based on the default normal change request record.",
+      "description": "Updates one normal change request based on the default normal change request record.",
+      "input": [
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the standard change request to retrieve from the [change_request] table.",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "change",
+          "type": "object",
+          "info": "The change information to be created",
+          "required": false,
+          "schema": {
+            "title": "change",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateNormalChangeRequestById"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteNormalChangeRequestById",
+      "summary": "Deletes the normal change request identified by the specified sys_id.",
+      "description": "Deletes the normal change request identified by the specified sys_id.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the standard change request to retrieve from the [change_request] table.",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteNormalChangeRequestById"
+      },
+      "task": true
+    },
+    {
+      "name": "getEmergencyChangeRequest",
+      "summary": "Retrieves one or more emergency change requests based on the specified criteria.",
+      "description": "Retrieves one or more emergency change requests based on the specified criteria.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set.",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getEmergencyChangeRequest"
+      },
+      "task": true
+    },
+    {
+      "name": "getEmergencyChangeRequestById",
+      "summary": "Retrieves the emergency change request identified by the specified sys_id.",
+      "description": "Retrieves the emergency change request identified by the specified sys_id.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the standard change request to retrieve from the [change_request] table.",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getEmergencyChangeRequestById"
+      },
+      "task": true
+    },
+    {
+      "name": "createEmergencyChangeRequest",
+      "summary": "Creates one emergency change request based on the default emergency change request record.",
+      "description": "Creates one emergency change request based on the default emergency change request record. Multiple emergency change request creations within a single call is not supported.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createEmergencyChangeRequest"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteEmergencyChangeRequestById",
+      "summary": "Deletes the emergency change request identified by the specified sys_id.",
+      "description": "Deletes the emergency change request identified by the specified sys_id.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the standard change request to retrieve from the [change_request] table.",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteEmergencyChangeRequestById"
+      },
+      "task": true
+    },
+    {
+      "name": "getChangeRequestTask",
+      "summary": "Retrieves one or more tasks associated with a specified change request based on the specified criteria.",
+      "description": "Retrieves one or more tasks associated with a specified change request based on the specified criteria.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set.",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the change request to which to associate this task (from [change_request] table).",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getChangeRequestTask"
+      },
+      "task": true
+    },
+    {
+      "name": "getChangeTaskByTaskId",
+      "summary": "Retrieves the task for the change request identified by the specified sys_ids.",
+      "description": "Retrieves the task for the change request identified by the specified sys_ids.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the change request to which the specified task is associated (from [change_request] table). Verifies that the specified task is associated with the s...(description truncated)",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "taskId",
+          "type": "string",
+          "info": "Unique identifier of the task to retrieve (from [change_task] table).",
+          "required": true,
+          "schema": {
+            "title": "taskId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getChangeTaskByTaskId"
+      },
+      "task": true
+    },
+    {
+      "name": "createChangeRequestTask",
+      "summary": "Creates one change request task based on the default change request task record.",
+      "description": "Creates one change request task based on the default change request task record and associates it with the specified change request. Multiple change request task creations within a single call is not supported.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the change request to which to associate this task (from [change_request] table).",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createChangeRequestTask"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteChangeTaskByTaskId",
+      "summary": "Deletes the change request task identified by the specified sys_ids.",
+      "description": "Deletes the change request task identified by the specified sys_ids.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the change request to which the specified task is associated (from [change_request] table). Verifies that the specified task is associated with the s...(description truncated)",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "taskId",
+          "type": "string",
+          "info": "Unique identifier of the task to retrieve (from [change_task] table).",
+          "required": true,
+          "schema": {
+            "title": "taskId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteChangeTaskByTaskId"
+      },
+      "task": true
+    },
+    {
+      "name": "getChangeRequestConflict",
+      "summary": "Retrieves the status of the currently running change request conflict checking process",
+      "description": "Retrieves the status of the currently running change request conflict checking process or the results of the last completed conflict checking process for the specified change request.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the change management request for which to start the conflict checking process (from [change_request] table). For additional information on the confl...(description truncated)",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getChangeRequestConflict"
+      },
+      "task": true
+    },
+    {
+      "name": "createChangeRequestConflict",
+      "summary": "Starts a change request conflict checking process for the specified change request (sys_id).",
+      "description": "Starts a change request conflict checking process for the specified change request (sys_id).",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the change management request for which to start the conflict checking process (from [change_request] table). For additional information on the confl...(description truncated)",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createChangeRequestConflict"
+      },
+      "task": true
+    },
+    {
+      "name": "cancelChangeRequestConflict",
+      "summary": "Cancels the running conflict checking process for the specified change request (sys_id).",
+      "description": "Cancels the running conflict checking process for the specified change request (sys_id).",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query used to filter the result set. e.g. { change: 'CHG123456' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the standard change request to retrieve from the [change_request] table.",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/cancelChangeRequestConflict"
+      },
+      "task": true
+    },
+    {
+      "name": "getImportById",
+      "summary": "This method retrieves the specified import staging record and resulting transformation result.",
+      "description": "This method retrieves the specified import staging record and resulting transformation result.",
+      "input": [
+        {
+          "name": "tableName",
+          "type": "string",
+          "info": "tableName",
+          "required": true,
+          "schema": {
+            "title": "tableName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "importId",
+          "type": "string",
+          "info": "importId",
+          "required": true,
+          "schema": {
+            "title": "importId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getImportById"
+      },
+      "task": true
+    },
+    {
+      "name": "importIntoTable",
+      "summary": "Inserts incoming data into a specified staging table.",
+      "description": "This method inserts incoming data into a specified staging table and triggers transformation based on predefined transform maps in the import set table.",
+      "input": [
+        {
+          "name": "tableName",
+          "type": "string",
+          "info": "tableName",
+          "required": true,
+          "schema": {
+            "title": "tableName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/importIntoTable"
+      },
+      "task": true
+    },
+    {
+      "name": "getApplicationById",
+      "summary": "Retrieve a list of CIs in an application service and the relationships between them.",
+      "description": "Retrieve a list of CIs in an application service and the relationships between them. Only retrieves content for services that were manually created.",
+      "input": [
+        {
+          "name": "appId",
+          "type": "string",
+          "info": "appId",
+          "required": true,
+          "schema": {
+            "title": "appId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getApplicationById"
+      },
+      "task": true
+    },
+    {
+      "name": "createApplication",
+      "summary": "Create an application service or update an existing application service.",
+      "description": "Create an application service or update an existing application service.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createApplication"
+      },
+      "task": true
+    },
+    {
+      "name": "getEmail",
+      "summary": "This method returns the record details of the specified email record.",
+      "description": "This method returns the record details of the specified email record.",
+      "input": [
+        {
+          "name": "emailId",
+          "type": "string",
+          "info": "emailId",
+          "required": true,
+          "schema": {
+            "title": "emailId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getEmail"
+      },
+      "task": true
+    },
+    {
+      "name": "createEmail",
+      "summary": "This method creates the email record specified in the request body.",
+      "description": "This method creates the email record specified in the request body.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createEmail"
+      },
+      "task": true
+    },
+    {
+      "name": "pushInstallation",
+      "summary": "Adds or updates tokens that enable devices to receive push notifications from the specified application.",
+      "description": "Adds or updates tokens that enable devices to receive push notifications from the specified application.",
+      "input": [
+        {
+          "name": "pushApplicationName",
+          "type": "string",
+          "info": "Name of the application for which to register the push notifications. This parameter must be the same as the value in the Name column for the associated application in th...(description truncated)",
+          "required": true,
+          "schema": {
+            "title": "pushApplicationName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/pushInstallation"
+      },
+      "task": true
+    },
+    {
+      "name": "removeInstallation",
+      "summary": "Adds or updates tokens that enable devices to receive push notifications from the specified application.",
+      "description": "Adds or updates tokens that enable devices to receive push notifications from the specified application.",
+      "input": [
+        {
+          "name": "pushApplicationName",
+          "type": "string",
+          "info": "Name of the application for which to register the push notifications. This parameter must be the same as the value in the Name column for the associated application in th...(description truncated)",
+          "required": true,
+          "schema": {
+            "title": "pushApplicationName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/removeInstallation"
+      },
+      "task": true
+    },
+    {
+      "name": "getMetricBase",
+      "summary": "Retrieve time series data from the MetricBase database.",
+      "description": "Retrieve time series data from the MetricBase database.",
+      "input": [
+        {
+          "name": "table",
+          "type": "string",
+          "info": "Name of the table containing the GlideRecord associated with this series.",
+          "required": true,
+          "schema": {
+            "title": "table",
+            "type": "string"
+          }
+        },
+        {
+          "name": "subject",
+          "type": "string",
+          "info": "The sys_id of the GlideRecord associated with this series.",
+          "required": true,
+          "schema": {
+            "title": "subject",
+            "type": "string"
+          }
+        },
+        {
+          "name": "metric",
+          "type": "string",
+          "info": "The field name of the metric.",
+          "required": true,
+          "schema": {
+            "title": "metric",
+            "type": "string"
+          }
+        },
+        {
+          "name": "sysparmEnd",
+          "type": "string",
+          "info": "The end time of the evaluation period in UTC. The value must be in ISO date format up to seconds. For example, 2017-03-20T17:04:55.",
+          "required": true,
+          "schema": {
+            "title": "sysparmEnd",
+            "type": "string"
+          }
+        },
+        {
+          "name": "sysparmStart",
+          "type": "string",
+          "info": "The start time of the evaluation period in UTC. The value must be in ISO date format up to seconds. For example, 2017-03-20T17:04:55.",
+          "required": true,
+          "schema": {
+            "title": "sysparmStart",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getMetricBase"
+      },
+      "task": true
+    },
+    {
+      "name": "createMetricBase",
+      "summary": "Adds time-series data to the MetricBase database.",
+      "description": "Adds time-series data to the MetricBase database.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createMetricBase"
+      },
+      "task": true
+    },
+    {
+      "name": "transformMetricBase",
+      "summary": "Transforms selected data.",
+      "description": "Transforms selected data.",
+      "input": [
+        {
+          "name": "table",
+          "type": "string",
+          "info": "Name of the table containing the GlideRecord associated with this series.",
+          "required": true,
+          "schema": {
+            "title": "table",
+            "type": "string"
+          }
+        },
+        {
+          "name": "metric",
+          "type": "string",
+          "info": "The field name of the metric.",
+          "required": true,
+          "schema": {
+            "title": "metric",
+            "type": "string"
+          }
+        },
+        {
+          "name": "sysparmEnd",
+          "type": "string",
+          "info": "The end time of the evaluation period in UTC. The value must be in ISO date format up to seconds. For example, 2017-03-20T17:04:55.",
+          "required": true,
+          "schema": {
+            "title": "sysparmEnd",
+            "type": "string"
+          }
+        },
+        {
+          "name": "sysparmStart",
+          "type": "string",
+          "info": "The start time of the evaluation period in UTC. The value must be in ISO date format up to seconds. For example, 2017-03-20T17:04:55.",
+          "required": true,
+          "schema": {
+            "title": "sysparmStart",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/transformMetricBase"
+      },
+      "task": true
+    },
+    {
+      "name": "getAggregate",
+      "summary": "This method retrieves records for the specified table and performs aggregate functions on the returned values.",
+      "description": "This method retrieves records for the specified table and performs aggregate functions on the returned values.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "An encoded query.",
+          "required": true,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "tableName",
+          "type": "string",
+          "info": "tableName",
+          "required": true,
+          "schema": {
+            "title": "tableName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "aggregate",
+          "type": "object",
+          "info": "aggregate",
+          "required": true,
+          "schema": {
+            "title": "aggregate",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getAggregate"
+      },
+      "task": true
+    },
+    {
+      "name": "createQueue",
+      "summary": "If an active work item exists, routes a document to a queue.",
+      "description": "If an active work item exists, routes a document to a queue. If an active work item does not exist for the specified document, this creates a work item and set its fields accordingly.",
+      "input": [
+        {
+          "name": "queueId",
+          "type": "string",
+          "info": "Unique ID of the queue record from the awa_queue table.",
+          "required": true,
+          "schema": {
+            "title": "queueId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createQueue"
+      },
+      "task": true
+    },
+    {
+      "name": "getUserRoles",
+      "summary": "Returns a specified user's granted and inherited roles.",
+      "description": "Returns a specified user's granted and inherited roles.",
+      "input": [
+        {
+          "name": "userId",
+          "type": "string",
+          "info": "Required. id of the user for which to return role information.",
+          "required": true,
+          "schema": {
+            "title": "userId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getUserRoles"
+      },
+      "task": true
+    },
+    {
+      "name": "getPerformanceAnalytics",
+      "summary": "This method retrieves details about indicators from the Analytics Hub.",
+      "description": "This method retrieves details about indicators from the Analytics Hub.",
+      "input": [
+        {
+          "name": "sysparmUuid",
+          "type": "string",
+          "info": "Enter a colon-separated list of sys_id values to specify which indicators, breakdowns, aggregates, and domains to query.",
+          "required": true,
+          "schema": {
+            "title": "sysparmUuid",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getPerformanceAnalytics"
+      },
+      "task": true
+    },
+    {
+      "name": "getChannelsForTable",
+      "summary": "This method returns the list of channels for a given task record.",
+      "description": "This method returns the list of channels for a given task record.",
+      "input": [
+        {
+          "name": "sysparmTable",
+          "type": "string",
+          "info": "Table name of task.",
+          "required": true,
+          "schema": {
+            "title": "sysparmTable",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getChannelsForTable"
+      },
+      "task": true
+    },
+    {
+      "name": "getChannelsForTableByTaskId",
+      "summary": "This method returns meta data of all channels associated with a given communication task id and table.",
+      "description": "This method returns meta data of all channels associated with a given communication task id and table. The table name is derived from communication task handler.",
+      "input": [
+        {
+          "name": "commTaskId",
+          "type": "string",
+          "info": "id of communication task.",
+          "required": true,
+          "schema": {
+            "title": "commTaskId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "table",
+          "type": "string",
+          "info": "Name of the table defined in the comm_task_handler table.",
+          "required": true,
+          "schema": {
+            "title": "table",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getChannelsForTableByTaskId"
+      },
+      "task": true
+    },
+    {
+      "name": "getCommunicationGroupPlans",
+      "summary": "This method returns list of communication plans that includes communication tasks and channels.",
+      "description": "This method returns list of communication plans that includes communication tasks and channels.",
+      "input": [
+        {
+          "name": "taskId",
+          "type": "string",
+          "info": "id of the task.",
+          "required": true,
+          "schema": {
+            "title": "taskId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getCommunicationGroupPlans"
+      },
+      "task": true
+    },
+    {
+      "name": "getCommunicationPlans",
+      "summary": "This method returns list of communication plans that includes communication tasks and channels.",
+      "description": "This method returns list of communication plans that includes communication tasks and channels.",
+      "input": [
+        {
+          "name": "taskId",
+          "type": "string",
+          "info": "id of the task.",
+          "required": true,
+          "schema": {
+            "title": "taskId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getCommunicationPlans"
+      },
+      "task": true
+    },
+    {
+      "name": "manageCommunicationRecipients",
+      "summary": "This method manages the recipients of a communication plan.",
+      "description": "This method manages the recipients of a communication plan.",
+      "input": [
+        {
+          "name": "sysparmTable",
+          "type": "string",
+          "info": "Table name of task.",
+          "required": true,
+          "schema": {
+            "title": "sysparmTable",
+            "type": "string"
+          }
+        },
+        {
+          "name": "commPlanId",
+          "type": "string",
+          "info": "id of the communication plan.",
+          "required": true,
+          "schema": {
+            "title": "commPlanId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": false,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/manageCommunicationRecipients"
+      },
+      "task": true
+    },
+    {
+      "name": "createCommunicationPlan",
+      "summary": "Create a communication plan and communication task instance",
+      "description": "This method is used to create a communication plan and communication task instance without any communication plan or communication task definition.",
+      "input": [
+        {
+          "name": "sysparmTable",
+          "type": "string",
+          "info": "Table name of task.",
+          "required": true,
+          "schema": {
+            "title": "sysparmTable",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": false,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createCommunicationPlan"
+      },
+      "task": true
+    },
+    {
+      "name": "getCommunicationTaskState",
+      "summary": "This method returns success status if the channel task is successfully completed.",
+      "description": "This method returns success status if the channel task is successfully completed.",
+      "input": [
+        {
+          "name": "commTaskId",
+          "type": "string",
+          "info": "id of communication task.",
+          "required": true,
+          "schema": {
+            "title": "commTaskId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "table",
+          "type": "string",
+          "info": "Name of the table defined in the comm_task_handler table.",
+          "required": true,
+          "schema": {
+            "title": "table",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": false,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getCommunicationTaskState"
+      },
+      "task": true
+    },
+    {
+      "name": "createCommunicationTask",
+      "summary": "This method is used to create a communication task instance.",
+      "description": "This method is used to create a communication task instance.",
+      "input": [
+        {
+          "name": "sysparmTable",
+          "type": "string",
+          "info": "Table name of task.",
+          "required": true,
+          "schema": {
+            "title": "sysparmTable",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": false,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createCommunicationTask"
+      },
+      "task": true
+    },
+    {
+      "name": "updateCommunicationTask",
+      "summary": "This method performs specified action on communication tasks.",
+      "description": "This method performs specified action on communication tasks.",
+      "input": [
+        {
+          "name": "commTaskId",
+          "type": "string",
+          "info": "id of communication task.",
+          "required": true,
+          "schema": {
+            "title": "commTaskId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "table",
+          "type": "string",
+          "info": "Name of the table defined in the comm_task_handler table.",
+          "required": true,
+          "schema": {
+            "title": "table",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": false,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateCommunicationTask"
+      },
+      "task": true
+    },
+    {
+      "name": "getAttachmentMetadataById",
+      "summary": "This method gets the metadata for the attachment file with a specific sys_id value.",
+      "description": "This method gets the metadata for the attachment file with a specific sys_id value.",
+      "input": [
+        {
+          "name": "attachId",
+          "type": "string",
+          "info": "The id of the attachment record you want to get metadata for.",
+          "required": true,
+          "schema": {
+            "title": "attachId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getAttachmentMetadataById"
+      },
+      "task": true
+    },
+    {
+      "name": "getAttachmentBinaryById",
+      "summary": "This method gets the binary file attachment with a specific sys_id value.",
+      "description": "This method gets the binary file attachment with a specific sys_id value.",
+      "input": [
+        {
+          "name": "attachId",
+          "type": "string",
+          "info": "The id of the attachment record you want to get metadata for.",
+          "required": true,
+          "schema": {
+            "title": "attachId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getAttachmentBinaryById"
+      },
+      "task": true
+    },
+    {
+      "name": "getAttachmentsMetadata",
+      "summary": "This method gets the metadata for multiple attachments.",
+      "description": "This method gets the metadata for multiple attachments.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "e.g. { table_sys_id: 'c83c5e5347c12200e0ef563dbb9a7190' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getAttachmentsMetadata"
+      },
+      "task": true
+    },
+    {
+      "name": "uploadAttachment",
+      "summary": "This method uploads a binary file specified in the request body as an attachment.",
+      "description": "This method uploads a binary file specified in the request body as an attachment.",
+      "input": [
+        {
+          "name": "encryptionContext",
+          "type": "string",
+          "info": "The sys_id of an encryption context record. Specify this parameter to allow only users with the specified encryption context to access the attachment. If you do not speci...(description truncated)",
+          "required": false,
+          "schema": {
+            "title": "encryptionContext",
+            "type": "string"
+          }
+        },
+        {
+          "name": "fileName",
+          "type": "string",
+          "info": "The name to give the attachment. This parameter is required to post an attachment.",
+          "required": true,
+          "schema": {
+            "title": "fileName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "tableName",
+          "type": "string",
+          "info": "The name of the table you want to attach the file to. This parameter is required to post an attachment.",
+          "required": true,
+          "schema": {
+            "title": "tableName",
+            "type": "string"
+          }
+        },
+        {
+          "name": "tableId",
+          "type": "string",
+          "info": "The id of the record on the specified table that you want to attach the file to. This parameter is required to post an attachment.",
+          "required": true,
+          "schema": {
+            "title": "tableId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "bodyFormData",
+          "type": "string",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "bodyFormData",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/uploadAttachment"
+      },
+      "task": true
+    },
+    {
+      "name": "uploadMultipartAttachment",
+      "summary": "This method uploads a multipart file attachment.",
+      "description": "This method uploads a multipart file attachment.",
+      "input": [
+        {
+          "name": "bodyFormData",
+          "type": "string",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "bodyFormData",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/uploadMultipartAttachment"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteAttachmentById",
+      "summary": "This method deletes the attachment with a specific sys_id value.",
+      "description": "This method deletes the attachment with a specific sys_id value.",
+      "input": [
+        {
+          "name": "attachId",
+          "type": "string",
+          "info": "The sys_id of the attachment record you want to get metadata for.",
+          "required": true,
+          "schema": {
+            "title": "attachId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteAttachmentById"
+      },
+      "task": true
+    },
+    {
+      "name": "getCSMAccount",
+      "summary": "Retrieves the specified CSM account.",
+      "description": "Retrieves the specified CSM account.",
+      "input": [
+        {
+          "name": "id",
+          "type": "string",
+          "info": "Unique identifier (sys_id) of the account to retrieve; located in the Customer [customer_account] table.",
+          "required": true,
+          "schema": {
+            "title": "id",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getCSMAccount"
+      },
+      "task": true
+    },
+    {
+      "name": "queryCSMAccounts",
+      "summary": "Retrieves a specified set of CSM accounts.",
+      "description": "Gets the user information for the specified ID.   Sample Request (Python)  import&nbsp;http.client  conn&nbsp;=&nbsp;http.client.HTTPSConnection(&quot;HOSTNAME&quot;)  headers&nbsp;=&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;'content-type':&nbsp;&quot;application/json&quot;, &nbsp;&nbsp;&nbsp;&nbsp;'cache-control':&nbsp;&quot;no-cache&quot;, &nbsp;&nbsp;&nbsp;&nbsp;'cookie':&nbsp;&quot;JSESSIONID=xxxxxxx&quot; }  conn.request(&quot;GET&quot;,&nbsp;&quot;/api/v1/users/72548&quot;,&nbsp;headers=headers)  re...(description truncated)",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query to use to filter the result set.",
+          "required": true,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/queryCSMAccounts"
+      },
+      "task": true
+    },
+    {
+      "name": "getCSMCase",
+      "summary": "Retrieves the specified CSM case.",
+      "description": "Retrieves the specified CSM case.",
+      "input": [
+        {
+          "name": "id",
+          "type": "string",
+          "info": "Unique identifier (sys_id) of the case to retrieve; located in the Case [sn_customerservice_case] table.",
+          "required": true,
+          "schema": {
+            "title": "id",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getCSMCase"
+      },
+      "task": true
+    },
+    {
+      "name": "queryCSMCases",
+      "summary": "Retrieves a specified set of CSM cases.",
+      "description": "Retrieves a specified set of CSM cases.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query to use to filter the result set",
+          "required": true,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/queryCSMCases"
+      },
+      "task": true
+    },
+    {
+      "name": "createCSMCase",
+      "summary": "Creates a new CSM case.",
+      "description": "Creates a new CSM case.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query to use to filter the result set.",
+          "required": true,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createCSMCase"
+      },
+      "task": true
+    },
+    {
+      "name": "updateCSMCase",
+      "summary": "Updates the specified existing CSM case with the passed-in parameters.",
+      "description": "Updates the specified existing CSM case with the passed-in parameters.",
+      "input": [
+        {
+          "name": "id",
+          "type": "string",
+          "info": "Unique identifier (sys_id) of the case to retrieve; located in the Case [sn_customerservice_case] table.",
+          "required": true,
+          "schema": {
+            "title": "id",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateCSMCase"
+      },
+      "task": true
+    },
+    {
+      "name": "getCSMConsumer",
+      "summary": "Retrieves the specified CSM consumer record.",
+      "description": "Retrieves the specified CSM consumer record.",
+      "input": [
+        {
+          "name": "id",
+          "type": "string",
+          "info": "Unique identifier (sys_id) of the account to retrieve; located in the Customer [customer_account] table.",
+          "required": true,
+          "schema": {
+            "title": "id",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getCSMConsumer"
+      },
+      "task": true
+    },
+    {
+      "name": "queryCSMConsumers",
+      "summary": "Retrieves a specified set of CSM consumer records.",
+      "description": "Retrieves a specified set of CSM consumer records.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query to use to filter the result set.",
+          "required": true,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/queryCSMConsumers"
+      },
+      "task": true
+    },
+    {
+      "name": "createCSMConsumer",
+      "summary": "Creates a new CSM consumer.",
+      "description": "Creates a new CSM consumer.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query to use to filter the result set.",
+          "required": true,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createCSMConsumer"
+      },
+      "task": true
+    },
+    {
+      "name": "getCSMContact",
+      "summary": "Retrieves the specified CSM contact.",
+      "description": "Retrieves the specified CSM contact.",
+      "input": [
+        {
+          "name": "id",
+          "type": "string",
+          "info": "Unique identifier (sys_id) of the account to retrieve; located in the Customer [customer_account] table.",
+          "required": true,
+          "schema": {
+            "title": "id",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getCSMContact"
+      },
+      "task": true
+    },
+    {
+      "name": "queryCSMContacts",
+      "summary": "Retrieves a specified set of CSM contacts.",
+      "description": "Retrieves a specified set of CSM contacts.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query to use to filter the result set.",
+          "required": true,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/queryCSMContacts"
+      },
+      "task": true
+    },
+    {
+      "name": "createCSMContact",
+      "summary": "Creates a new CSM contact.",
+      "description": "Creates a new CSM contact.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "Encoded query to use to filter the result set",
+          "required": true,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createCSMContact"
+      },
+      "task": true
+    },
+    {
+      "name": "getServiceCatalogs",
+      "summary": "Retrieves a list of catalogs to which the user has access based on the passed in parameters.",
+      "description": "Retrieves a list of catalogs to which the user has access based on the passed in parameters.",
+      "input": [
+        {
+          "name": "sysparmLimit",
+          "type": "number",
+          "info": "Maximum number of records to return. Unusually large sysparm_limit values can impact system performance.",
+          "required": true,
+          "schema": {
+            "title": "sysparmLimit",
+            "type": "number"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getServiceCatalogs"
+      },
+      "task": true
+    },
+    {
+      "name": "getServiceCatalogById",
+      "summary": "Retrieves the available information for a specified catalog.",
+      "description": "Retrieves the available information for a specified catalog.",
+      "input": [
+        {
+          "name": "sysparmLimit",
+          "type": "number",
+          "info": "Maximum number of records to return. Unusually large sysparm_limit values can impact system performance.",
+          "required": true,
+          "schema": {
+            "title": "sysparmLimit",
+            "type": "number"
+          }
+        },
+        {
+          "name": "catalogId",
+          "type": "number",
+          "info": "Unique identifier of the catalog to retrieve.",
+          "required": true,
+          "schema": {
+            "title": "catalogId",
+            "type": "number"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getServiceCatalogById"
+      },
+      "task": true
+    },
+    {
+      "name": "getServiceCatalogCategoryInformation",
+      "summary": "Retrieves the available information for a specified category.",
+      "description": "Retrieves the available information for a specified category.",
+      "input": [
+        {
+          "name": "sysparmLimit",
+          "type": "number",
+          "info": "Maximum number of records to return. Unusually large sysparm_limit values can impact system performance.",
+          "required": true,
+          "schema": {
+            "title": "sysparmLimit",
+            "type": "number"
+          }
+        },
+        {
+          "name": "catalogId",
+          "type": "number",
+          "info": "Unique identifier of the catalog to retrieve.",
+          "required": true,
+          "schema": {
+            "title": "catalogId",
+            "type": "number"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getServiceCatalogCategoryInformation"
+      },
+      "task": true
+    },
+    {
+      "name": "getServiceCatalogCategories",
+      "summary": "Retrieves the list of available categories for the specified catalog.",
+      "description": "Retrieves the list of available categories for the specified catalog.",
+      "input": [
+        {
+          "name": "sysparmLimit",
+          "type": "number",
+          "info": "Maximum number of records to return. Unusually large sysparm_limit values can impact system performance.",
+          "required": true,
+          "schema": {
+            "title": "sysparmLimit",
+            "type": "number"
+          }
+        },
+        {
+          "name": "catalogId",
+          "type": "number",
+          "info": "Unique identifier of the catalog to retrieve.",
+          "required": true,
+          "schema": {
+            "title": "catalogId",
+            "type": "number"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getServiceCatalogCategories"
+      },
+      "task": true
+    },
+    {
+      "name": "getServiceCatalogItems",
+      "summary": "Retrieves a list of catalog items based on the specified parameters.",
+      "description": "Retrieves a list of catalog items based on the specified parameters.",
+      "input": [
+        {
+          "name": "sysparmLimit",
+          "type": "number",
+          "info": "Maximum number of records to return. Unusually large sysparm_limit values can impact system performance.",
+          "required": true,
+          "schema": {
+            "title": "sysparmLimit",
+            "type": "number"
+          }
+        },
+        {
+          "name": "sysparmCatalog",
+          "type": "string",
+          "info": "Catalog sys_id of the item. Use this parameter to locate items in a specific catalog.",
+          "required": false,
+          "schema": {
+            "title": "sysparmCatalog",
+            "type": "string"
+          }
+        },
+        {
+          "name": "sysparmCategory",
+          "type": "string",
+          "info": "Category sys_id of the item. Use this parameter to locate catalog items in a specific category.",
+          "required": false,
+          "schema": {
+            "title": "sysparmCategory",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getServiceCatalogItems"
+      },
+      "task": true
+    },
+    {
+      "name": "getServiceCatalogItemById",
+      "summary": "Retrieves a specified catalog item.",
+      "description": "Retrieves a specified catalog item.",
+      "input": [
+        {
+          "name": "sysparmLimit",
+          "type": "number",
+          "info": "Maximum number of records to return. Unusually large sysparm_limit values can impact system performance.",
+          "required": true,
+          "schema": {
+            "title": "sysparmLimit",
+            "type": "number"
+          }
+        },
+        {
+          "name": "catalogId",
+          "type": "number",
+          "info": "Unique identifier of the catalog to retrieve.",
+          "required": true,
+          "schema": {
+            "title": "catalogId",
+            "type": "number"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getServiceCatalogItemById"
+      },
+      "task": true
+    },
+    {
+      "name": "addItemToCart",
+      "summary": "Adds the specified item to the cart of the current user.",
+      "description": "Adds the specified item to the cart of the current user.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "Unique id of the item to add to the current cart.",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/addItemToCart"
+      },
+      "task": true
+    },
+    {
+      "name": "getServiceCatalogOrderItems",
+      "summary": "Retrieves a list of items based on the needs described for an order guide.",
+      "description": "Retrieves a list of items based on the needs described for an order guide.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "Unique id of the item to add to the current cart.",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getServiceCatalogOrderItems"
+      },
+      "task": true
+    },
+    {
+      "name": "createServiceCatalogRecordGuide",
+      "summary": "Creates a record and returns the Table API relative path and redirect URL to access the created record.",
+      "description": "Creates a record and returns the Table API relative path and redirect URL to access the created record.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "Unique id of the item to add to the current cart.",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createServiceCatalogRecordGuide"
+      },
+      "task": true
+    },
+    {
+      "name": "getServiceCatalogCheckoutInformation",
+      "summary": "Retrieves an array of contents requested for checkout.",
+      "description": "Retrieves an array of contents requested for checkout.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "Unique id of the item to add to the current cart.",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getServiceCatalogCheckoutInformation"
+      },
+      "task": true
+    },
+    {
+      "name": "orderNowServiceCatalog",
+      "summary": "Orders the specified catalog item.",
+      "description": "Orders the specified catalog item.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "Unique id of the item to add to the current cart.",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/orderNowServiceCatalog"
+      },
+      "task": true
+    },
+    {
+      "name": "getServiceCatalogCart",
+      "summary": "Retrieves the details of the items within the logged in user's cart.",
+      "description": "Retrieves the details of the items within the logged in user's cart.",
+      "input": [],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "GET",
+        "path": "/getServiceCatalogCart"
+      },
+      "task": true
+    },
+    {
+      "name": "getServiceCatalogUserDeliveryAddress",
+      "summary": "Retrieves the shipping address of the specified user.",
+      "description": "Retrieves the shipping address of the specified user.",
+      "input": [
+        {
+          "name": "userId",
+          "type": "string",
+          "info": "Unique sys_id of the user whose shipping address is to be retrieved.",
+          "required": true,
+          "schema": {
+            "title": "userId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getServiceCatalogUserDeliveryAddress"
+      },
+      "task": true
+    },
+    {
+      "name": "updateServiceCatalogCart",
+      "summary": "Updates the specified item in the logged in user's cart.",
+      "description": "Updates the specified item in the logged in user's cart.",
+      "input": [
+        {
+          "name": "cartItemId",
+          "type": "string",
+          "info": "Unique identifier of the cart item to update.",
+          "required": true,
+          "schema": {
+            "title": "cartItemId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "bodyFormData",
+          "type": "string",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "bodyFormData",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateServiceCatalogCart"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteServiceCatalogCartItems",
+      "summary": "Deletes the specified item from the current cart.",
+      "description": "Deletes the specified item from the current cart.",
+      "input": [
+        {
+          "name": "cartItemId",
+          "type": "string",
+          "info": "Unique identifier of the cart item to update.",
+          "required": true,
+          "schema": {
+            "title": "cartItemId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteServiceCatalogCartItems"
+      },
+      "task": true
+    },
+    {
+      "name": "getServiceCatalogDisplayVariable",
+      "summary": "Returns the display value of the specified variable.",
+      "description": "Returns the display value of the specified variable.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "Unique id of the item to add to the current cart.",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getServiceCatalogDisplayVariable"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteServiceCatalogCart",
+      "summary": "Deletes a specified cart, and the contents of the cart.",
+      "description": "Deletes a specified cart, and the contents of the cart. The capabilities of what a user can delete (items and/or cart) depends on the role in which they use to authenticate.",
+      "input": [
+        {
+          "name": "cartId",
+          "type": "number",
+          "info": "Unique identifier of the catalog to retrieve.",
+          "required": true,
+          "schema": {
+            "title": "cartId",
+            "type": "number"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteServiceCatalogCart"
+      },
+      "task": true
+    },
+    {
+      "name": "checkoutCartServiceCatalog",
+      "summary": "Retrieves and processes the checkout for the current cart based on whether the two-step checkout process is enabled.",
+      "description": "Retrieves and processes the checkout for the current cart based on whether the two-step checkout process is enabled.",
+      "input": [],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "GET",
+        "path": "/checkoutCartServiceCatalog"
+      },
+      "task": true
+    },
+    {
+      "name": "submitOrderServiceCatalog",
+      "summary": "Checks out the user cart, based on the current check-out type (one-step or two-step ).",
+      "description": "Checks out the user cart, based on the current check-out type (one-step or two-step ).",
+      "input": [],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "GET",
+        "path": "/submitOrderServiceCatalog"
+      },
+      "task": true
+    },
+    {
+      "name": "getChangeRequests",
+      "summary": "Returns the changes from the provided ServiceNow instance.",
+      "description": "The function will return all changes that are found unless you provide either the number or the id. In those cases it will return the change(s) that match the specified criteria. If an id is provided, it will be the only criteria utilized.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "E.g. { number: 'CHG12345' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getChangeRequests"
+      },
+      "task": true
+    },
+    {
+      "name": "createChangeRequest",
+      "summary": "Creates a change in the provided ServiceNow instance.",
+      "description": "The function will create the change with the information provided and return the change number for future reference.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to create in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createChangeRequest"
+      },
+      "task": true
+    },
+    {
+      "name": "getChangeRequestById",
+      "summary": "Returns the changes from the provided ServiceNow instance.",
+      "description": "The function will return all changes that are found unless you provide either the number or the id. In those cases it will return the change(s) that match the specified criteria. If an id is provided, it will be the only criteria utilized.",
+      "input": [
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getChangeRequestById"
+      },
+      "task": true
+    },
+    {
+      "name": "updateChangeRequest",
+      "summary": "Updates a change in the provided ServiceNow instance.",
+      "description": "The function will update the specified change with the information provided and return the status of the update.",
+      "input": [
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to update in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateChangeRequest"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteChangeRequest",
+      "summary": "Deletes the specified record from the specified table.",
+      "description": "Deletes the specified record from the specified table.",
+      "input": [
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteChangeRequest"
+      },
+      "task": true
+    },
+    {
+      "name": "getIncidentById",
+      "summary": "Returns the changes from the provided ServiceNow instance.",
+      "description": "Returns the changes from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "incidentId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "incidentId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getIncidentById"
+      },
+      "task": true
+    },
+    {
+      "name": "updateIncident",
+      "summary": "Updates a change in the provided ServiceNow instance.",
+      "description": "The function will update the specified change with the information provided and return the status of the update.",
+      "input": [
+        {
+          "name": "incidentId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "incidentId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to update in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateIncident"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteIncident",
+      "summary": "Deletes the specified record from the specified table.",
+      "description": "Deletes the specified record from the specified table.",
+      "input": [
+        {
+          "name": "incidentId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "incidentId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteIncident"
+      },
+      "task": true
+    },
+    {
+      "name": "getIncidents",
+      "summary": "Returns the Incident from the provided ServiceNow instance.",
+      "description": "Returns the Incident from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "E.g. { number: 'CHG12345' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getIncidents"
+      },
+      "task": true
+    },
+    {
+      "name": "createIncident",
+      "summary": "Creates a change in the provided ServiceNow instance.",
+      "description": "The function will create the change with the information provided and return the change number for future reference.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to create in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createIncident"
+      },
+      "task": true
+    },
+    {
+      "name": "getGroupById",
+      "summary": "Returns the changes from the provided ServiceNow instance.",
+      "description": "Returns the changes from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "groupId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "groupId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getGroupById"
+      },
+      "task": true
+    },
+    {
+      "name": "updateGroup",
+      "summary": "Updates a change in the provided ServiceNow instance.",
+      "description": "The function will update the specified change with the information provided and return the status of the update.",
+      "input": [
+        {
+          "name": "groupId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "groupId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to update in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateGroup"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteGroup",
+      "summary": "Deletes the specified record from the specified table.",
+      "description": "Deletes the specified record from the specified table.",
+      "input": [
+        {
+          "name": "groupId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "groupId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteGroup"
+      },
+      "task": true
+    },
+    {
+      "name": "getGroups",
+      "summary": "Returns the group from the provided ServiceNow instance.",
+      "description": "Returns the group from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "E.g. { name: 'CHG12345' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getGroups"
+      },
+      "task": true
+    },
+    {
+      "name": "createGroup",
+      "summary": "Creates a change in the provided ServiceNow instance.",
+      "description": "The function will create the change with the information provided and return the change number for future reference.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to create in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createGroup"
+      },
+      "task": true
+    },
+    {
+      "name": "getConfigItemById",
+      "summary": "Returns the changes from the provided ServiceNow instance.",
+      "description": "Returns the changes from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getConfigItemById"
+      },
+      "task": true
+    },
+    {
+      "name": "updateConfigItem",
+      "summary": "Updates a change in the provided ServiceNow instance.",
+      "description": "The function will update the specified change with the information provided and return the status of the update.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to update in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateConfigItem"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteConfigItem",
+      "summary": "Deletes the specified record from the specified table.",
+      "description": "Deletes the specified record from the specified table.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteConfigItem"
+      },
+      "task": true
+    },
+    {
+      "name": "getConfigItems",
+      "summary": "Returns the ConfigItem from the provided ServiceNow instance.",
+      "description": "Returns the ConfigItem from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "E.g. { number: 'CHG12345' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getConfigItems"
+      },
+      "task": true
+    },
+    {
+      "name": "createConfigItem",
+      "summary": "Creates a change in the provided ServiceNow instance.",
+      "description": "The function will create the change with the information provided and return the change number for future reference.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to create in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createConfigItem"
+      },
+      "task": true
+    },
+    {
+      "name": "getArticleById",
+      "summary": "Returns the changes from the provided ServiceNow instance.",
+      "description": "Returns the changes from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "articleId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "articleId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getArticleById"
+      },
+      "task": true
+    },
+    {
+      "name": "updateArticle",
+      "summary": "Updates a change in the provided ServiceNow instance.",
+      "description": "The function will update the specified change with the information provided and return the status of the update.",
+      "input": [
+        {
+          "name": "articleId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "articleId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to update in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateArticle"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteArticle",
+      "summary": "Deletes the specified record from the specified table.",
+      "description": "Deletes the specified record from the specified table.",
+      "input": [
+        {
+          "name": "articleId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "articleId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteArticle"
+      },
+      "task": true
+    },
+    {
+      "name": "getArticles",
+      "summary": "Returns the Article from the provided ServiceNow instance.",
+      "description": "Returns the Article from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "E.g. { number: 'CHG12345' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getArticles"
+      },
+      "task": true
+    },
+    {
+      "name": "createArticle",
+      "summary": "Creates a change in the provided ServiceNow instance.",
+      "description": "The function will create the change with the information provided and return the change number for future reference.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to create in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createArticle"
+      },
+      "task": true
+    },
+    {
+      "name": "getProblemById",
+      "summary": "Returns the changes from the provided ServiceNow instance.",
+      "description": "Returns the changes from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "problemId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "problemId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getProblemById"
+      },
+      "task": true
+    },
+    {
+      "name": "updateProblem",
+      "summary": "Updates a change in the provided ServiceNow instance.",
+      "description": "The function will update the specified change with the information provided and return the status of the update.",
+      "input": [
+        {
+          "name": "problemId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "problemId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to update in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateProblem"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteProblem",
+      "summary": "Deletes the specified record from the specified table.",
+      "description": "Deletes the specified record from the specified table.",
+      "input": [
+        {
+          "name": "problemId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "problemId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteProblem"
+      },
+      "task": true
+    },
+    {
+      "name": "getProblems",
+      "summary": "Returns the Problem from the provided ServiceNow instance.",
+      "description": "Returns the Problem from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "E.g. { number: 'CHG12345' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getProblems"
+      },
+      "task": true
+    },
+    {
+      "name": "createProblem",
+      "summary": "Creates a change in the provided ServiceNow instance.",
+      "description": "The function will create the change with the information provided and return the change number for future reference.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to create in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createProblem"
+      },
+      "task": true
+    },
+    {
+      "name": "getRequestsById",
+      "summary": "Returns the changes from the provided ServiceNow instance.",
+      "description": "Returns the changes from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "requestId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "requestId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getRequestsById"
+      },
+      "task": true
+    },
+    {
+      "name": "updateRequests",
+      "summary": "Updates a change in the provided ServiceNow instance.",
+      "description": "The function will update the specified change with the information provided and return the status of the update.",
+      "input": [
+        {
+          "name": "requestId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "requestId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to update in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateRequests"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteRequests",
+      "summary": "Deletes the specified record from the specified table.",
+      "description": "Deletes the specified record from the specified table.",
+      "input": [
+        {
+          "name": "requestId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "requestId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteRequests"
+      },
+      "task": true
+    },
+    {
+      "name": "getRequests",
+      "summary": "Returns the Requests from the provided ServiceNow instance.",
+      "description": "Returns the Requests from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "E.g. { number: 'CHG12345' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getRequests"
+      },
+      "task": true
+    },
+    {
+      "name": "createRequests",
+      "summary": "Creates a change in the provided ServiceNow instance.",
+      "description": "The function will create the change with the information provided and return the change number for future reference.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to create in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createRequests"
+      },
+      "task": true
+    },
+    {
+      "name": "getRequestItemsById",
+      "summary": "Returns the changes from the provided ServiceNow instance.",
+      "description": "Returns the changes from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getRequestItemsById"
+      },
+      "task": true
+    },
+    {
+      "name": "updateRequestItems",
+      "summary": "Updates a change in the provided ServiceNow instance.",
+      "description": "The function will update the specified change with the information provided and return the status of the update.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to update in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateRequestItems"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteRequestItems",
+      "summary": "Deletes the specified record from the specified table.",
+      "description": "Deletes the specified record from the specified table.",
+      "input": [
+        {
+          "name": "itemId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "itemId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteRequestItems"
+      },
+      "task": true
+    },
+    {
+      "name": "getRequestItems",
+      "summary": "Returns the RequestItems from the provided ServiceNow instance.",
+      "description": "Returns the RequestItems from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "E.g. { number: 'CHG12345' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getRequestItems"
+      },
+      "task": true
+    },
+    {
+      "name": "createRequestItems",
+      "summary": "Creates a change in the provided ServiceNow instance.",
+      "description": "The function will create the change with the information provided and return the change number for future reference.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to create in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createRequestItems"
+      },
+      "task": true
+    },
+    {
+      "name": "getUsersById",
+      "summary": "Returns the changes from the provided ServiceNow instance.",
+      "description": "Returns the changes from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "userId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "userId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getUsersById"
+      },
+      "task": true
+    },
+    {
+      "name": "updateUsers",
+      "summary": "Updates a change in the provided ServiceNow instance.",
+      "description": "The function will update the specified change with the information provided and return the status of the update.",
+      "input": [
+        {
+          "name": "userId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "userId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to update in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/updateUsers"
+      },
+      "task": true
+    },
+    {
+      "name": "deleteUsers",
+      "summary": "Deletes the specified record from the specified table.",
+      "description": "Deletes the specified record from the specified table.",
+      "input": [
+        {
+          "name": "userId",
+          "type": "string",
+          "info": "the id of the change to retrieve. aka sys_id",
+          "required": true,
+          "schema": {
+            "title": "userId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/deleteUsers"
+      },
+      "task": true
+    },
+    {
+      "name": "getUsers",
+      "summary": "Returns the Users from the provided ServiceNow instance.",
+      "description": "Returns the Users from the provided ServiceNow instance.",
+      "input": [
+        {
+          "name": "sysparmQuery",
+          "type": "object",
+          "info": "E.g. { name: 'username' }",
+          "required": false,
+          "schema": {
+            "title": "sysparmQuery",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getUsers"
+      },
+      "task": true
+    },
+    {
+      "name": "createUsers",
+      "summary": "Creates a change in the provided ServiceNow instance.",
+      "description": "The function will create the change with the information provided and return the change number for future reference.",
+      "input": [
+        {
+          "name": "body",
+          "type": "object",
+          "info": "the change data to create in ServiceNow",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createUsers"
+      },
+      "task": true
+    },
+    {
+      "name": "getMajorIncident",
+      "summary": "This method retrieves records for communication cards. The cards include total count of each card.",
+      "description": "This method retrieves records for communication cards. The cards include total count of each card.",
+      "input": [
+        {
+          "name": "incidentId",
+          "type": "string",
+          "info": "id of the incident.",
+          "required": true,
+          "schema": {
+            "title": "incidentId",
+            "type": "string"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/getMajorIncident"
+      },
+      "task": true
+    },
+    {
+      "name": "createMajorIncident",
+      "summary": "This method performs UI actions and returns success status on completion of action.",
+      "description": "This method performs UI actions and returns success status on completion of action. The UI actions can be Promote to Major Incident (PROMOTE), Resolve Major Incident (RESOLVE), Close Major Incident (CLOSE), Reject Major Incident (REJECT), Create New Major Incident (CREATE_NEW_MI), or Refresh Impacted Services (REFRESH_IMPACTED_SERVICES).",
+      "input": [
+        {
+          "name": "incidentId",
+          "type": "string",
+          "info": "id of the incident.",
+          "required": true,
+          "schema": {
+            "title": "incidentId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "info": "",
+          "required": true,
+          "schema": {
+            "title": "body",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createMajorIncident"
+      },
+      "task": true
+    },
+    {
+      "name": "createChangeRequestRiskAssessment",
+      "summary": "Creates a change request risk assessment",
+      "description": "Creates a change request risk assessment",
+      "input": [
+        {
+          "name": "riskAssessment",
+          "type": "object",
+          "info": "The Change Request Risk Assessment",
+          "required": true,
+          "schema": {
+            "title": "riskAssessment",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/createChangeRequestRiskAssessment"
+      },
+      "task": true
+    },
+    {
+      "name": "autoApproveChangeRequest",
+      "summary": "auto approve change request",
+      "description": "auto approve change request",
+      "input": [
+        {
+          "name": "changeId",
+          "type": "string",
+          "info": "Unique identifier of the standard change request to approve",
+          "required": true,
+          "schema": {
+            "title": "changeId",
+            "type": "string"
+          }
+        },
+        {
+          "name": "approval",
+          "type": "object",
+          "info": "The Change Request Approval",
+          "required": true,
+          "schema": {
+            "title": "approval",
+            "type": "object"
+          }
+        }
+      ],
+      "output": {
+        "name": "result",
+        "type": "object",
+        "description": "A JSON Object containing status, code and the result",
+        "schema": {
+          "title": "result",
+          "type": "object"
+        }
+      },
+      "roles": [
+        "admin"
+      ],
+      "route": {
+        "verb": "POST",
+        "path": "/autoApproveChangeRequest"
+      },
+      "task": true
+    }
+  ]
+}

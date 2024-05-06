@@ -1,0 +1,109 @@
+{
+  "actions": [
+    {
+      "name": "getIncidentById",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/now/table/incident/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getIncidentById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getIncidents",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/now/table/incident?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getIncidents-default.json"
+        }
+      ]
+    },
+    {
+      "name": "createIncident",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/now/table/incident?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/createIncident-default.json"
+        }
+      ]
+    },
+    {
+      "name": "updateIncident",
+      "protocol": "REST",
+      "method": "PUT",
+      "entitypath": "{base_path}/{version}/now/table/incident/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/updateIncident-default.json"
+        }
+      ]
+    },
+    {
+      "name": "deleteIncident",
+      "protocol": "REST",
+      "method": "DELETE",
+      "entitypath": "{base_path}/{version}/now/table/incident/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "",
+          "mockFile": "mockdatafiles/deleteIncident-default.json"
+        }
+      ]
+    }
+  ]
+}

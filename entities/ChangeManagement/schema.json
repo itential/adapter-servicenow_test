@@ -1,0 +1,82 @@
+{
+  "$id": "ChangeMgmtSchema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "changeStandardTemplateById",
+      "enum": [
+        "changeStandardTemplateById",
+        "getStandardChangeRequest",
+        "getStandardChangeRequestById",
+        "deleteStandardChangeRequestById",
+        "getStandardChangeTemplate",
+        "getStandardChangeTemplateById",
+        "getNormalChangeRequest",
+        "createNormalChangeRequest",
+        "updateNormalChangeRequestById",
+        "getNormalChangeRequestById",
+        "deleteNormalChangeRequestById",
+        "getEmergencyChangeRequest",
+        "createEmergencyChangeRequest",
+        "getEmergencyChangeRequestById",
+        "deleteEmergencyChangeRequestById",
+        "getChangeRequestTask",
+        "createChangeRequestTask",
+        "getChangeTaskByTaskId",
+        "deleteChangeTaskByTaskId",
+        "getChangeRequestConflict",
+        "createChangeRequestConflict",
+        "cancelChangeRequestConflict",
+        "createChangeRequestRiskAssessment",
+        "autoApproveChangeRequest"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "standardChangeTemplateId": {
+      "description": "Unique identifier of the standard change template on which to base the new standard change request (from [std_change_record_producer] table).",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "standard_change_template_id"
+    },
+    "sysparmQuery": {
+      "description": "Encoded query used to filter the result set. e.g. change=CHG123456",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_query"
+    },
+    "id": {
+      "description": "Unique identifier of the standard change request to retrieve from the [change_request] table.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_id"
+    },
+    "taskId": {
+      "description": "Unique identifier of the task to retrieve (from [change_task] table).",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "task_sys_id"
+    }
+  },
+  "definitions": {}
+}

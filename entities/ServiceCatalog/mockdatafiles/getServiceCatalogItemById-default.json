@@ -1,0 +1,149 @@
+{ 
+  "result": { 
+    "sys_id": "011f117a9f3002002920bde8132e7020",
+    "short_description": null,
+    "kb_article": "",
+    "icon": "images/icons/catalog_item.gifx",
+    "description": "<p class=\"p1\"><font size=\"2\"><span class=\"s1\">Request an existing Standard Change Template is made unavailable when it is no longer required or no longer acceptable as a Standard Change.  This will be confirmed by your Change Management team.</span></font></p>",
+    "show_price": false,
+    "mandatory_attachment": false,
+    "request_method": "",
+    "type": "record_producer",
+    "show_quantity": true,
+    "visible_standalone": true,
+    "sys_class_name": "sc_cat_item_producer",
+    "picture": "",
+    "url": "",
+    "content_type": "",
+    "catalogs": [
+      {
+        "sys_id": "e0d08b13c3330100c8b837659bba8fb4",
+        "active": true,
+        "title": "Service Catalog"
+      }
+    ],
+    "name": "Retire a Standard Change Template",
+    "show_wishlist": true,
+    "category": {
+      "sys_id": "00728916937002002dcef157b67ffb6d",
+      "title": "Template Management"
+    },
+    "order": 30,
+    "show_delivery_time": true,
+    "categories": [
+      {
+        "sys_id": "b0fdfb01932002009ca87a75e57ffbe9",
+        "active": true,
+        "category": {
+          "sys_id": "00728916937002002dcef157b67ffb6d",
+          "active": true,
+          "title": "Template Management"
+        },
+        "title": "Standard Changes"
+      }
+    ],
+    "variables": [
+      {
+        "macro": "std_chg_retire_rp_buttons",
+        "label": "",
+        "type": 14,
+        "mandatory": false,
+        "displayvalue": "",
+        "friendly_type": "macro",
+        "display_type": "Macro",
+        "render_label": true,
+        "read_only": false,
+        "name": "button_renderer",
+        "attributes": "edge_encryption_enabled=true",
+        "id": "f9637c669f4102002920bde8132e7022",
+        "value": "",
+        "help_text": "",
+        "max_length": 0
+      },
+      {
+        "label": "Template description",
+        "type": 6,
+        "mandatory": true,
+        "displayvalue": "",
+        "friendly_type": "single_line_text",
+        "display_type": "Single Line Text",
+        "render_label": true,
+        "read_only": false,
+        "name": "short_description",
+        "attributes": "edge_encryption_enabled=true",
+        "id": "b9e1a17a9f3002002920bde8132e70e2",
+        "value": "",
+        "help_text": "",
+        "max_length": 0
+      },
+      {
+        "label": "Template to retire",
+        "type": 8,
+        "mandatory": true,
+        "displayvalue": "",
+        "friendly_type": "reference",
+        "display_type": "Reference",
+        "reference": "std_change_record_producer",
+        "render_label": true,
+        "ref_qualifier": "retired=false^EQ",
+        "read_only": false,
+        "name": "std_change_producer",
+        "attributes": "edge_encryption_enabled=true",
+        "id": "4741a17a9f3002002920bde8132e709c",
+        "value": "",
+        "help_text": "",
+        "max_length": 0
+      },
+      {
+        "label": "Business justification",
+        "type": 2,
+        "mandatory": false,
+        "displayvalue": "",
+        "friendly_type": "multi_line_text",
+        "display_type": "Multi Line Text",
+        "render_label": true,
+        "read_only": false,
+        "name": "business_justification",
+        "attributes": "edge_encryption_enabled=true",
+        "id": "f012a0439f3002002920bde8132e705b",
+        "value": "",
+        "help_text": "",
+        "max_length": 0
+      },
+      {
+        "label": "State",
+        "type": 6,
+        "mandatory": false,
+        "displayvalue": "",
+        "friendly_type": "single_line_text",
+        "display_type": "Single Line Text",
+        "render_label": true,
+        "read_only": false,
+        "name": "state",
+        "attributes": "edge_encryption_enabled=true",
+        "id": "7da6fc669f4102002920bde8132e70b5",
+        "value": "",
+        "help_text": "",
+        "max_length": 0
+      }
+    ],
+    "ui_policy": [],
+    "client_script": {
+      "onChange": [],
+      "onSubmit": [],
+      "onLoad": [
+        {
+          "appliesTo": "item",
+          "condition": "",
+          "type": "onLoad",
+          "script": "function onLoad() {\n\tvar stdChangeProducerSysId = getParmVal('std_change_producer');\n\tif (stdChangeProducerSysId) {\n\t\tg_form.setValue('variables.std_change_producer', stdChangeProducerSysId);\n\t}\n}\nfunction getParmVal(name) {\nname = name.replace(/[\\[]/, \"\\\\\\[\").replace(/[\\]]/, \"\\\\\\]\");\n\tvar regexS = \"[\\\\?&]\" + name + \"=([^&#]*)\";\n\tvar regex = new RegExp(regexS);\n\tvar results = regex.exec(window.location.href);\n\tif (results) {\n\t\treturn unescape(results[1]);\n\t} else {\n\t\treturn '';\n\t}\n}\n",
+          "fieldName": "",
+          "variable_set": "",
+          "ui_type": "Desktop",
+          "sys_id": "9b30f0529f8102002920bde8132e7013"
+        }
+      ]
+    },
+    "data_lookup": []
+  }
+}

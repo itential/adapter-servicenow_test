@@ -1,0 +1,310 @@
+{ 
+  "result": { 
+    "sys_id": {
+      "display_value": "dea0a107db840010a704fe1b68961909",
+      "value": "dea0a107db840010a704fe1b68961909"
+    },
+    "parent": {
+      "display_value": "CHG0030026",
+      "value": "81a06107db840010a704fe1b68961974"
+    },
+    "planned_end_date": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "made_sla": {
+      "display_value": "true",
+      "value": true
+    },
+    "watch_list": {
+      "display_value": "",
+      "value": ""
+    },
+    "upon_reject": {
+      "display_value": "Cancel all future Tasks",
+      "value": "cancel"
+    },
+    "sys_updated_on": {
+      "display_value": "2019-09-26 18:42:32",
+      "value": "2019-09-27 01:42:32",
+      "display_value_internal": "2019-09-26 18:42:32"
+    },
+    "approval_history": {
+      "display_value": "",
+      "value": ""
+    },
+    "number": {
+      "display_value": "CTASK0010001",
+      "value": "CTASK0010001"
+    },
+    "sys_updated_by": {
+      "display_value": "admin",
+      "value": "admin"
+    },
+    "opened_by": {
+      "display_value": "System Administrator",
+      "value": "6816f79cc0a8016401c5a33be04be441"
+    },
+    "user_input": {
+      "display_value": "",
+      "value": ""
+    },
+    "sys_created_on": {
+      "display_value": "2019-09-26 18:42:32",
+      "value": "2019-09-27 01:42:32",
+      "display_value_internal": "2019-09-26 18:42:32"
+    },
+    "sys_domain": {
+      "display_value": "global",
+      "value": "global"
+    },
+    "state": {
+      "display_value": "Open",
+      "value": 1
+    },
+    "sys_created_by": {
+      "display_value": "admin",
+      "value": "admin"
+    },
+    "knowledge": {
+      "display_value": "false",
+      "value": false
+    },
+    "order": {
+      "display_value": "",
+      "value": ""
+    },
+    "closed_at": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "cmdb_ci": {
+      "display_value": "",
+      "value": ""
+    },
+    "delivery_plan": {
+      "display_value": "",
+      "value": ""
+    },
+    "impact": {
+      "display_value": "3 - Low",
+      "value": 3
+    },
+    "active": {
+      "display_value": "true",
+      "value": true
+    },
+    "work_notes_list": {
+      "display_value": "",
+      "value": ""
+    },
+    "business_service": {
+      "display_value": "",
+      "value": ""
+    },
+    "priority": {
+      "display_value": "4 - Low",
+      "value": 4
+    },
+    "sys_domain_path": {
+      "display_value": "/",
+      "value": "/"
+    },
+    "time_worked": {
+      "display_value": "",
+      "value": ""
+    },
+    "rejection_goto": {
+      "display_value": "",
+      "value": ""
+    },
+    "expected_start": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "opened_at": {
+      "display_value": "2019-09-26 18:42:32",
+      "value": "2019-09-27 01:42:32",
+      "display_value_internal": "2019-09-26 18:42:32"
+    },
+    "business_duration": {
+      "display_value": "",
+      "value": ""
+    },
+    "group_list": {
+      "display_value": "",
+      "value": ""
+    },
+    "work_end": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "planned_start_date": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "approval_set": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "wf_activity": {
+      "display_value": "",
+      "value": ""
+    },
+    "work_notes": {
+      "display_value": "",
+      "value": ""
+    },
+    "short_description": {
+      "display_value": "",
+      "value": ""
+    },
+    "close_code": {
+      "display_value": "",
+      "value": ""
+    },
+    "correlation_display": {
+      "display_value": "",
+      "value": ""
+    },
+    "delivery_task": {
+      "display_value": "",
+      "value": ""
+    },
+    "work_start": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "assignment_group": {
+      "display_value": "",
+      "value": ""
+    },
+    "additional_assignee_list": {
+      "display_value": "",
+      "value": ""
+    },
+    "description": {
+      "display_value": "",
+      "value": ""
+    },
+    "on_hold_reason": {
+      "display_value": "",
+      "value": ""
+    },
+    "calendar_duration": {
+      "display_value": "",
+      "value": ""
+    },
+    "sys_class_name": {
+      "display_value": "Change Task",
+      "value": "change_task"
+    },
+    "close_notes": {
+      "display_value": "",
+      "value": ""
+    },
+    "closed_by": {
+      "display_value": "",
+      "value": ""
+    },
+    "follow_up": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "contact_type": {
+      "display_value": "",
+      "value": ""
+    },
+    "urgency": {
+      "display_value": "3 - Low",
+      "value": 3
+    },
+    "company": {
+      "display_value": "",
+      "value": ""
+    },
+    "reassignment_count": {
+      "display_value": "0",
+      "value": 0
+    },
+    "activity_due": {
+      "display_value": "UNKNOWN",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "assigned_to": {
+      "display_value": "",
+      "value": ""
+    },
+    "variables": {
+      "display_value": "variable_pool",
+      "value": "variable_pool"
+    },
+    "comments": {
+      "display_value": "",
+      "value": ""
+    },
+    "sla_due": {
+      "display_value": "UNKNOWN",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "approval": {
+      "display_value": "Not Yet Requested",
+      "value": "not requested"
+    },
+    "comments_and_work_notes": {
+      "display_value": "",
+      "value": ""
+    },
+    "due_date": {
+      "display_value": "",
+      "value": "",
+      "display_value_internal": ""
+    },
+    "on_hold": {
+      "display_value": "false",
+      "value": false
+    },
+    "sys_tags": {
+      "display_value": "",
+      "value": ""
+    },
+    "escalation": {
+      "display_value": "Normal",
+      "value": 0
+    },
+    "upon_approval": {
+      "display_value": "Proceed to Next Task",
+      "value": "proceed"
+    },
+    "correlation_id": {
+      "display_value": "",
+      "value": ""
+    },
+    "change_task_type": {
+      "display_value": "Planning",
+      "value": "planning"
+    },
+    "location": {
+      "display_value": "",
+      "value": ""
+    },
+    "created_from": {
+      "display_value": "Manual",
+      "value": "manual"
+    },
+    "change_request": {
+      "display_value": "CHG0030026",
+      "value": "81a06107db840010a704fe1b68961974"
+    }
+  }
+}

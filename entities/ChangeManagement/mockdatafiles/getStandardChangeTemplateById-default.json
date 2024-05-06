@@ -1,0 +1,322 @@
+{ 
+  "result": { 
+    "sys_id": {
+      "display_value": "508e02ec47410200e90d87e8dee49058",
+      "value": "508e02ec47410200e90d87e8dee49058"
+    },
+    "entitlement_script": {
+      "display_value": "",
+      "value": ""
+    },
+    "use_sc_layout": {
+      "display_value": "true",
+      "value": true
+    },
+    "show_variable_help_on_load": {
+      "display_value": "false",
+      "value": false
+    },
+    "no_order_now": {
+      "display_value": "false",
+      "value": false
+    },
+    "sc_ic_version": {
+      "display_value": "",
+      "value": ""
+    },
+    "delivery_time": {
+      "display_value": "2 Days",
+      "value": "1970-01-03 00:00:00"
+    },
+    "sys_updated_on": {
+      "display_value": "2018-05-18 05:42:59",
+      "value": "2018-05-18 12:42:59",
+      "display_value_internal": "2018-05-18 05:42:59"
+    },
+    "type": {
+      "display_value": "Item",
+      "value": "item"
+    },
+    "table_name": {
+      "display_value": "change_request",
+      "value": "change_request"
+    },
+    "view": {
+      "display_value": "",
+      "value": ""
+    },
+    "no_search": {
+      "display_value": "false",
+      "value": false
+    },
+    "sys_updated_by": {
+      "display_value": "admin",
+      "value": "admin"
+    },
+    "price": {
+      "display_value": "$0.00",
+      "value": "0"
+    },
+    "sys_created_on": {
+      "display_value": "2015-07-01 03:11:36",
+      "value": "2015-07-01 10:11:36",
+      "display_value_internal": "2015-07-01 03:11:36"
+    },
+    "recurring_frequency": {
+      "display_value": "",
+      "value": ""
+    },
+    "sys_name": {
+      "display_value": "Add network switch to datacenter cabinet",
+      "value": "Add network switch to datacenter cabinet"
+    },
+    "model": {
+      "display_value": "",
+      "value": ""
+    },
+    "unsuccessful_change_count": {
+      "display_value": "0",
+      "value": 0
+    },
+    "no_cart": {
+      "display_value": "false",
+      "value": false
+    },
+    "sys_created_by": {
+      "display_value": "Change.Manager",
+      "value": "Change.Manager"
+    },
+    "group": {
+      "display_value": "",
+      "value": ""
+    },
+    "order": {
+      "display_value": "0",
+      "value": 0
+    },
+    "hide_sp": {
+      "display_value": "false",
+      "value": false
+    },
+    "start_closed": {
+      "display_value": "false",
+      "value": false
+    },
+    "image": {
+      "display_value": "",
+      "value": ""
+    },
+    "no_quantity": {
+      "display_value": "false",
+      "value": false
+    },
+    "workflow": {
+      "display_value": "",
+      "value": ""
+    },
+    "delivery_plan": {
+      "display_value": "DEFAULT",
+      "value": "523da512c611228900811a37c97c2014"
+    },
+    "active": {
+      "display_value": "true",
+      "value": true
+    },
+    "no_proceed_checkout": {
+      "display_value": "false",
+      "value": false
+    },
+    "custom_cart": {
+      "display_value": "",
+      "value": ""
+    },
+    "no_cart_v2": {
+      "display_value": "false",
+      "value": false
+    },
+    "script": {
+      "display_value": "current.std_change_producer_version= \"a08e02ec47410200e90d87e8dee4905a\"; current.type= \"standard\";",
+      "value": "current.std_change_producer_version= \"a08e02ec47410200e90d87e8dee4905a\"; current.type= \"standard\";"
+    },
+    "ignore_price": {
+      "display_value": "true",
+      "value": true
+    },
+    "meta": {
+      "display_value": "",
+      "value": ""
+    },
+    "omit_price": {
+      "display_value": "false",
+      "value": false
+    },
+    "name": {
+      "display_value": "Add network switch to datacenter cabinet",
+      "value": "Add network switch to datacenter cabinet"
+    },
+    "mobile_hide_price": {
+      "display_value": "false",
+      "value": false
+    },
+    "redirect_url": {
+      "display_value": "",
+      "value": ""
+    },
+    "no_wishlist_v2": {
+      "display_value": "false",
+      "value": false
+    },
+    "template": {
+      "display_value": "Add network switch to datacenter cabinet",
+      "value": "1c8e02ec47410200e90d87e8dee49057"
+    },
+    "preview": {
+      "display_value": "JavaScript: popupOpenStandard(\"com.glideapp.servicecatalog_cat_item_view.do?v=1&sysparm_id=508e02ec47410200e90d87e8dee49058&sysparm_preview=true\", \"summary\");",
+      "value": "JavaScript: popupOpenStandard(\"com.glideapp.servicecatalog_cat_item_view.do?v=1&sysparm_id=508e02ec47410200e90d87e8dee49058&sysparm_preview=true\", \"summary\");"
+    },
+    "short_description": {
+      "display_value": "This standard change template describes adding a new network switch to a datacenter cabinet",
+      "value": "This standard change template describes adding a new network switch to a datacenter cabinet"
+    },
+    "percent_successful": {
+      "display_value": "",
+      "value": ""
+    },
+    "roles": {
+      "display_value": "",
+      "value": ""
+    },
+    "icon": {
+      "display_value": "",
+      "value": ""
+    },
+    "can_cancel": {
+      "display_value": "false",
+      "value": false
+    },
+    "description": {
+      "display_value": "",
+      "value": ""
+    },
+    "mobile_picture": {
+      "display_value": "",
+      "value": ""
+    },
+    "closed_change_count": {
+      "display_value": "1",
+      "value": 1
+    },
+    "availability": {
+      "display_value": "Desktop Only",
+      "value": "on_desktop"
+    },
+    "mandatory_attachment": {
+      "display_value": "false",
+      "value": false
+    },
+    "request_method": {
+      "display_value": "",
+      "value": ""
+    },
+    "visible_standalone": {
+      "display_value": "true",
+      "value": true
+    },
+    "visible_guide": {
+      "display_value": "true",
+      "value": true
+    },
+    "sys_class_name": {
+      "display_value": "Standard Change Template",
+      "value": "std_change_record_producer"
+    },
+    "no_order": {
+      "display_value": "false",
+      "value": false
+    },
+    "vendor": {
+      "display_value": "",
+      "value": ""
+    },
+    "no_attachment_v2": {
+      "display_value": "false",
+      "value": false
+    },
+    "mobile_picture_type": {
+      "display_value": "Desktop",
+      "value": "use_desktop_picture"
+    },
+    "retired": {
+      "display_value": "false",
+      "value": false
+    },
+    "visible_bundle": {
+      "display_value": "true",
+      "value": true
+    },
+    "sc_catalogs": {
+      "display_value": "Service Catalog",
+      "value": "e0d08b13c3330100c8b837659bba8fb4"
+    },
+    "ordered_item_link": {
+      "display_value": "",
+      "value": ""
+    },
+    "no_delivery_time_v2": {
+      "display_value": "false",
+      "value": false
+    },
+    "cost": {
+      "display_value": "0",
+      "value": 0
+    },
+    "no_quantity_v2": {
+      "display_value": "false",
+      "value": false
+    },
+    "current_version": {
+      "display_value": "Add network switch to datacenter cabinet - 1",
+      "value": "a08e02ec47410200e90d87e8dee4905a"
+    },
+    "post_insert_script": {
+      "display_value": "",
+      "value": ""
+    },
+    "recurring_price": {
+      "display_value": "$0.00",
+      "value": "0"
+    },
+    "sc_ic_item_staging": {
+      "display_value": "",
+      "value": ""
+    },
+    "list_price": {
+      "display_value": "$0.00",
+      "value": "0"
+    },
+    "sys_tags": {
+      "display_value": "",
+      "value": ""
+    },
+    "billable": {
+      "display_value": "false",
+      "value": false
+    },
+    "picture": {
+      "display_value": "",
+      "value": ""
+    },
+    "delivery_plan_script": {
+      "display_value": "",
+      "value": ""
+    },
+    "location": {
+      "display_value": "",
+      "value": ""
+    },
+    "category": {
+      "display_value": "Network Standard Changes",
+      "value": "abbcbbbf47700200e90d87e8dee49041"
+    }
+  }
+}

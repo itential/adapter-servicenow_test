@@ -1,0 +1,161 @@
+{
+  "$id": "incidentSchema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "getIncidentById",
+      "enum": [
+        "getIncidentById",
+        "updateIncident",
+        "deleteIncident",
+        "getIncidents",
+        "createIncident"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "id": {
+      "type": "string",
+      "description": "the unique id for the Incident",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_id"
+    },
+    "number": {
+      "type": "string",
+      "description": "the number for the Incident",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "number"
+    },
+    "summary": {
+      "type": "string",
+      "description": "the summary for the Incident",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "short_description"
+    },
+    "current_state": {
+      "type": "string",
+      "description": "the current state of the Incident",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "incident_state"
+    },
+    "created_on": {
+      "type": "string",
+      "description": "when the Incident was created",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_created_on"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "who the Incident was created by",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_created_by"
+    },
+    "updated_on": {
+      "type": "string",
+      "description": "when the Incident was last updated",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_updated_on"
+    },
+    "updated_by": {
+      "type": "string",
+      "description": "who the Incident was last updated by",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_updated_by"
+    },
+    "resolve_category": {
+      "type": "string",
+      "description": "the resolution category of the Incident",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "close_code"
+    },
+    "resolution": {
+      "type": "string",
+      "description": "how the Incident was resolved",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "close_notes"
+    },
+    "sysparmQuery": {
+      "description": "E.g. number=CHG12345",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_query"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "ph_request_type": {
+            "enum": [
+              "createIncident"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "summary"
+        ]
+      }
+    }
+  ],
+  "definitions": {}
+}

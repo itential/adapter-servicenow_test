@@ -1,0 +1,25 @@
+{
+  "actions": [
+    {
+      "name": "getUserRoles",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/global/user_role_inheritance?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getUserRoles-default.json"
+        }
+      ]
+    }
+  ]
+}

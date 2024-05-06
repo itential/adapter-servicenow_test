@@ -1,0 +1,140 @@
+{
+  "$id": "schema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "getUsersById",
+      "enum": [
+        "getUsersById",
+        "updateUsers",
+        "deleteUsers",
+        "getUsers",
+        "createUsers"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "id": {
+      "type": "string",
+      "description": "the unique id for the User",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_id"
+    },
+    "name": {
+      "type": "string",
+      "description": "the full name for the User",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "name"
+    },
+    "username": {
+      "type": "string",
+      "description": "the username for the User",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "user_name"
+    },
+    "password": {
+      "type": "string",
+      "description": "the password for the User",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "user_password"
+    },
+    "created_on": {
+      "type": "string",
+      "description": "when the Request Item was created",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_created_on"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "who the Request Item was created by",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_created_by"
+    },
+    "updated_on": {
+      "type": "string",
+      "description": "when the Request Item was last updated",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_updated_on"
+    },
+    "updated_by": {
+      "type": "string",
+      "description": "who the Request Item was last updated by",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_updated_by"
+    },
+    "sysparmQuery": {
+      "description": "E.g. name=username",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_query"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "ph_request_type": {
+            "enum": [
+              "createUsers"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "username",
+          "password"
+        ]
+      }
+    }
+  ],
+  "definitions": {}
+}

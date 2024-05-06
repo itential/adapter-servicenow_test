@@ -1,0 +1,37 @@
+{
+  "$id": "communicationSchema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "getChannelsForTable",
+      "enum": [
+        "getChannelsForTable",
+        "getChannelsForTableByTaskId",
+        "getCommunicationGroupPlans",
+        "getCommunicationPlans",
+        "manageCommunicationRecipients",
+        "createCommunicationPlan",
+        "createCommunicationTask",
+        "getCommunicationTaskState",
+        "updateCommunicationTask"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "sysparmTable": {
+      "description": "Table name of task.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_table"
+    }
+  },
+  "definitions": {}
+}

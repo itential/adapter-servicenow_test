@@ -1,0 +1,129 @@
+{
+  "name": "adapter-servicenow",
+  "webName": "Adapter for Integration to ServiceNow",
+  "vendor": "ServiceNow",
+  "product": "IT Service Management",
+  "osVersions": [
+    "San Diego",
+    "Tokyo",
+    "Utah",
+    "Vancouver"
+  ],
+  "apiVersions": [],
+  "iapVersions": [
+    "2021.1.x",
+    "2021.2.x",
+    "2022.1.x",
+    "2023.1.x"
+  ],
+  "method": "REST",
+  "type": "Adapter",
+  "domains": [
+    "Inventory",
+    "Discovery & Topology",
+    "ITSM (Service Management)"
+  ],
+  "tags": [
+    "Change Management",
+    "Ticket/Issue Management",
+    "Catalog Request",
+    "Service Requests"
+  ],
+  "useCases": [
+    "Create, update, complete or cancel Change Management Requests",
+    "Create, update, complete or cancel Catalog Request Items",
+    "Create, update, close or cancel tickets/issues for Problems/Solutions during Automations",
+    "Add, update, manage or remove assets to/from CMDB systems",
+    "Update, close, or cancel a Service Order during Automations",
+    "Create and update Knowledge Base Articles"
+  ],
+  "deprecated": {
+    "isDeprecated": false
+  },
+  "brokerSince": "",
+  "documentation": {
+    "storeLink": "",
+    "npmLink": "https://www.npmjs.com/package/@itentialopensource/adapter-servicenow",
+    "repoLink": "https://gitlab.com/itentialopensource/adapters/itsm-testing/adapter-servicenow",
+    "docLink": "https://docs.itential.com/opensource/docs/servicenow",
+    "demoLinks": [
+      {
+        "title": "Getting Real (Time) with Automating Network Change Management With ServiceNow",
+        "link": "https://www.itential.com/blog/getting-real-time-with-automating-network-change-management-with-servicenow/"
+      },
+      {
+        "title": "Integrating ServiceNow CMDB as a Source Of Truth to Drive Network Automation with Itential",
+        "link": "https://www.itential.com/resource/demo/integrating-servicenow-cmdb-as-a-source-of-truth-to-drive-network-automation-with-itential-2/"
+      },
+      {
+        "title": "INTEGRATION - Itential + ServiceNow",
+        "link": "https://www.itential.com/solutions/integrations/servicenow-network-automation/"
+      }
+    ],
+    "trainingLinks": [
+      {
+        "title": "Itential Academy",
+        "link": "https://www.itential.com/itential-academy/"
+      }
+    ],
+    "faqLink": "https://docs.itential.com/opensource/docs/troubleshooting-an-adapter",
+    "contributeLink": "https://gitlab.com/itentialopensource/adapters/contributing-guide",
+    "issueLink": "https://itential.atlassian.net/servicedesk/customer/portals",
+    "webLink": "https://www.itential.com/adapters/servicenow/",
+    "vendorLink": "https://www.servicenow.com/",
+    "productLink": "https://www.servicenow.com/products/itsm.html",
+    "apiLinks": [
+      {
+        "title": "San Diego REST API",
+        "link": "https://developer.servicenow.com/dev.do#!/reference/api/sandiego/rest"
+      },
+      {
+        "title": "Tokyo REST API",
+        "link": "https://developer.servicenow.com/dev.do#!/reference/api/tokyo/rest"
+      },
+      {
+        "title": "Utah REST API",
+        "link": "https://developer.servicenow.com/dev.do#!/reference/api/utah/rest/"
+      },
+      {
+        "title": "Vancouver REST API",
+        "link": "https://developer.servicenow.com/dev.do#!/reference/api/vancouver/rest"
+      }
+    ]
+  },
+  "assets": [],
+  "relatedItems": {
+    "adapters": [],
+    "integrations": [],
+    "ecosystemApplications": [
+      {
+        "name": "Itential ServiceNow App",
+        "webName": "Itential ServiceNow App",
+        "overview": "Start automations in the Itential Platform from ServiceNow",
+        "isDependency": false,
+        "versions": [
+          "^0.1.0"
+        ],
+        "storeLink": "https://store.servicenow.com/sn_appstore_store.do#!/store/application/f2ba728813da041032813092e144b01f",
+        "docLink": "https://docs.itential.com/opensource/docs/servicenow-application",
+        "webLink": ""
+      }
+    ],
+    "workflowProjects": [
+      {
+        "name": "ServiceNow - Now Platform - REST",
+        "webName": "ServiceNow Platform Modular Automations",
+        "overview": "Project with workflows for the Now Platform from ServiceNow",
+        "isDependency": false,
+        "versions": [
+          "^1.0.0"
+        ],
+        "repoLink": "https://gitlab.com/itentialopensource/pre-built-automations/servicenow-now-platform-rest",
+        "docLink": "",
+        "webLink": "https://www.itential.com/automations/servicenow-platform-modular-automations/"
+      }
+    ],
+    "transformationProjects": [],
+    "exampleProjects": []
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "actions": [
+    {
+      "name": "getStandardChangeRequest",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/standard?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getStandardChangeRequest-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getStandardChangeRequestById",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/standard/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getStandardChangeRequestById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "deleteStandardChangeRequestById",
+      "protocol": "REST",
+      "method": "DELETE",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/standard/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "",
+          "mockFile": "mockdatafiles/deleteStandardChangeRequestById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getStandardChangeTemplate",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/standard/template?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getStandardChangeTemplate-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getStandardChangeTemplateById",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/standard/template/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getStandardChangeTemplateById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "changeStandardTemplateById",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/standard/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/changeStandardTemplateById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getNormalChangeRequest",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/normal?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getNormalChangeRequest-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getNormalChangeRequestById",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/normal/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getNormalChangeRequestById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "createNormalChangeRequest",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/normal?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/createNormalChangeRequest-default.json"
+        }
+      ]
+    },
+    {
+      "name": "updateNormalChangeRequestById",
+      "protocol": "REST",
+      "method": "PATCH",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/normal/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "",
+          "mockFile": "mockdatafiles/deleteNormalChangeRequestById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "deleteNormalChangeRequestById",
+      "protocol": "REST",
+      "method": "DELETE",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/normal/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "",
+          "mockFile": "mockdatafiles/deleteNormalChangeRequestById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getEmergencyChangeRequest",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/emergency?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getEmergencyChangeRequest-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getEmergencyChangeRequestById",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/emergency/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getEmergencyChangeRequestById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "createEmergencyChangeRequest",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/emergency?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/createEmergencyChangeRequest-default.json"
+        }
+      ]
+    },
+    {
+      "name": "deleteEmergencyChangeRequestById",
+      "protocol": "REST",
+      "method": "DELETE",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/emergency/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "",
+          "mockFile": "mockdatafiles/deleteEmergencyChangeRequestById-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getChangeRequestTask",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/{pathv1}/task?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getChangeRequestTask-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getChangeTaskByTaskId",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/{pathv1}/task/{pathv2}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getChangeTaskByTaskId-default.json"
+        }
+      ]
+    },
+    {
+      "name": "createChangeRequestTask",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/{pathv1}/task?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/createChangeRequestTask-default.json"
+        }
+      ]
+    },
+    {
+      "name": "deleteChangeTaskByTaskId",
+      "protocol": "REST",
+      "method": "DELETE",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/{pathv1}/task/{pathv2}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "",
+          "mockFile": "mockdatafiles/deleteChangeTaskByTaskId-default.json"
+        }
+      ]
+    },
+    {
+      "name": "getChangeRequestConflict",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/{pathv1}/conflict?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": "mockdatafiles/getChangeRequestConflict-default.json"
+        }
+      ]
+    },
+    {
+      "name": "createChangeRequestConflict",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/{pathv1}/conflict?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "createschema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "",
+          "mockFile": "mockdatafiles/createChangeRequestConflict-default.json"
+        }
+      ]
+    },
+    {
+      "name": "cancelChangeRequestConflict",
+      "protocol": "REST",
+      "method": "DELETE",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/{pathv1}/conflict?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    },
+    {
+      "name": "createChangeRequestRiskAssessment",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/risk_copy_asmt?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    },
+    {
+      "name": "autoApproveChangeRequest",
+      "protocol": "REST",
+      "method": "PATCH",
+      "entitypath": "{base_path}/{version}/sn_chg_rest/change/{pathv1}/approvals?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    }
+  ]
+}

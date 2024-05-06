@@ -1,0 +1,29 @@
+{
+  "$id": "AnalyticsSchema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "getPerformanceAnalytics",
+      "enum": [
+        "getPerformanceAnalytics"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "sysparmUuid": {
+      "description": "Enter a colon-separated list of sys_id values to specify which indicators, breakdowns, aggregates, and domains to query.",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_uuid"
+    }
+  },
+  "definitions": {}
+}

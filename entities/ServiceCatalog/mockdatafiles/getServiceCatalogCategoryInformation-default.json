@@ -1,0 +1,31 @@
+{ 
+  "result": [
+    {
+      "sys_id": "803e95e1c3732100fca206e939ba8f2a",
+      "title": "Infrastructure",
+      "description": "Datacenter hardware and services to the support business\n\t\t\tsystems.\n\t\t",
+      "full_description": null,
+      "icon": "",
+      "header_icon": "",
+      "homepage_image": "16ec37e9471211002ee987e8dee49029.iix",
+      "count": 3,
+      "subcategories": [
+        {
+          "sys_id": "d67c446ec0a80165000335aa37eafbc1",
+          "title": "Services"
+        }
+      ]
+    },
+    {
+      "sys_id": "d67c446ec0a80165000335aa37eafbc1",
+      "title": "Services",
+      "description": "Request for IT services to be performed",
+      "full_description": null,
+      "icon": "ebf96c7d471211002ee987e8dee49015.iix",
+      "header_icon": "",
+      "homepage_image": "942a6c7d471211002ee987e8dee49089.iix",
+      "count": 1,
+      "subcategories": []
+    }
+  ]
+}

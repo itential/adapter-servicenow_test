@@ -1,0 +1,193 @@
+{
+  "actions": [
+    {
+      "name": "getChannelsForTable",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_comm_management/task_communication_management/channels?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    },
+    {
+      "name": "getChannelsForTableByTaskId",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_comm_management/task_communication_management/channels_per_task/{pathv1}/{pathv2}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    },
+    {
+      "name": "getCommunicationGroupPlans",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_comm_management/task_communication_management/communication_detail/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    },
+    {
+      "name": "getCommunicationPlans",
+      "protocol": "REST",
+      "method": "GET",
+      "entitypath": "{base_path}/{version}/sn_comm_management/task_communication_management/groups/{pathv1}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    },
+    {
+      "name": "manageCommunicationRecipients",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_comm_management/task_communication_management/comm_plan/{pathv1}/recipients?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    },
+    {
+      "name": "createCommunicationPlan",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_comm_management/task_communication_management/adhoc/comm_plan?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    },
+    {
+      "name": "getCommunicationTaskState",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_comm_management/task_communication_management/send_updates/{pathv1}/{pathv2}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    },
+    {
+      "name": "createCommunicationTask",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_comm_management/task_communication_management/adhoc/comm_task?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    },
+    {
+      "name": "updateCommunicationTask",
+      "protocol": "REST",
+      "method": "POST",
+      "entitypath": "{base_path}/{version}/sn_comm_management/task_communication_management/update_state_wb_actions/{pathv1}/{pathv2}?{query}",
+      "requestSchema": "schema.json",
+      "responseSchema": "schema.json",
+      "timeout": 0,
+      "sendEmpty": false,
+      "sendGetBody": false,
+      "requestDatatype": "JSON",
+      "responseDatatype": "JSON",
+      "headers": {},
+      "responseObjects": [
+        {
+          "type": "default",
+          "key": "result",
+          "mockFile": ""
+        }
+      ]
+    }
+  ]
+}

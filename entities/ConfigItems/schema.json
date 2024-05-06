@@ -1,0 +1,128 @@
+{
+  "$id": "configItemSchema.json",
+  "type": "object",
+  "schema": "http://json-schema.org/draft-07/schema#",
+  "translate": true,
+  "dynamicfields": true,
+  "properties": {
+    "ph_request_type": {
+      "type": "string",
+      "description": "type of request (internal to adapter)",
+      "default": "getConfigItemById",
+      "enum": [
+        "getConfigItemById",
+        "updateConfigItem",
+        "deleteConfigItem",
+        "getConfigItems",
+        "createConfigItem"
+      ],
+      "external_name": "ph_request_type"
+    },
+    "id": {
+      "type": "string",
+      "description": "the unique id for the Config Item",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_id"
+    },
+    "name": {
+      "type": "string",
+      "description": "the name for the Config Item",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "name"
+    },
+    "summary": {
+      "type": "string",
+      "description": "the summary for the Config Item",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "short_description"
+    },
+    "created_on": {
+      "type": "string",
+      "description": "when the Config Item was created",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_created_on"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "who the Config Item was created by",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_created_by"
+    },
+    "updated_on": {
+      "type": "string",
+      "description": "when the Config Item was last updated",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_updated_on"
+    },
+    "updated_by": {
+      "type": "string",
+      "description": "who the Config Item was last updated by",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sys_updated_by"
+    },
+    "sysparmQuery": {
+      "description": "E.g. number=CHG12345",
+      "parse": false,
+      "encode": false,
+      "encrypt": {
+        "type": "AES",
+        "key": ""
+      },
+      "external_name": "sysparm_query"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "ph_request_type": {
+            "enum": [
+              "createConfigItem"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "name"
+        ]
+      }
+    }
+  ],
+  "definitions": {}
+}
