@@ -62,6 +62,7 @@ Security
 Linting and Testing
 Build an Adapter
 Troubleshooting an Adapter
+
 ```
 
 Others will be added over time.
