@@ -7,8 +7,9 @@ mirror_to_github:
     - git clone --mirror https://gitlab.com/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME.git
     - cd $CI_PROJECT_NAME.git
     - git push --mirror $GITHUB_REPO_URL
-only:
-- master  # Only run on changes to the master branch
+  only:
+  - master  
+# Only run on changes to the master branch
   #only:
    # - schedules
 
