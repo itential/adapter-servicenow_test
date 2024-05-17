@@ -2,7 +2,7 @@
 
 This document will go through the steps for authenticating the ServiceNow adapter with the authentication methods we have worked with in the past. Properly configuring the properties for an adapter in IAP is critical for getting the adapter online. You can read more about adapter authentication <a href="https://docs.itential.com/opensource/docs/authentication" target="_blank">HERE</a>.
 
-Companies periodically change authentication methods to provide better security. As this happens this section should be updated and contributed/merge back into the adapter repository.
+Companies periodicall change authentication methods to provide better security. As this happens this section should be updated and contributed/merge back into the adapter repository.
 
 ### Basic Authentication
 The ServiceNow adapter authenticates with a basic authentication.
