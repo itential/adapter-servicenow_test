@@ -1,0 +1,16 @@
+variables:
+  GITHUB_REPO_URL: https://github.com/ishitaprakash3112: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/itential/$CI_PROJECT_NAME.git
+
+mirror_to_github:
+  stage: mirror
+  script:
+    - git clone --mirror https://gitlab.com/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME.git
+    - cd $CI_PROJECT_NAME.git
+    - git push --mirror $GITHUB_REPO_URL
+only:
+- master  # Only run on changes to the master branch
+  #only:
+   # - schedules
+
+#schedules:
+  #- cron: "0 0 * * *"  # Run every day at midnight
