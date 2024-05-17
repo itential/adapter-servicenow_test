@@ -1,6 +1,10 @@
 variables:
   GITHUB_REPO_URL: https://github.com/ishitaprakash3112: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/itential/$CI_PROJECT_NAME.git
 
+stages:
+  - mirror
+
+
 mirror_to_github:
   stage: mirror
   script:
